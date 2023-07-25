@@ -33,44 +33,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('auth/user')->group(function () {
-    Route::post('login', [AuthController::class, 'login']);
-    Route::post('Register', [AuthController::class, 'register']);
-
-    Route::middleware('auth:sanctum')->group(function () {
-        Route::post('/logout', [AuthController::class, 'logout']);
-        Route::post('/courses/ratings', [CourseRatingController::class, 'rate']);
-        Route::post('/edit-user-name', [AuthController::class, 'editUserName']);
-        Route::post('/edit-user-phone', [AuthController::class, 'editUserPhone']);
-        Route::post('/edit-user-password', [AuthController::class, 'editUserPassword']);
-        Route::post('/reservations', [ReservationController::class, 'reserve']);
-        Route::post('/reservations/cancel' , [ReservationController::class , 'cancelReservation']);
-        Route::post('/subscriptions', [SubscriptionController::class, 'subscribe']);
-        Route::post('/balances', [BalanceController::class, 'store']);
-        Route::get('/user-profile', [UserProfileController::class, 'getUserProfile']);
-        Route::get('/user-reservations', [ReservationController::class, 'getUserReservations']);
-        Route::post('resource-reservations', [ReservationController::class , 'resourceReservations']);
-        Route::get('/user-subscriptions', [SubscriptionController::class, 'getUserSubscriptions']);
-        Route::get('/payment-methods/index', [PaymentMethodController::class, 'index']);
-        Route::post('/fcm_token_update', [AuthController::class, 'fcm_token_update']);
-        Route::get('/user-balance' ,[AuthController::class ,'getUserBalance']);
-        Route::post('/search', [SearchController::class , 'search']);
-        Route::get('/notifications' , [NotificationsController::class , 'getUserNotifications']);
-    });
-    Route::resource('/sliders', SliderController::class);
-    Route::resource('/home', HomeController::class);
-    Route::get('/resources', [ResourceController::class, 'index']);
-    Route::post('/resource-details', [ResourceController::class, 'details']);
-    Route::resource('/categories', CategoryController::class);
-    Route::post('/category-details', [CategoryController::class, 'details']);
-    Route::resource('/courses', CourseController::class);
-    Route::post('/course-details', [CourseController::class, 'details']);
-
-    Route::post('email-verification', [AuthController::class, 'emailVerification']);
-    Route::post('forgot-password', [AuthController::class, 'forgotPassword']);
-    Route::post('reset-password', [AuthController::class, 'resetPassword']);
-    Route::post('send-email-verification-code', [AuthController::class, 'sendEmailVerificationCode']);
-});
 
 
 
