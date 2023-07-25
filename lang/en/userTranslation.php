@@ -1,0 +1,27 @@
+<?php
+return [
+    'ListUsers' => 'Users List',
+    'Users' => 'Users',
+    'Dashborad' => 'Dashborad',
+    'SerachUser' => ' Serach for a user',
+    'Username' => 'User name ',
+    'Email' => 'Email',
+    'procedures' => ' Procedures',
+    'AddNewUser' => ' Add New User',
+    'password' => 'Password',
+    'address' => 'Address',
+    'AddUser' => ' Add User',
+    'phone' => ' Phone',
+    'ViewUserDetails' => 'View User Details',
+    'View' => 'View',
+    'Details' => 'Details',
+    'UpdateuserDetails ' => ' Update User Details',
+    'DeleteUser' => 'Delete User ',
+    'Update' => 'Update',
+    'cancel' => 'Cancel',
+    'delete' => 'Delete',
+    'add' => 'Add',
+    'Edit' => 'Edit',
+    'Waiting' => 'Please wait...',
+
+];

@@ -1,0 +1,33 @@
+<?php
+return [
+    'ListUsers' => 'قائمة المستخدمين',
+    'Users' => 'المستخدمين',
+    'Dashborad' => 'لوحة التحكم',
+    'SerachUser' => 'ابحث عن مستخدم',
+    'Username' => 'اسم المستخدم',
+    'Email' => 'الايميل',
+    'phone' => 'رقم الهاتف',
+    'address' => 'العنوان',
+    'procedures' => ' الاجراءات',
+    'AddNewUser' => ' اضافة مستخدم جديد',
+    'password' => 'كلمة المرور',
+    'AddUser' => 'اضافة مستخدم',
+    'ViewUserDetails' => 'عرض تفاصيل المستخدمين',
+    'View' => 'عرض',
+    'Details' => 'تفاصيل',
+    'UpdateuserDetails ' => 'تحديث تفاصيل المستخدم',
+    'DeleteUser' => 'حذف المستخدم',
+    'Update' => 'تحديث',
+    'cancel' => 'الغاء',
+    'delete' => 'حذف',
+    'add' => 'اضافة',
+    'Edit' => 'تعديل',
+    'Waiting' => 'الرجاء الانتظار قليلا...',
+    'Selected' => 'مختار',
+    'DeleteSelected' => 'احذف المختار',
+
+
+    'Selected' => 'مختار',
+    'DeleteSelected' => 'احذف المختار',
+'usersDeleted' => 'تم حذف المستخدمين بنجاح',
+];
