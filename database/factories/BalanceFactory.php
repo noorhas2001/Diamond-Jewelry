@@ -27,7 +27,7 @@ class BalanceFactory extends Factory
             'currency_id' => Currency::all()->random()->id,
             'description' => fake()->text,
             'payment_type' => fake()->randomElement(['resource', 'course']),
-            'payment_id' => Resource::all()->random()->id,
+            'payment_id' => 1,
         ];
     }
 }

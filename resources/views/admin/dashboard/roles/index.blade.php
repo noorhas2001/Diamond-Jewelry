@@ -272,7 +272,7 @@
                                                     <span
                                                         class="indicator-label">{{ translate('staffTranslation.Add') }}</span>
                                                     <span
-                                                        class="indicator-progress">{{ translate('resourceTranslation.Waiting') }}
+                                                        class="indicator-progress">{{ translate('staffTranslation.wait') }}
                                                         <span
                                                             class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                                 </button>

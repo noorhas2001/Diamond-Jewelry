@@ -60,7 +60,7 @@
                                         <div class="card-title d-flex flex-column">
                                             <!--begin::Amount-->
                                             <span
-                                                    class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{ $counts['coursesCount'] }}</span>
+                                                    class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2"></span>
                                             <!--end::Amount-->
                                             <!--begin::Subtitle-->
                                             <span
@@ -76,13 +76,13 @@
                                         <div class="d-flex align-items-center flex-column mt-3 w-100">
                                             <div
                                                     class="d-flex justify-content-between fw-bold fs-6 text-white opacity-75 w-100 mt-auto mb-2">
-                                                <span>{{ translate('translation.Pending') }} {{ $counts['countPendingCourses'] }}
+                                                <span>{{ translate('translation.Pending') }}
                                                 </span>
-                                                <span>{{ $counts['percentageCourses'] }}%</span>
+                                                <span>%</span>
                                             </div>
                                             <div class="h-8px mx-3 w-100 bg-white bg-opacity-50 rounded">
                                                 <div class="bg-white rounded h-8px" role="progressbar"
-                                                     style="width: {{ $counts['percentageCourses'] }}%;"
+                                                     style="width: %;"
                                                      aria-valuenow="50"
                                                      aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
@@ -101,7 +101,7 @@
                                         <div class="card-title d-flex flex-column">
                                             <!--begin::Amount-->
                                             <span
-                                                    class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{ $counts['resourcesCount'] }}</span>
+                                                    class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2"></span>
                                             <!--end::Amount-->
                                             <!--begin::Subtitle-->
                                             <span
@@ -118,12 +118,12 @@
                                             <div
                                                     class="d-flex justify-content-between fw-bold fs-6 text-white opacity-75 w-100 mt-auto mb-2">
                                                 <span>{{ translate('translation.Available') }}
-                                                    {{ $counts['countAvailableResources'] }} </span>
-                                                <span>{{ $counts['percentageResources'] }}%</span>
+                                                     </span>
+                                                <span>%</span>
                                             </div>
                                             <div class="h-8px mx-3 w-100 bg-white bg-opacity-50 rounded">
                                                 <div class="bg-white rounded h-8px" role="progressbar"
-                                                     style="width: {{ $counts['percentageResources'] }}%;"
+                                                     style="width: %;"
                                                      aria-valuenow="50"
                                                      aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
@@ -152,7 +152,7 @@
                                                 <!--end::Currency-->
                                                 <!--begin::Amount-->
                                                 <span
-                                                        class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{ $balances['courseBalance'] }}</span>
+                                                        class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"></span>
                                                 <!--end::Amount-->
                                                 <!--begin::Badge-->
 
@@ -185,7 +185,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
                                                 <div class="fw-bolder text-gray-700 text-xxl-end">
-                                                    ${{ $balances['courseBalance'] }}
+                                                    $
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -201,7 +201,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
                                                 <div class="fw-bolder text-gray-700 text-xxl-end">
-                                                    ${{ $balances['CourseWeeklyBalance'] }}</div>
+                                                    $</div>
                                                 <!--end::Stats-->
                                             </div>
                                             <!--end::Label-->
@@ -217,7 +217,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
                                                 <div class="fw-bolder text-gray-700 text-xxl-end">
-                                                    ${{ $balances['CourseMonthlyBalance'] }}</div>
+                                                    $</div>
                                                 <!--end::Stats-->
                                             </div>
                                             <!--end::Label-->
@@ -240,7 +240,7 @@
                                                 <!--end::Currency-->
                                                 <!--begin::Amount-->
                                                 <span
-                                                        class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{ $balances['resourceBalance'] }}</span>
+                                                        class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"></span>
                                                 <!--end::Amount-->
                                                 <!--begin::Badge-->
 
@@ -273,7 +273,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
                                                 <div class="fw-bolder text-gray-700 text-xxl-end">
-                                                    ${{ $balances['resourceBalance'] }}
+                                                    $
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -289,7 +289,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
                                                 <div class="fw-bolder text-gray-700 text-xxl-end">
-                                                    ${{ $balances['ResourceWeeklyBalance'] }}</div>
+                                                    $</div>
                                                 <!--end::Stats-->
                                             </div>
                                             <!--end::Label-->
@@ -305,7 +305,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
                                                 <div class="fw-bolder text-gray-700 text-xxl-end">
-                                                    ${{ $balances['ResourceMonthlyBalance'] }}</div>
+                                                    $</div>
                                                 <!--end::Stats-->
                                             </div>
                                             <!--end::Label-->
@@ -371,7 +371,7 @@
                                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr094.svg-->
 
                                                 <!--begin::Number-->
-                                                <span class="text-gray-900 fw-bolder fs-6">{{ $counts['coursesCount'] }}</span>
+                                                <span class="text-gray-900 fw-bolder fs-6"></span>
                                                 <!--end::Number-->
 
                                             </div>
@@ -394,7 +394,7 @@
                                                 <!--end::Svg Icon-->
                                                 <!--begin::Number-->
                                                 <span
-                                                        class="text-gray-900 fw-bolder fs-6">{{ $counts['countPendingCourses'] }}</span>
+                                                        class="text-gray-900 fw-bolder fs-6"></span>
                                                 <!--end::Number-->
                                             </div>
                                             <!--end::Statistics-->
@@ -416,7 +416,7 @@
                                                 <!--end::Svg Icon-->
                                                 <!--begin::Number-->
                                                 <span
-                                                        class="text-gray-900 fw-bolder fs-6">{{ $counts['countFinishedCourses'] }}</span>
+                                                        class="text-gray-900 fw-bolder fs-6"></span>
                                                 <!--end::Number-->
                                             </div>
                                             <!--end::Statistics-->
@@ -478,7 +478,7 @@
 
                                                 <!--end::Svg Icon-->
                                                 <!--begin::Number-->
-                                                <span class="text-gray-900 fw-bolder fs-6">{{ $counts['resourcesCount'] }}</span>
+                                                <span class="text-gray-900 fw-bolder fs-6"></span>
                                                 <!--end::Number-->
 
                                             </div>
@@ -501,7 +501,7 @@
                                                 <!--end::Svg Icon-->
                                                 <!--begin::Number-->
                                                 <span
-                                                        class="text-gray-900 fw-bolder fs-6">{{ $counts['countAvailableResources'] }}</span>
+                                                        class="text-gray-900 fw-bolder fs-6"></span>
                                                 <!--end::Number-->
                                             </div>
                                             <!--end::Statistics-->
@@ -523,7 +523,7 @@
                                                 <!--end::Svg Icon-->
                                                 <!--begin::Number-->
                                                 <span
-                                                        class="text-gray-900 fw-bolder fs-6">{{ $counts['countReservedResources'] }}</span>
+                                                        class="text-gray-900 fw-bolder fs-6"></span>
                                                 <!--end::Number-->
                                             </div>
                                             <!--end::Statistics-->
@@ -553,7 +553,7 @@
                                             <!--end::Currency-->
                                             <!--begin::Amount-->
                                             <span
-                                                    class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{ $balances['Balance'] }}</span>
+                                                    class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"></span>
                                             <!--end::Amount-->
                                             <!--begin::Badge-->
 
@@ -586,7 +586,7 @@
                                             <!--end::Label-->
                                             <!--begin::Stats-->
                                             <div class="fw-bolder text-gray-700 text-xxl-end">
-                                                ${{ $balances['Balance'] }}</div>
+                                                $</div>
                                             <!--end::Stats-->
                                         </div>
                                         <!--end::Label-->
@@ -602,7 +602,7 @@
                                             <!--end::Label-->
                                             <!--begin::Stats-->
                                             <div class="fw-bolder text-gray-700 text-xxl-end">
-                                                ${{ $balances['TotalWeeklyBalance'] }}
+                                                $
                                             </div>
                                             <!--end::Stats-->
                                         </div>
@@ -620,7 +620,7 @@
                                             <!--end::Label-->
                                             <!--begin::Stats-->
                                             <div class="fw-bolder text-gray-700 text-xxl-end">
-                                                ${{ $balances['TotalMonthlyBalance'] }}
+                                                $
                                             </div>
                                             <!--end::Stats-->
                                         </div>
@@ -645,7 +645,7 @@
                                     <div class="card-title d-flex flex-column">
                                         <!--begin::Amount-->
                                         <span
-                                                class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{ $counts['categoriesCount'] }}</span>
+                                                class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"></span>
                                         <!--end::Amount-->
                                         <!--begin::Subtitle-->
                                         <span
@@ -668,7 +668,7 @@
                                     <!--begin::Title-->
                                     <div class="card-title d-flex flex-column">
                                         <!--begin::Amount-->
-                                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{ $counts['usersCount'] }}</span>
+                                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"></span>
                                         <!--end::Amount-->
                                         <!--begin::Subtitle-->
                                         <span
@@ -740,53 +740,7 @@
                                                         </span>
                                                     <!--end::Svg Icon-->
                                                 </button>
-                                                <!--begin::Menu 2-->
-                                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px"
-                                                     data-kt-menu="true">
-                                                    <!--begin::Menu item-->
-                                                    <div class="menu-item px-3">
-                                                        <div class="menu-content fs-6 text-dark fw-bold px-3 py-4">Quick
-                                                            Actions
-                                                        </div>
-                                                    </div>
-                                                    <!--end::Menu item-->
-                                                    <!--begin::Menu separator-->
-                                                    <div class="separator mb-3 opacity-75"></div>
-                                                    <!--end::Menu separator-->
-                                                    <!--begin::Menu item-->
-                                                    <div class="menu-item px-3">
-                                                        <a href="{{ route('courses.index') }}"
-                                                           class="menu-link px-3">Courses</a>
-                                                    </div>
-                                                    <!--end::Menu item-->
-                                                    <!--begin::Menu item-->
-                                                    <div class="menu-item px-3">
-                                                        <a href="{{ route('resources.index') }}"
-                                                           class="menu-link px-3">Resourses</a>
-                                                    </div>
-                                                    <!--end::Menu item-->
-                                                    <!--begin::Menu item-->
 
-                                                    <!--end::Menu item-->
-                                                    <!--begin::Menu item-->
-                                                    <div class="menu-item px-3">
-                                                        <a href="{{ route('reservations.index') }}"
-                                                           class="menu-link px-3">Reservations</a>
-                                                    </div>
-
-                                                    <div class="menu-item px-3">
-                                                        <a href="{{ route('sliders.index') }}"
-                                                           class="menu-link px-3">sliders</a>
-                                                    </div>
-                                                    <!--end::Menu item-->
-                                                    <!--begin::Menu separator-->
-                                                    <div class="separator mt-3 opacity-75"></div>
-                                                    <!--end::Menu separator-->
-                                                    <!--begin::Menu item-->
-
-                                                    <!--end::Menu item-->
-                                                </div>
-                                                <!--end::Menu 2-->
                                                 <!--end::Menu-->
                                             </div>
                                             <!--end::Toolbar-->

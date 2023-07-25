@@ -4,6 +4,9 @@ return [
     'Deault' => 'الافتراضي',
     'Main' => 'الرئيسية',
     'Dashboard' => 'لوحة التحكم ',
+    'SettingsList' => 'قائمة الاعدادات ',
+    'Settings' => 'الاعدادات',
+
 
     'Pending' => 'الفعالة ',
     'Available' => 'المتاحة',

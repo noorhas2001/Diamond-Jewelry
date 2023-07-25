@@ -4,6 +4,9 @@ return [
     'Deault' => 'Deault',
     'Main' => 'Main',
     'Dashboard' => 'Dashboard ',
+    'SettingsList' => 'Settings List',
+    'Settings' => 'Settings',
+
 
     'Pending' => 'Pending ',
     'Available' => 'Available',
