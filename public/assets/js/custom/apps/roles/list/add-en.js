@@ -154,11 +154,22 @@ var KTRolesAddRoles = function () {
         });
 
 
+    };
+
+    const handleSelectAll = () => {
+        // Define variables
+        const selectAll = form.querySelector('#kt_roles_select_all');
+        const allCheckboxes = form.querySelectorAll('[type="checkbox"]');
+
+        // Handle check state
+        selectAll.addEventListener('change', e => {
+
+            // Apply check state to all checkboxes
+            allCheckboxes.forEach(c => {
+                c.checked = e.target.checked;
+            });
+        });
     }
-
-
-
-    // Select all handler
 
 
     return {
