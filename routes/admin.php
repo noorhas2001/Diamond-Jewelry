@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\FeatureFlagController;
 use App\Http\Controllers\Panel\Admin\AdminController;
+use App\Http\Controllers\Panel\Admin\EmployeeController;
 use App\Http\Controllers\Panel\Admin\LanguageController;
 use App\Http\Controllers\Panel\Admin\SliderController;
 use App\Http\Controllers\Panel\Admin\UserController;
@@ -33,7 +34,7 @@ Route::prefix('dashboard/admin/')->group(static function () {
         Route::resource('staffs', StaffController::class);
         Route::post('/staffs/deleteSelected', [StaffController::class, 'deleteSelected'])->name('staffs.deleteSelected');
         Route::resource('plans', PlanController::class);
-        Route::resource('users', UserController::class);
-        Route::post('/users/deleteSelected', [UserController::class, 'deleteSelected'])->name('users.deleteSelected');
+        Route::resource('employees', EmployeeController::class);
+        Route::post('/employees/deleteSelected', [EmployeeController::class, 'deleteSelected'])->name('employees.deleteSelected');
     });
 });
