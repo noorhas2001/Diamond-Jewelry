@@ -1,0 +1,35 @@
+<?php
+return [
+    'ListEmployees' => 'قائمة العاملين',
+    'Employees' => 'العاملين',
+    'Dashborad' => 'لوحة التحكم',
+    'SearchEmployee' => 'ابحث عن عامل',
+    'Employeename' => 'اسم العامل',
+    'Salary' => 'الراتب',
+    'bonuses' => 'المكافأة',
+    'phone' => 'رقم الهاتف',
+    'procedures' => ' الاجراءات',
+    'AddNewEmployee' => ' اضافة عامل جديد',
+    'AddEmployee' => 'اضافة عامل',
+    'ViewEmployeeDetails' => 'عرض تفاصيل العاملين',
+    'View' => 'عرض',
+    'Details' => 'تفاصيل',
+    'UpdateEmployeeDetails ' => 'تحديث تفاصيل العامل',
+    'DeleteEmployee' => 'حذف العامل',
+    'Update' => 'تحديث',
+    'cancel' => 'الغاء',
+    'delete' => 'حذف',
+    'add' => 'اضافة',
+    'Edit' => 'تعديل',
+    'Waiting' => 'الرجاء الانتظار قليلا...',
+    'Selected' => 'مختار',
+    'DeleteSelected' => 'احذف المختار',
+
+    'created_at' => 'تاريخ الاضافة',
+    'updated_at' => 'تاريخ التعديل',
+
+
+    'Selected' => 'مختار',
+    'DeleteSelected' => 'احذف المختار',
+    'EmployeesDeleted' => 'تم حذف العاملين بنجاح',
+];

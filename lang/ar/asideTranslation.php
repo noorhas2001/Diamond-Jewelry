@@ -17,9 +17,9 @@ return [
     'CourseManagement' => 'ادارة الكورسات',
     'Courses' => 'الكورسات',
 
-    'StaffManagement' => 'ادارة الموظفين',
-    'All Employees' => 'جميع الموظفين',
-    'Roles Staffs' => 'صلاحيات الموظفين',
+    'StaffManagement' => 'ادارة المستخدمين',
+    'All Employees' => 'جميع المستخدمين',
+    'Roles Staffs' => 'صلاحيات المستخدمين',
 
     'SiteSettings' => 'اعدادات الموقع',
     'Sliders' => 'الاعلانات',
@@ -29,7 +29,7 @@ return [
 
     'PlansManagement' => 'ادراة الخطط',
     'plans' => 'الخطط',
-    'UsersManagement' => 'ادارة المستخدمين',
-    'Users' => 'المستخدمين',
+    'UsersManagement' => 'ادارة العاملين',
+    'Users' => 'العاملين',
 
 ];

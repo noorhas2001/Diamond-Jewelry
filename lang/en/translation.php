@@ -24,7 +24,7 @@ return [
     'CoursesIncome' => 'Courses Income',
 
     'CategoriesNumber' => 'Categories Number',
-    'UsersNumber' => 'Users Number',
+    'EmployeesNumber' => 'Employees Number',
 
 
     'TotalCompanyIncome' => 'Total Company Income',

@@ -11,6 +11,8 @@ return [
     'AlreadyBusy' => 'This room is already occupied, please choose another room',
     'AlreadyReserviedByUser' => 'There is a user already booking this resource',
     'CannotDelete' => 'You cannot delete the resource, this resource is already occupied',
+    'CannotDeleteStaff' => 'you cannot delete this staff , as this may cause a system malfunction',
+
     'DonotDeleteBeforeCancelReservation' => 'Please make sure to cancel the reservation before deleting it',
     'DonotDeleteBeforeCancelSubscription' => 'Please make sure to cancel the subscription before deleting it',
     'cannotDeleteRole' => 'You cannot delete this Role, as this may cause a system malfunction.',

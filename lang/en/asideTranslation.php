@@ -18,9 +18,9 @@ return [
     'Courses' => 'Courses',
     'SubscriptionManagement' => 'Subscription Management',
 
-    'StaffManagement' => 'Staff Management',
-    'All Employees' => 'All Employees',
-    'Roles Staffs' => 'Staff Roles',
+    'StaffManagement' => 'User Management',
+    'All Employees' => 'All Users',
+    'Roles Staffs' => 'User Roles',
 
 
     'SiteSettings' => 'Site Settings',
@@ -32,7 +32,7 @@ return [
 
     'PlansManagement' => 'Plans Management ',
     'plans' => 'Plans',
-    'UsersManagement' => 'Users Management',
-    'Users' => 'Users',
+    'UsersManagement' => 'Employees Management',
+    'Users' => 'Employees',
 
 ];

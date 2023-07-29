@@ -24,7 +24,7 @@ return [
     'CoursesIncome' => 'دخل الكورسات',
 
     'CategoriesNumber' => 'عدد التصنيفات',
-    'UsersNumber' => 'عدد المستخدمين',
+    'EmployeesNumber' => 'عدد العاملين',
 
 
     'TotalCompanyIncome' => 'الدخل الكلي للشركة',

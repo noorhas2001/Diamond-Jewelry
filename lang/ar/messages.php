@@ -10,6 +10,7 @@ return [
     'AlreadyBusy' => 'هذه القاعة مشغولة بالفعل , الرجاء اختيار قاعة اخرى',
     'AlreadyReserviedByUser' => 'يوجد مستخدم بالفعل حجز هذا المورد',
     'CannotDelete' => 'لا يمكنك حذف المورد , هذا المورد مشغول بالفعل',
+    'CannotDeleteStaff' => 'لا يمكنك حذف هذا الموظف , قد يؤدي ذلك لخلل في النظام',
     'DonotDeleteBeforeCancelReservation' => 'الرجاء التاكد من الغاء الحجز قبل عملية حذفه',
     'DonotDeleteBeforeCancelSubscription' => 'الرجاء التاكد من الغاء الاشتراك قبل عملية حذفه',
     'cannotDeleteRole' => 'لا يمكنك حذف هذه الصلاحية , قد يؤدي ذلك لخلل في النظام',
