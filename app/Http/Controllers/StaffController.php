@@ -88,8 +88,8 @@ class StaffController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
-            'password' => 'required',
-            'phone' => 'required|unique:users,phone',
+            'password' => 'sometimes|required|min:6|sometimes',
+            'phone' => 'required|unique:employees,phone,' . $id . ',id|max:20',
             'role' => 'required',
         ]);
 
@@ -98,8 +98,15 @@ class StaffController extends Controller
         }
 
         try {
-            $input = $request->all();
+            $input = $request->only(['name', 'email', 'phone']);
             $staff = User::find($id);
+
+            if ($request->filled('password')) {
+                $input['password'] = bcrypt($request->input('password'));
+            } else {
+                unset($input['password']);
+            }
+
             $staff->update($input);
 
             $staff->roles()->sync([$request->input('role')]);

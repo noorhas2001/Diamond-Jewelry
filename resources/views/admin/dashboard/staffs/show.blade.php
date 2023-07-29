@@ -285,7 +285,7 @@
                                             <!--end::Label-->
                                             <!--begin::Input-->
                                             <input type="password" class="form-control form-control-solid"
-                                                name="password" value="{{ $staff->password }}" />
+                                                name="password" />
                                             <!--end::Input-->
                                         </div>
 
