@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\View\View;
-use Illuminate\View\Factory;
+use Exception;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
-use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\View\Factory;
+use Illuminate\View\View;
 use Spatie\Permission\Models\Role;
 
 class StaffController extends Controller
@@ -25,12 +25,11 @@ class StaffController extends Controller
         $this->middleware('permission:' . UPDATE_STAFF_PERMISSION)->only('edit', 'update');
         $this->middleware('permission:' . DELETE_STAFF_PERMISSION)->only('destroy', 'destroyShow');
     }
-    public function index(): Factory|View|Application
+    public function index(): Factory | View | Application
     {
 
         $staffs = User::all();
         $roles = Role::pluck('id', 'name');
-
 
         return view('admin.dashboard.staffs.index', compact('staffs', 'roles'));
     }
@@ -47,12 +46,12 @@ class StaffController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed',
             'phone' => 'required|unique:users,phone',
-            'role' => 'required'
+            'role' => 'required',
 
         ]);
 
         if ($validator->fails()) {
-            return $this->error();
+            return $this->error($validator->errors()->first());
         }
 
         try {
@@ -72,7 +71,7 @@ class StaffController extends Controller
         }
     }
 
-    public function show($id): Factory|View|Application
+    public function show($id): Factory | View | Application
     {
         $staff = User::find($id);
         $roles = Role::pluck('id', 'name');
@@ -91,21 +90,15 @@ class StaffController extends Controller
             'email' => 'required|email|unique:users,email,' . $id,
             'password' => 'required',
             'phone' => 'required|unique:users,phone',
-            'role' => 'required'
+            'role' => 'required',
         ]);
 
         if ($validator->fails()) {
-            return $this->error();
+            return $this->error($validator->errors()->first());
         }
 
         try {
             $input = $request->all();
-            if (!empty($input['password'])) {
-                $input['password'] = Hash::make($input['password']);
-            } else {
-                unset($input['password']);
-            }
-
             $staff = User::find($id);
             $staff->update($input);
 
@@ -126,7 +119,7 @@ class StaffController extends Controller
             if (!$staff->canDeleted()) {
                 return response()->json([
                     'status' => 'error',
-                    'message' => translate('messanslages.CannotDelete')
+                    'message' => translate('messages.CannotDeleteStaff'),
                 ]);
             }
 
@@ -135,18 +128,16 @@ class StaffController extends Controller
             if ($staff) {
                 return response()->json([
                     'status' => 'success',
-                    'message' => translate('messages.Deleted')
+                    'message' => translate('messages.Deleted'),
                 ]);
             }
         } catch (Exception) {
             return response()->json([
                 'status' => 'error',
-                'message' => translate('messages.Wrong')
+                'message' => translate('messages.Wrong'),
             ]);
         }
     }
-
-
 
     public function deleteSelected(Request $request)
     {
@@ -169,19 +160,19 @@ class StaffController extends Controller
                 'message' => [
                     'deletedStaffs' => $deletedStaffs,
                     'notDeletedStaffs' => $notDeletedStaffs,
-                ]
+                ],
             ]);
         } catch (Exception $ex) {
             return response()->json([
                 'status' => 'error',
-                'message' => translate('messages.Wrong')
+                'message' => translate('messages.Wrong'),
             ]);
         }
     }
 
-    public function error(): RedirectResponse
+    public function error($message = null): RedirectResponse
     {
-        flash(translate('messages.Wrong'))->error();
+        flash(translate($message ?? 'messages.Wrong'))->error();
         return back();
     }
 }
