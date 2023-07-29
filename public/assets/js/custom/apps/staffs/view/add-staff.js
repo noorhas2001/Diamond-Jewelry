@@ -1,9 +1,5 @@
 "use strict";
 
-$("#kt_modal_add_schedule_datepicker").flatpickr({
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-});
 
 // Class definition
 const KTResourcesAddSchedule = function () {

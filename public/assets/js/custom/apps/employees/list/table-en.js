@@ -5,6 +5,10 @@ var KTusersList = function () {
     let toolbarSelected;
     let selectedCount;
 
+    toastr.options = {
+        "positionClass": "toastr-bottom-left",
+    };
+
 
     let initusersTable = function () {
         datatable = $(table).DataTable({
@@ -350,7 +354,7 @@ var KTusersList = function () {
                         selectedData: filterSelectedData
                     };
                     $.ajax({
-                        url: 'users/deleteSelected',
+                        url: 'employees/deleteSelected',
                         type: 'POST',
                         data: data,
                         headers: {

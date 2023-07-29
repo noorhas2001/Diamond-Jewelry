@@ -6,7 +6,7 @@ $("#kt_modal_add_schedule_datepicker_two").flatpickr({
 });
 
 // Class definition
-const KTUserUpdateDetails = function () {
+const KTUsersUpdateDetails = function () {
     // Shared variables
     const element = document.getElementById('kt_modal_update_details');
     const form = element.querySelector('#kt_modal_update_user_form');
@@ -21,12 +21,12 @@ const KTUserUpdateDetails = function () {
             e.preventDefault();
 
             Swal.fire({
-                text: "هل أنت متأكد أنك تريد الإلغاء؟",
+                text: "Are you sure you would like to cancel?",
                 icon: "warning",
                 showCancelButton: true,
                 buttonsStyling: true,
-                confirmButtonText: "نعم ، قم بإلغائها!",
-                cancelButtonText: "لا، ارجع",
+                confirmButtonText: "Yes, cancel it!",
+                cancelButtonText: "No, return",
                 customClass: {
                     confirmButton: "btn btn-primary",
                     cancelButton: "btn btn-active-light"
@@ -34,13 +34,13 @@ const KTUserUpdateDetails = function () {
             }).then(function (result) {
                 if (result.value) {
                     form.reset(); // Reset form
-                    modal.hide(); // Hide modal
+                    modal.hide();
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
-                        text: "لم يتم إلغاء النموذج الخاص بك !.",
+                        text: "Your form has not been cancelled!.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "حسنًا ، اذهب!",
+                        confirmButtonText: "Ok, got it!",
                         customClass: {
                             confirmButton: "btn btn-primary",
                         }
@@ -55,12 +55,12 @@ const KTUserUpdateDetails = function () {
             e.preventDefault();
 
             Swal.fire({
-                text: "هل أنت متأكد أنك تريد الإلغاء؟",
+                text: "Are you sure you would like to cancel?",
                 icon: "warning",
                 showCancelButton: true,
                 buttonsStyling: true,
-                confirmButtonText: "نعم ، قم بإلغائها!",
-                cancelButtonText: "لا، ارجع",
+                confirmButtonText: "Yes, cancel it!",
+                cancelButtonText: "No, return",
                 customClass: {
                     confirmButton: "btn btn-primary",
                     cancelButton: "btn btn-active-light"
@@ -68,13 +68,13 @@ const KTUserUpdateDetails = function () {
             }).then(function (result) {
                 if (result.value) {
                     form.reset(); // Reset form
-                    modal.hide(); // Hide modal
+                    modal.hide();
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
-                        text: "لم يتم إلغاء النموذج الخاص بك !.",
+                        text: "Your form has not been cancelled!.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "حسنًا ، اذهب!",
+                        confirmButtonText: "Ok, got it!",
                         customClass: {
                             confirmButton: "btn btn-primary",
                         }
@@ -90,37 +90,14 @@ const KTUserUpdateDetails = function () {
                     'name': {
                         validators: {
                             notEmpty: {
-                                message: 'الاسم  مطلوب'
-                            }
-                        }
-                    },
-                    'email': {
-                        validators: {
-                            notEmpty: {
-                                message: ' الايميل مطلوب'
+                                message: 'Name is required'
                             }
                         }
                     },
                     'phone': {
                         validators: {
                             notEmpty: {
-                                message: 'رقم الهاتف مطلوب '
-                            }
-                        }
-                    },
-
-                    'address': {
-                        validators: {
-                            notEmpty: {
-                                message: ' العنوان مطلوب '
-                            }
-                        }
-                    },
-
-                    'password': {
-                        validators: {
-                            notEmpty: {
-                                message: ' كلمة المرور مطلوبة '
+                                message: 'phone is required '
                             }
                         }
                     },
@@ -162,10 +139,10 @@ const KTUserUpdateDetails = function () {
 
                             // Show popup confirmation
                             Swal.fire({
-                                text: "تم تقديم النموذج بنجاح!",
+                                text: "Form has been successfully submitted!",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "حسنًا ، اذهب!",
+                                confirmButtonText: "Ok, got it!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }
@@ -180,10 +157,10 @@ const KTUserUpdateDetails = function () {
                     } else {
                         // Show popup warning. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                         Swal.fire({
-                            text: "معذرة ، يبدو أنه تم اكتشاف بعض الأخطاء ، يرجى المحاولة مرة أخرى.",
+                            text: "Sorry, looks like there are some errors detected, please try again.",
                             icon: "error",
                             buttonsStyling: false,
-                            confirmButtonText: "حسنًا ، اذهب!",
+                            confirmButtonText: "Ok, got it!",
                             customClass: {
                                 confirmButton: "btn btn-primary"
                             }
@@ -205,5 +182,5 @@ const KTUserUpdateDetails = function () {
 
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
-    KTUserUpdateDetails.init();
+    KTUsersUpdateDetails.init();
 });
