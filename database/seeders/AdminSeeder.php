@@ -12,11 +12,11 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         $adminUser = $this->createUser(
-            name: 'ActHub Admin',
+            name: 'Masa Admin',
             user_type: User::ADMIN,
-            email: 'admin@acthub.com',
+            email: 'admin@masa.com',
             phone: '0567086704',
-            password: bcrypt('admin@acthub.com'),
+            password: bcrypt('admin@masa.com'),
             email_verified_at: now(),
             remember_token: Str::random(10),
             address: 'Palestine-Gaza',
@@ -30,11 +30,11 @@ class AdminSeeder extends Seeder
         $adminUser->assignRole(User::SUPER_ADMIN_ROLE);
 
         $user = $this->createUser(
-            name: 'User1',
+            name: 'User',
             user_type: User::User,
-            email: 'user1@acthub.com',
+            email: 'user@masa.com',
             phone: '0567086704',
-            password: bcrypt('user1@acthub.com'),
+            password: bcrypt('user@masa.com'),
             email_verified_at: now(),
             remember_token: Str::random(10),
             address: 'Palestine-Gaza',
@@ -46,11 +46,11 @@ class AdminSeeder extends Seeder
         $user->assignRole(User::USER_ROLE);
 
         $this->createUser(
-            name: 'Company',
+            name: 'Hassan',
             user_type: User::User,
-            email: 'company@acthub.com',
+            email: 'hasan@masa.com',
             phone: '0567086704',
-            password: bcrypt('company@acthub.com'),
+            password: bcrypt('hasan@masa.com'),
             email_verified_at: now(),
             remember_token: Str::random(10),
             address: 'Palestine-Gaza',
