@@ -382,7 +382,12 @@
                                             <!--end::Resource=-->
                                             <!--begin::Role=-->
 
-                                            <td>{{ $staff->name }}</td>
+                                            <td>
+                                                <a
+                                                    @can(READ_STAFF_PERMISSION) href="{{ route('staffs.show', $staff->id) }}" @endcan
+                                                    class="text-gray-800 text-hover-primary">{{ $staff->name }}
+                                                </a>
+                                            </td>
                                             <!--end::Role=-->
                                             <!--begin::Joined-->
                                             <td>{{ $staff->email }}</td>

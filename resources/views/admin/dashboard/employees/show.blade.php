@@ -373,6 +373,10 @@
 
                     const deleteButton = $(this);
 
+                    toastr.options = {
+                        "positionClass": "toast-bottom-left",
+                    }
+
                     const form = deleteButton.closest('form');
                     Swal.fire({
                         text: "هل انت متاكد انك تريد حذف هذا العامل  !?",
@@ -425,6 +429,10 @@
                     event.preventDefault(); // Prevent the default form submission
 
                     const deleteButton = $(this);
+
+                    toastr.options = {
+                        "positionClass": "toast-bottom-right",
+                    }
 
                     const form = deleteButton.closest('form');
                     Swal.fire({

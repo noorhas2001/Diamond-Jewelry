@@ -310,8 +310,12 @@
                     event.preventDefault(); // Prevent the default form submission
 
                     const deleteButton = $(this); // Store the clicked "Delete" button
-                    const cardElement = deleteButton.closest('.col-md-4'); // Find the parent col-md-4 element (card container)
+                    const cardElement = deleteButton.closest(
+                    '.col-md-4'); // Find the parent col-md-4 element (card container)
 
+                    toastr.options = {
+                        "positionClass": "toast-bottom-left",
+                    }
 
                     const form = deleteButton.closest('form');
                     Swal.fire({
@@ -361,8 +365,11 @@
                     event.preventDefault(); // Prevent the default form submission
 
                     const deleteButton = $(this); // Store the clicked "Delete" button
-                    const cardElement = deleteButton.closest('.col-md-4'); // Find the parent col-md-4 element (card container)
-
+                    const cardElement = deleteButton.closest(
+                    '.col-md-4'); // Find the parent col-md-4 element (card container)
+                    toastr.options = {
+                        "positionClass": "toast-bottom-right",
+                    }
 
                     const form = deleteButton.closest('form');
                     Swal.fire({
