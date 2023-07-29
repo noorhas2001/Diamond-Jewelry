@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Balance;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Employee;
 use App\Models\FeatureFlag;
 use App\Models\Resource;
 use App\Models\User;
@@ -21,8 +22,10 @@ class AdminController extends Controller
     public function index(): Factory|View|Application
     {
 
+        $employeesNum = Employee::count();
+
         $features = FeatureFlag::where('name', 'chart_feature')->where('enabled', 1)->first();
 
-        return view('admin.dashboard.index', compact( 'features'));
+        return view('admin.dashboard.index', compact( 'features' ,'employeesNum'));
     }
 }
