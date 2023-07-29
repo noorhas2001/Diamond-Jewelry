@@ -326,9 +326,9 @@
 
                                                     <!--end::Avatar-->
                                                     <!--begin::User details-->
-                                                    @can(READ_USER_PERMISSION)
+                                                    @can(READ_STAFF_PERMISSION)
                                                     <div class="d-flex flex-column">
-                                                        <a href="{{route('users.show' , $user->id)}}"
+                                                        <a href="{{route('staffs.show' , $user->id)}}"
                                                             class="text-gray-800 text-hover-primary mb-1">{{ $user->name }}</a>
                                                         <span>{{ $user->email }}</span>
                                                     </div>
@@ -360,7 +360,7 @@
                                                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
                                                         data-kt-menu="true">
                                                         <!--begin::Menu item-->
-                                                        @can(READ_USER_PERMISSION)
+                                                        @can(READ_STAFF_PERMISSION)
                                                         <div class="menu-item px-3">
                                                             <a href="{{ route('staffs.show', $user->id) }}"
                                                                 class="menu-link px-3">{{ translate('staffTranslation.View') }}</a>

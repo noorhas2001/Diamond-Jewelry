@@ -12,14 +12,14 @@
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        {{ translate('userTranslation.ListUsers') }}</h1>
+                        {{ translate('employeeTranslation.ListEmployees') }}</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
                             <a href="{{ route('dashboard') }}" class="text-muted text-hover-primary">
-                                {{ translate('userTranslation.Dashborad') }}</a>
+                                {{ translate('employeeTranslation.Dashborad') }}</a>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -29,8 +29,8 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="{{ route('users.index') }}"
-                                class="text-muted text-hover-primary">{{ translate('userTranslation.Users') }}</a>
+                            <a href="{{ route('employees.index') }}"
+                                class="text-muted text-hover-primary">{{ translate('employeeTranslation.Employees') }}</a>
                         </li>
                         <!--end::Item-->
                     </ul>
@@ -68,7 +68,7 @@
 
                                 <input type="text" data-kt-users-table-filter="search"
                                     class="form-control form-control-solid w-250px ps-14"
-                                    placeholder=" {{ translate('userTranslation.SerachUser') }} " />
+                                    placeholder=" {{ translate('employeeTranslation.SearchEmployee') }} " />
 
                             </div>
                             <!--end::Search-->
@@ -79,7 +79,7 @@
                             <!--begin::Toolbar-->
                             <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                                 <!--begin::Add Category-->
-                                @can(CREATE_USER_PERMISSION)
+                                @can(CREATE_EMPLOYEE_PERMISSION)
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#kt_modal_add_user">
                                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
@@ -92,7 +92,7 @@
                                                     fill="currentColor" />
                                             </svg>
                                         </span>
-                                        <!--end::Svg Icon--> {{ translate('userTranslation.AddNewUser') }}
+                                        <!--end::Svg Icon--> {{ translate('employeeTranslation.AddNewEmployee') }}
                                     </button>
                                 @endcan
                                 <!--end::Add Category-->
@@ -103,10 +103,10 @@
                                 data-kt-user-table-toolbar="selected">
                                 <div class="fw-bold me-5">
                                     <span class="me-2"
-                                        data-kt-user-table-select="selected_count"></span>{{ translate('userTranslation.Selected') }}
+                                        data-kt-user-table-select="selected_count"></span>{{ translate('employeeTranslation.Selected') }}
                                 </div>
                                 <button type="button" class="btn btn-danger"
-                                    data-kt-user-table-select="delete_selected">{{ translate('userTranslation.DeleteSelected') }}
+                                    data-kt-user-table-select="delete_selected">{{ translate('employeeTranslation.DeleteSelected') }}
                                 </button>
                             </div>
                             <!--end::Group actions-->
@@ -119,7 +119,7 @@
                                         <!--begin::Modal header-->
                                         <div class="modal-header" id="kt_modal_add_user_header">
                                             <!--begin::Modal title-->
-                                            <h2 class="fw-bold">{{ translate('userTranslation.AddUser') }} </h2>
+                                            <h2 class="fw-bold">{{ translate('employeeTranslation.AddEmployee') }} </h2>
                                             <!--end::Modal title-->
                                             <!--begin::Close-->
                                             <div class="btn btn-icon btn-sm btn-active-icon-primary"
@@ -145,7 +145,7 @@
                                         <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                                             <!--begin::Form-->
                                             <form id="kt_modal_add_user_form" class="form"
-                                                action="{{ route('users.store') }}" method="POST"
+                                                action="{{ route('employees.store') }}" method="POST"
                                                 enctype="multipart/form-data">
 
 
@@ -165,75 +165,54 @@
                                                     <!--begin::Input group-->
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
-                                                        <label class="required fw-semibold fs-6 mb-2">
-                                                            {{ translate('userTranslation.Username') }}</label>
+                                                        <label class="required fw-semibold fs-6 mb-2">{{ translate('employeeTranslation.Employeename')}}</label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
                                                         <input type="text" name="name"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
-                                                            placeholder="    {{ translate('userTranslation.Username') }}"
+                                                            placeholder="{{ translate('employeeTranslation.Employeename') }}"
                                                             required />
                                                         <!--end::Input-->
                                                     </div>
                                                     <!--end::Input group-->
                                                     <!--begin::Input group select user-->
 
-                                                    <!--end::Input group select user-->
-                                                    <!--begin::Input group-->
-
-
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
                                                         <label class="required fw-semibold fs-6 mb-2">
-                                                            {{ translate('userTranslation.Email') }}</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <input type="email" name="email"
-                                                            class="form-control form-control-solid mb-3 mb-lg-0"
-                                                            placeholder="{{ translate('userTranslation.Email') }}"
-                                                            required />
-                                                        <!--end::Input-->
-                                                    </div>
-
-
-                                                    <div class="fv-row mb-7">
-                                                        <!--begin::Label-->
-                                                        <label
-                                                            class="required fw-semibold fs-6 mb-2">{{ translate('userTranslation.address') }}
-                                                        </label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <input type="text" name="address"
-                                                            class="form-control form-control-solid mb-3 mb-lg-0"
-                                                            placeholder="{{ translate('userTranslation.address') }}" />
-                                                        <!--end::Input-->
-                                                    </div>
-
-                                                    <div class="fv-row mb-7">
-                                                        <!--begin::Label-->
-                                                        <label class="required fw-semibold fs-6 mb-2">
-                                                            {{ translate('userTranslation.phone') }} </label>
+                                                            {{ translate('employeeTranslation.phone') }} </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
                                                         <input type="text" name="phone"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
-                                                            placeholder="{{ translate('userTranslation.phone') }}" />
+                                                            placeholder="{{ translate('employeeTranslation.phone') }}" />
                                                         <!--end::Input-->
                                                     </div>
-
 
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
-                                                        <label
-                                                            class="required fw-semibold fs-6 mb-2">{{ translate('userTranslation.password') }}
-                                                        </label>
+                                                        <label class="fw-semibold fs-6 mb-2">
+                                                            {{ translate('employeeTranslation.Salary') }} </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="password" name="password"
+                                                        <input type="text" name="salary"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
-                                                            placeholder=" {{ translate('userTranslation.password') }}" />
+                                                            placeholder="{{ translate('employeeTranslation.Salary') }}" />
                                                         <!--end::Input-->
                                                     </div>
+
+                                                    <div class="fv-row mb-7">
+                                                        <!--begin::Label-->
+                                                        <label class="fw-semibold fs-6 mb-2">
+                                                            {{ translate('employeeTranslation.bonuses') }} </label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <input type="text" name="bonuses"
+                                                            class="form-control form-control-solid mb-3 mb-lg-0"
+                                                            placeholder="{{ translate('employeeTranslation.bonuses') }}" />
+                                                        <!--end::Input-->
+                                                    </div>
+
 
 
                                                 </div>
@@ -241,14 +220,14 @@
                                                 <!--begin::Actions-->
                                                 <div class="text-center pt-15">
                                                     <button type="reset" class="btn btn-light me-3"
-                                                        data-kt-users-modal-action="cancel">{{ translate('userTranslation.cancel') }}
+                                                        data-kt-users-modal-action="cancel">{{ translate('employeeTranslation.cancel') }}
                                                     </button>
                                                     <button type="submit" class="btn btn-primary"
                                                         data-kt-users-modal-action="submit">
                                                         <span
-                                                            class="indicator-label">{{ translate('userTranslation.add') }}</span>
+                                                            class="indicator-label">{{ translate('employeeTranslation.add') }}</span>
                                                         <span
-                                                            class="indicator-progress">{{ translate('userTranslation.Waiting') }}
+                                                            class="indicator-progress">{{ translate('employeeTranslation.Waiting') }}
                                                             <span
                                                                 class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                                     </button>
@@ -284,26 +263,26 @@
                                                     value="" />
                                             </div>
                                         </th>
-                                        <th class="min-w-125px"> {{ translate('userTranslation.Username') }}</th>
-                                        <th class="min-w-125px">{{ translate('userTranslation.Email') }}</th>
-                                        <th class="min-w-125px"> {{ translate('userTranslation.phone') }}</th>
-                                        <th class="min-w-125px">{{ translate('userTranslation.address') }}</th>
+                                        <th class="min-w-125px"> {{ translate('employeeTranslation.Employeename') }}</th>
+                                        <th class="min-w-125px">{{ translate('employeeTranslation.Salary') }}</th>
+                                        <th class="min-w-125px"> {{ translate('employeeTranslation.phone') }}</th>
+                                        <th class="min-w-125px"> {{ translate('employeeTranslation.bonuses') }}</th>
                                         <th class="text-end min-w-100px px-10">
-                                            {{ translate('userTranslation.procedures') }}</th>
+                                            {{ translate('employeeTranslation.procedures') }}</th>
                                     </tr>
                                     <!--end::Table row-->
                                 </thead>
                                 <!--end::Table head-->
                                 <!--begin::Table body-->
                                 <tbody class="text-gray-600 fw-semibold">
-                                    @foreach ($users as $user)
+                                    @foreach ($employees as $employee)
                                         <!--begin::Table row-->
                                         <tr>
                                             <!--begin::Checkbox-->
                                             <td>
                                                 <div class="form-check form-check-sm form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="checkbox"
-                                                        value="{{ $user->id }}" />
+                                                        value="{{ $employee->id }}" />
                                                 </div>
                                             </td>
                                             <!--end::Checkbox-->
@@ -314,29 +293,21 @@
                                                 <!--end::Avatar-->
                                                 <!--begin::Category details-->
                                                 <div class="d-flex flex-column">
-                                                    <a @can(READ_USER_PERMISSION) href="{{ route('users.show', $user->id) }}" @endcan
-                                                        class="text-gray-800 text-hover-primary mb-1">{{ $user->name }}</a>
+                                                    <a @can(READ_EMPLOYEE_PERMISSION) href="{{ route('employees.show', $employee->id) }}" @endcan
+                                                        class="text-gray-800 text-hover-primary mb-1">{{ $employee->name }}</a>
                                                 </div>
                                                 <!--begin::Category details-->
                                             </td>
 
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->phone }}</td>
-                                            <td>{{ $user->address }}</td>
+                                            <td>{{$employee->salary}}</td>
+                                            <td>{{$employee->phone}}</td>
+                                            <td>{{$employee->bonuses}}</td>
 
-
-                                            <!--end::Category=-->
-                                            <!--begin::Role=-->
-
-                                            <!--end::Role=-->
-                                            <!--begin::Joined-->
-
-                                            <!--begin::Joined-->
                                             <!--begin::Action=-->
                                             <td class="text-end">
                                                 <a href="#" class="btn btn-light btn-active-light-primary btn-sm"
                                                     data-kt-menu-trigger="click"
-                                                    data-kt-menu-placement="bottom-end">{{ translate('userTranslation.procedures') }}
+                                                    data-kt-menu-placement="bottom-end">{{ translate('employeeTranslation.procedures') }}
                                                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
                                                     <span class="svg-icon svg-icon-5 m-0">
                                                         <svg width="24" height="24" viewBox="0 0 24 24"
@@ -352,21 +323,21 @@
                                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
                                                     data-kt-menu="true">
                                                     <!--begin::Menu item-->
-                                                    @can(READ_USER_PERMISSION)
+                                                    @can(READ_EMPLOYEE_PERMISSION)
                                                         <div class="menu-item px-3">
-                                                            <a href="{{ route('users.show', $user->id) }}"
-                                                                class="menu-link px-3">{{ translate('userTranslation.View') }}</a>
+                                                            <a href="{{ route('employees.show', $employee->id) }}"
+                                                                class="menu-link px-3">{{ translate('employeeTranslation.View') }}</a>
                                                         </div>
                                                     @endcan
                                                     <!--end::Menu item-->
                                                     <!--begin::Menu item-->
-                                                    @can(DELETE_USER_PERMISSION)
+                                                    @can(DELETE_EMPLOYEE_PERMISSION)
                                                         <div class="menu-item px-3">
-                                                            <form action="{{ route('users.destroy', $user->id) }}"
+                                                            <form action="{{ route('employees.destroy', $employee->id) }}"
                                                                 method="post" data-kt-users-table-filter="delete_form">
                                                             </form>
                                                             <a href="" class="menu-link px-3"
-                                                                data-kt-users-table-filter="delete_row">{{ translate('userTranslation.delete') }}</a>
+                                                                data-kt-users-table-filter="delete_row">{{ translate('employeeTranslation.delete') }}</a>
                                                         </div>
                                                     @endcan
                                                     <!--end::Menu item-->
@@ -401,9 +372,9 @@
 @push('scripts')
 
     @if (Cookie::get(APP_LOCALE) == 'ar')
-        <script src="{{ asset('assets/js/custom/apps/users/list/table.js') }}"></script>
+        <script src="{{ asset('assets/js/custom/apps/employees/list/table.js') }}"></script>
     @else
-        <script src="{{ asset('assets/js/custom/apps/users/list/table-en.js') }}"></script>
+        <script src="{{ asset('assets/js/custom/apps/employees/list/table-en.js') }}"></script>
     @endif
 
 @endpush

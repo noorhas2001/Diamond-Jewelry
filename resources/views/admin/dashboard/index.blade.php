@@ -635,10 +635,10 @@
                         <!--end::Row-->
 
                         <!-- Div 357 -->
-                        <div class="row gx-xl-0">
+                        <div class="row gx-xl-0 d-flex justify-content-between">
 
                             <!--begin::Card widget 7-->
-                            <div class="card card-flush col-xl-7 mb-5 mb-xl-10">
+                            <div class="card card-flush col-xl-5 mb-5 mb-xl-10">
                                 <!--begin::Header-->
                                 <div class="card-header pt-5">
                                     <!--begin::Title-->
@@ -662,17 +662,17 @@
                             <!--end::Card widget 7-->
 
                             <!--begin::Card widget 7-->
-                            <div class="card card-flush col-xl-7 mb-5 mb-xl-10">
+                            <div class="card card-flush col-xl-5 mb-5 mb-xl-10">
                                 <!--begin::Header-->
                                 <div class="card-header pt-5">
                                     <!--begin::Title-->
                                     <div class="card-title d-flex flex-column">
                                         <!--begin::Amount-->
-                                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"></span>
+                                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{$employeesNum}}</span>
                                         <!--end::Amount-->
                                         <!--begin::Subtitle-->
                                         <span
-                                                class="text-gray-400 pt-1 fw-semibold fs-6">{{ translate('translation.UsersNumber') }}</span>
+                                                class="text-gray-400 pt-1 fw-semibold fs-6">{{ translate('translation.EmployeesNumber') }}</span>
                                         <!--end::Subtitle-->
                                     </div>
                                     <!--end::Title-->

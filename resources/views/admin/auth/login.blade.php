@@ -5,23 +5,21 @@
     <div class="d-flex flex-column flex-lg-row flex-column-fluid">
         <!--begin::Aside-->
         <div class="d-flex flex-lg-row-fluid w-lg-50 bgi-size-cover bgi-position-center overlay-container"
-             style="background-image: url({{asset('assets/media/logos/back-ground-act.svg')}})">
+             style="background-image: url({{asset('assets/img/LogoLogin.avif')}})">
             <!--begin::Overlay-->
             <div class="overlay"></div>
             <!--end::Overlay-->
             <!--begin::Content-->
             <div class="d-flex flex-column flex-center p-6 p-lg-10 w-100">
                 <!--begin::Image-->
-                <img class="mb-0 mb-lg-20" src="{{asset('assets/media/logos/default-1.svg')}}" style="z-index: 2;"
-                     alt=""/>
                 <!--end::Image-->
                 {{-- <!--begin::Title-->
                 <h1 class="d-none d-lg-block text-white fs-3qx fw-bold text-center mb-10 text-warning" style="z-index: 2;">Act Hub</h1>
                 <!--end::Title--> --}}
                 <!--begin::Text-->
-                <div class="d-none d-lg-block text-white fs-base text-center w-600px fs-lg-2 fw-medium" style="z-index: 2;">
+                {{-- <div class="d-none d-lg-block text-white fs-base text-center w-600px fs-lg-2 fw-medium" style="z-index: 2;">
                     {{translate('loginTranslation.description')}}
-                </div>
+                </div> --}}
                 <!--end::Text-->
             </div>
             <!--end::Content-->
@@ -77,13 +75,13 @@
                         </div>
                         <!--end::Input group=-->
                         <!--begin::Wrapper-->
-{{--                         <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">--}}
+                        {{-- <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">--}}
 {{--                            <div></div>--}}
 {{--                            <!--begin::Link-->--}}
 {{--                            <a href="#"--}}
 {{--                               class="link-primary">Forgot Password ?</a>--}}
 {{--                            <!--end::Link-->--}}
-{{--                        </div>--}}
+{{--                        </div> --}}
                         <!--end::Wrapper-->
                         <!--begin::Submit button-->
                         <div class="d-grid mb-10">
@@ -101,38 +99,10 @@
                 <!--end::Wrapper-->
             </div>
             <!--end::Form-->
-            <!--begin::Footer-->
-            <div class="d-flex flex-center flex-wrap px-5">
-                <!--begin::Links-->
-                <div class="d-flex fw-semibold text-primary fs-base">
-                    <a href="#" class="px-5" target="_blank">{{translate('loginTranslation.Terms')}}</a>
-                    <a href="#" class="px-5" target="_blank">{{translate('loginTranslation.Plans')}}</a>
-                    <a href="#"
-                       class="px-5" target="_blank">{{translate('loginTranslation.ContactUs')}}</a>
-                </div>
-                <!--end::Links-->
-            </div>
-            <!--end::Footer-->
         </div>
         <!--end::Body-->
     </div>
     <!--end::Authentication - Sign-in-->
-    <style>
-        .overlay-container {
-            position: relative;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity and color as needed */
-            z-index: 1;
-        }
-
-    </style>
 
 @endsection
 

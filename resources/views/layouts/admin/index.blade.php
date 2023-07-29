@@ -5,7 +5,7 @@
 <!--begin::Head-->
 <head>
     <base href=""/>
-    <title>Act Hub Dashboard</title>
+    <title>Masa Jewelry</title>
     <meta charset="utf-8"/>
     <meta name="description"
           content="The most advanced Bootstrap Admin Theme on Bootstrap Market trusted by over 4,000 beginners and professionals. Multi-demo, Dark Mode, RTL support. Grab your copy now and get life-time updates for free."/>
@@ -15,7 +15,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Act Hub Admin Dashboard"/>
+    <meta property="og:title" content="Masa Jewelry"/>
     <meta property="og:url" content="https://keenthemes.com/keen"/>
     <meta property="og:site_name" content="Keenthemes | Keen"/>
     <meta name="theme-color">
@@ -105,7 +105,6 @@
 <script src="{{asset('assets/js/custom/apps/chat/chat.js')}}"></script>
 <script src="{{asset('assets/js/custom/utilities/modals/upgrade-plan.js')}}"></script>
 <script src="{{asset('assets/js/custom/utilities/modals/users-search.js')}}"></script>
-
 <!--end::Custom Javascript-->
 <!--end::Javascript-->
 </body>

@@ -189,9 +189,15 @@
                                     <!--begin::Menu item-->
                                     @can(DELETE_STAFF_PERMISSION)
                                         <div class="menu-item px-3">
-                                            <a href="{{ route('staffs.destroy', $staff->id) }}"
-                                                class="menu-link text-danger px-5"
-                                                data-kt-users-table-filter="delete_row">{{ translate('staffTranslation.Delete') }}</a>
+                                            <form action="{{ route('staffs.destroy', $staff->id) }}" method="post"
+                                                data-kt-staffs-table-filter="delete_form">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input hidden="hidden" data-canDeleted="canDeleted"
+                                                    value="{{ $staff->canDeleted() }}">
+                                                <a href="#" class="menu-link text-danger px-3"
+                                                    data-kt-staffs-table-filter="delete_row">{{ translate('staffTranslation.Delete') }}</a>
+                                            </form>
                                         </div>
                                     @endcan
                                     <!--end::Menu item-->
@@ -350,8 +356,107 @@
     <!--begin::Javascript-->
     @if (Cookie::get(APP_LOCALE) == 'ar')
         <script src="{{ asset('assets/js/custom/apps/staffs/view/update-staff.js') }}"></script>
+
+        <script>
+            $(document).ready(function() {
+                $(document).on('click', '[data-kt-staffs-table-filter="delete_row"]', function(event) {
+                    event.preventDefault(); // Prevent the default form submission
+
+                    const deleteButton = $(this);
+
+                    const form = deleteButton.closest('form');
+                    Swal.fire({
+                        text: "هل انت متاكد انك تريد حذف هذا الموظف   !?",
+                        icon: "warning",
+                        showCancelButton: true,
+                        buttonsStyling: false,
+                        confirmButtonText: "نعم , احذف!",
+                        cancelButtonText: "لا , تراجع!",
+                        customClass: {
+                            confirmButton: "btn fw-bold btn-danger",
+                            cancelButton: "btn fw-bold btn-active-light-primary"
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $.ajax({
+                                url: form.attr('action'),
+                                type: 'POST',
+                                data: form.serialize(), // Include the CSRF token and the DELETE method
+                                dataType: 'json',
+                                success: function(response) {
+                                    if (response.status === 'success') {
+                                        // Show success message
+                                        toastr.success(response.message);
+
+                                        // Redirect to 'resources.index' route
+                                        window.location.href = '{{ route("staffs.index") }}';
+                                    } else if (response.status === 'warning') {
+                                        Swal.fire('Warning', response.message, 'warning');
+                                    } else {
+                                        Swal.fire('Error', response.message, 'error');
+                                    }
+                                },
+                                error: function(xhr, status, error) {
+                                    console.error(error);
+                                }
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
     @else
         <script src="{{ asset('assets/js/custom/apps/staffs/view/update-staff-en.js') }}"></script>
+
+        <script>
+            $(document).ready(function() {
+                $(document).on('click', '[data-kt-staffs-table-filter="delete_row"]', function(event) {
+                    event.preventDefault(); // Prevent the default form submission
+
+                    const deleteButton = $(this);
+
+                    const form = deleteButton.closest('form');
+                    Swal.fire({
+                        text: "Are you sure you want to delete this staff ?",
+                        icon: "warning",
+                        showCancelButton: true,
+                        buttonsStyling: false,
+                        confirmButtonText: "Yes , Delete",
+                        cancelButtonText: "No , Back",
+                        customClass: {
+                            confirmButton: "btn fw-bold btn-danger",
+                            cancelButton: "btn fw-bold btn-active-light-primary"
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $.ajax({
+                                url: form.attr('action'),
+                                type: 'POST',
+                                data: form.serialize(), // Include the CSRF token and the DELETE method
+                                dataType: 'json',
+                                success: function(response) {
+                                    if (response.status === 'success') {
+                                        // Show success message
+                                        toastr.success(response.message);
+
+                                        // Redirect to 'resources.index' route
+                                        window.location.href = '{{ route("staffs.index") }}';
+                                    } else if (response.status === 'warning') {
+                                        Swal.fire('Warning', response.message, 'warning');
+                                    } else {
+                                        Swal.fire('Error', response.message, 'error');
+                                    }
+                                },
+                                error: function(xhr, status, error) {
+                                    console.error(error);
+                                }
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
+
     @endif
     <!--end::Custom Javascript-->
 @endpush

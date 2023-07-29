@@ -356,6 +356,7 @@
 
                                         <th class="min-w-125px">{{ translate('staffTranslation.Name') }}</th>
                                         <th class="min-w-125px">{{ translate('staffTranslation.Email') }}</th>
+                                        <th class="min-w-125px">{{ translate('staffTranslation.Phone Number') }}</th>
 
                                         <th class="min-w-125px">{{ translate('staffTranslation.role') }}</th>
                                         <th class="text-end min-w-100px px-10">
@@ -385,6 +386,7 @@
                                             <!--end::Role=-->
                                             <!--begin::Joined-->
                                             <td>{{ $staff->email }}</td>
+                                            <td>{{ $staff->phone }}</td>
 
 
 

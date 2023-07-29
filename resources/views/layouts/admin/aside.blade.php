@@ -165,9 +165,9 @@
                 @endcan
 
 
-                @can(USERS_MANAGEMENT_PERMISSION)
+                @can(EMPLOYEES_MANAGEMENT_PERMISSION)
                     <div data-kt-menu-trigger="click"
-                     class="menu-item menu-accordion {{ hereShowRoutes(['users.index']) }}">
+                     class="menu-item menu-accordion {{ hereShowRoutes(['employees.index' ,'employees.show']) }}">
                     <!--begin:Menu link-->
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -187,14 +187,14 @@
                         <span class="menu-arrow"></span>
                     </span>
                     <!--end:Menu link-->
-                        @can(USERS_PERMISSION)
+                        @can(EMPLOYEES_PERMISSION)
                     <!--begin:Menu sub-->
                     <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div class="menu-item menu-accordion mb-1">
                             <!--begin:Menu link-->
 
-                            <a class="menu-link" href="{{ route('users.index') }}">
+                            <a class="menu-link" href="{{ route('employees.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
