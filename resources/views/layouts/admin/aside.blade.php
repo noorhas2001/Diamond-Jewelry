@@ -111,7 +111,7 @@
 
                 @can(STAFFS_MANAGEMENT_PERMISSION)
                     <div data-kt-menu-trigger="click"
-                        class="menu-item menu-accordion {{ hereShowRoutes(['staffs.index', 'roles.index']) }}">
+                        class="menu-item menu-accordion {{ hereShowRoutes(['staffs.index', 'roles.index' ,'staffs.show' ,'roles.show']) }}">
                         <!--begin:Menu link-->
                         <span class="menu-link">
                             <span class="menu-icon">
