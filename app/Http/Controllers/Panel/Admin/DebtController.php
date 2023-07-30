@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Panel\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Currency;
 use App\Models\Debt;
+use App\Services\DebtService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -13,45 +14,29 @@ use Illuminate\Support\Facades\Validator;
 
 class DebtController extends Controller
 {
+    protected DebtService $debtService;
 
-    public function __construct()
+    public function __construct(DebtService $debtService)
     {
-        $this->middleware('permission:'. DEBTS_ON_US_PERMISSION)->only('debtsOnUs');
-        $this->middleware('permission:'. DEBTS_FOR_US_PERMISSION)->only('debtsForUs');
-        $this->middleware('permission:'. CREATE_DEBT_PERMISSION)->only('create' ,'store');
-        $this->middleware('permission:'. UPDATE_DEBT_PERMISSION)->only('edit', 'update');
-        $this->middleware('permission:'. READ_DEBT_PERMISSION)->only('show');
-        $this->middleware('permission:'. VERIFY_DEBT_PERMISSION)->only('verifiedDebt');
-        $this->middleware('permission:'. DELETE_DEBT_PERMISSION)->only('destroy');
+        $this->middleware('permission:'.DEBTS_ON_US_PERMISSION)->only('debtsOnUs');
+        $this->middleware('permission:'.DEBTS_FOR_US_PERMISSION)->only('debtsForUs');
+        $this->middleware('permission:'.CREATE_DEBT_PERMISSION)->only('create', 'store');
+        $this->middleware('permission:'.UPDATE_DEBT_PERMISSION)->only('edit', 'update');
+        $this->middleware('permission:'.READ_DEBT_PERMISSION)->only('show');
+        $this->middleware('permission:'.VERIFY_DEBT_PERMISSION)->only('verifiedDebt');
+        $this->middleware('permission:'.DELETE_DEBT_PERMISSION)->only('destroy');
+        $this->debtService = $debtService;
     }
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'person_name' => 'required|string',
-            'amount' => 'required|numeric',
-            'debt_date' => 'required|date',
-            'currency_id' => 'required',
-        ]);
+        $result = $this->debtService->store($request->all());
 
-        if ($validator->fails()) {
-            return $this->error($validator->errors()->first());
-        }
-
-        try {
-            Debt::create([
-                'person_name' => $request->person_name,
-                'amount' => $request->amount,
-                'debt_date' => $request->debt_date,
-                'is_debt_from_others' => $request->input('is_debt_from_others'),
-                'currency_id' => $request->currency_id,
-            ]);
-
-            flash(translate('messages.Added'))->success();
+        if ($result['status'] === 'success') {
+            flash($result['message'])->success();
             return back();
-
-        } catch (Exception $e) {
-            return $this->error();
+        } else {
+            return $this->error($result['message']);
         }
     }
 
@@ -63,9 +48,9 @@ class DebtController extends Controller
             $debt = Debt::findOrFail($id);
 
             if ($debt->is_debt_from_others) {
-                return view('admin.dashboard.debts.debtsOnUs.show', compact('debt','currencies'));
+                return view('admin.dashboard.debts.debtsOnUs.show', compact('debt', 'currencies'));
             } else {
-                return view('admin.dashboard.debts.debtsForUs.show', compact('debt','currencies'));
+                return view('admin.dashboard.debts.debtsForUs.show', compact('debt', 'currencies'));
             }
         } catch (Exception $e) {
             return back()->with('error', 'Failed to fetch debt details.');
