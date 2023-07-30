@@ -32,4 +32,8 @@ return [
     'UsersManagement' => 'ادارة العاملين',
     'Users' => 'العاملين',
 
+    'debts_management' => 'ادارة الديون',
+    'debts_on_us' => 'ديون علينا',
+    'debts_to_us' => 'ديون لنا',
+
 ];

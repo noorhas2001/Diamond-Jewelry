@@ -35,4 +35,9 @@ return [
     'UsersManagement' => 'Employees Management',
     'Users' => 'Employees',
 
+    'debts_management' => 'Debts Management',
+    'debts_on_us' => 'Debts on us',
+    'debts_to_us' => 'Debts to us',
+
+
 ];
