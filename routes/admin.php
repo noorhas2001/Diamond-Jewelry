@@ -35,7 +35,10 @@ Route::prefix('dashboard/admin/')->group(function () {
         Route::post('/employees/deleteSelected', [EmployeeController::class, 'deleteSelected'])->name('employees.deleteSelected');
 
         Route::prefix('debts')->group(function () {
-            Route::resource('/debts', DebtController::class);
+            Route::post('/debts/store_on_us',  [DebtController::class, 'store_on_us'])->name('debts.store_on_us');
+            Route::post('/debts/store_for_us',  [DebtController::class, 'store_for_us'])->name('debts.store_for_us');
+            Route::get('/debts/show/{id}',  [DebtController::class, 'show'])->name('debts.show');
+            Route::get('/debts/show',  [DebtController::class, 'destroy'])->name('debts.destroy');
             Route::get('/onUs', [DebtController::class, 'debtsOnUs'])->name('debts.onUs');
             Route::get('/forUs', [DebtController::class, 'debtsForUs'])->name('debts.forUs');
             Route::post('/verifiedDebt/{id}', [DebtController::class, 'verifiedDebt'])->name('debts.verifiedDebt');
