@@ -10,10 +10,6 @@ return new class extends Migration {
         Schema::create('currencies', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
-            $table->string('symbol', 255);
-            $table->double('exchange_rate', 10, 5);
-            $table->integer('status')->default(0);
-            $table->string('code', 20)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
