@@ -6,6 +6,9 @@ return [
     'Dashboard' => 'Dashboard ',
     'SettingsList' => 'Settings List',
     'Settings' => 'Settings',
+    'name' => 'Name',
+    'status' => 'Status',
+    'procedures' => 'Procedures',
 
 
     'Pending' => 'Pending ',

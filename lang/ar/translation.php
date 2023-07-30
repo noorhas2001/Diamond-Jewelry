@@ -6,6 +6,9 @@ return [
     'Dashboard' => 'لوحة التحكم ',
     'SettingsList' => 'قائمة الاعدادات ',
     'Settings' => 'الاعدادات',
+    'name' => 'الاسم',
+    'status' => 'الحالة',
+    'procedures' => 'الاجراءات',
 
 
     'Pending' => 'الفعالة ',
