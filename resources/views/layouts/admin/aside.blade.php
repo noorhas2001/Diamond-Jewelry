@@ -6,9 +6,9 @@
     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
         <!--begin::Logo image-->
         <a href="{{ route('dashboard') }}">
-            <img alt="Logo" src="{{ asset('assets/media/logos/default.svg') }}"
+            <img alt="Logo" src="{{ asset('assets/img/shortcut_icon.svg') }}"
                 class="theme-light-show h-40px w-60px app-sidebar-logo-default" />
-            <img alt="Logo" src="{{ asset('assets/media/logos/default-dark.svg') }}"
+            <img alt="Logo" src="{{ asset('assets/img/shortcut_icon.svg') }}"
                 class="theme-dark-show h-40px w-60px app-sidebar-logo-default" />
         </a>
         <!--end::Logo image-->
