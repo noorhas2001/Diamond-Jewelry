@@ -6,10 +6,10 @@
     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
         <!--begin::Logo image-->
         <a href="{{ route('dashboard') }}">
-            <img alt="Logo" src="{{asset('assets/media/logos/default.svg')}}"
-                 class="theme-light-show h-40px w-60px app-sidebar-logo-default"/>
-            <img alt="Logo" src="{{asset('assets/media/logos/default-dark.svg')}}"
-                 class="theme-dark-show h-40px w-60px app-sidebar-logo-default"/>
+            <img alt="Logo" src="{{ asset('assets/media/logos/default.svg') }}"
+                class="theme-light-show h-40px w-60px app-sidebar-logo-default" />
+            <img alt="Logo" src="{{ asset('assets/media/logos/default-dark.svg') }}"
+                class="theme-dark-show h-40px w-60px app-sidebar-logo-default" />
         </a>
         <!--end::Logo image-->
         <!--begin::Sidebar toggle-->
@@ -111,7 +111,7 @@
 
                 @can(STAFFS_MANAGEMENT_PERMISSION)
                     <div data-kt-menu-trigger="click"
-                        class="menu-item menu-accordion {{ hereShowRoutes(['staffs.index', 'roles.index' ,'staffs.show' ,'roles.show']) }}">
+                        class="menu-item menu-accordion {{ hereShowRoutes(['staffs.index', 'roles.index', 'staffs.show', 'roles.show']) }}">
                         <!--begin:Menu link-->
                         <span class="menu-link">
                             <span class="menu-icon">
@@ -167,51 +167,109 @@
 
                 @can(EMPLOYEES_MANAGEMENT_PERMISSION)
                     <div data-kt-menu-trigger="click"
-                     class="menu-item menu-accordion {{ hereShowRoutes(['employees.index' ,'employees.show']) }}">
-                    <!--begin:Menu link-->
-                    <span class="menu-link">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/files/fil003.svg-->
-                            <span class="svg-icon svg-icon-2">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path opacity="0.3"
-                                          d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22Z"
-                                          fill="currentColor" />
-                                    <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="currentColor" />
-                                </svg>
-                            </span>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-title">{{ translate('asideTranslation.UsersManagement') }}</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <!--end:Menu link-->
-                        @can(EMPLOYEES_PERMISSION)
-                    <!--begin:Menu sub-->
-                    <div class="menu-sub menu-sub-accordion">
-                        <!--begin:Menu item-->
-                        <div class="menu-item menu-accordion mb-1">
-                            <!--begin:Menu link-->
-
-                            <a class="menu-link" href="{{ route('employees.index') }}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
+                        class="menu-item menu-accordion {{ hereShowRoutes(['employees.index', 'employees.show']) }}">
+                        <!--begin:Menu link-->
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <!--begin::Svg Icon | path: icons/duotune/files/fil003.svg-->
+                                <span class="svg-icon svg-icon-2">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.3"
+                                            d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22Z"
+                                            fill="currentColor" />
+                                        <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="currentColor" />
+                                    </svg>
                                 </span>
-                                <span class="menu-title">{{ translate('asideTranslation.Users') }}</span>
-                            </a>
+                                <!--end::Svg Icon-->
+                            </span>
+                            <span class="menu-title">{{ translate('asideTranslation.UsersManagement') }}</span>
+                            <span class="menu-arrow"></span>
+                        </span>
+                        <!--end:Menu link-->
+                        @can(EMPLOYEES_PERMISSION)
+                            <!--begin:Menu sub-->
+                            <div class="menu-sub menu-sub-accordion">
+                                <!--begin:Menu item-->
+                                <div class="menu-item menu-accordion mb-1">
+                                    <!--begin:Menu link-->
 
-                            <!--end:Menu link-->
-                            <!--begin:Menu link-->
+                                    <a class="menu-link" href="{{ route('employees.index') }}">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot"></span>
+                                        </span>
+                                        <span class="menu-title">{{ translate('asideTranslation.Users') }}</span>
+                                    </a>
 
-                            <!--end:Menu link-->
-                        </div>
-                        <!--end:Menu item-->
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu link-->
 
-                    </div>
-                    <!--end:Menu sub-->
+                                    <!--end:Menu link-->
+                                </div>
+                                <!--end:Menu item-->
+
+                            </div>
+                            <!--end:Menu sub-->
                         @endcan
-                </div>
+                    </div>
+                @endcan
+
+                @can(DEBTS_MANAGEMENT_PERMISSION)
+                    <div data-kt-menu-trigger="click"
+                        class="menu-item menu-accordion {{ hereShowRoutes(['debts.onUs', 'debts.forUs']) }}">
+                        <!--begin:Menu link-->
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <!--begin::Svg Icon | path: icons/duotune/files/fil003.svg-->
+                                <span class="svg-icon svg-icon-2">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.3"
+                                            d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22Z"
+                                            fill="currentColor" />
+                                        <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </span>
+                            <span class="menu-title">{{ translate('asideTranslation.debts_management') }}</span>
+                            <span class="menu-arrow"></span>
+                        </span>
+                        <!--end:Menu link-->
+                        <!--begin:Menu sub-->
+                        <div class="menu-sub menu-sub-accordion">
+                            <!--begin:Menu item-->
+                            <div class="menu-item menu-accordion mb-1">
+                                <!--begin:Menu link-->
+                                @can(DEBTS_ON_US_PERMISSION)
+                                    <a class="menu-link" href="{{ route('debts.onUs') }}">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot"></span>
+                                        </span>
+                                        <span class="menu-title">{{ translate('asideTranslation.debts_on_us') }}</span>
+                                    </a>
+                                @endcan
+
+                                @can(DEBTS_FOR_US_PERMISSION)
+                                    <a class="menu-link" href="{{ route('debts.forUs') }}">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot"></span>
+                                        </span>
+                                        <span class="menu-title">{{ translate('asideTranslation.debts_to_us') }}</span>
+                                    </a>
+                                @endcan
+
+
+                                <!--end:Menu link-->
+                                <!--begin:Menu link-->
+
+                                <!--end:Menu link-->
+                            </div>
+                            <!--end:Menu item-->
+
+                        </div>
+                        <!--end:Menu sub-->
+                    </div>
                 @endcan
 
                 @can(SETTINGS_MANAGEMENT_PERMISSION)
