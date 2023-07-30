@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             // BalanceSeeder::class,
             FeatureFlagSeeder::class,
             EmployeeSeeder::class,
+            DebtSeeder::class,
         ]);
     }
 }
