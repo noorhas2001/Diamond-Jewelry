@@ -145,10 +145,8 @@
                                         <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                                             <!--begin::Form-->
                                             <form id="kt_modal_add_debt_form" class="form"
-                                                action="{{ route('debts.store') }}" method="POST"
+                                                action="{{ route('debts.store_on_us') }}" method="POST"
                                                 enctype="multipart/form-data">
-
-
                                                 @csrf
                                                 <!--begin::Scroll-->
                                                 <div class="d-flex flex-column scroll-y me-n7 pe-7"
@@ -158,10 +156,6 @@
                                                     data-kt-scroll-dependencies="#kt_modal_add_debt_header"
                                                     data-kt-scroll-wrappers="#kt_modal_add_debt_scroll"
                                                     data-kt-scroll-offset="300px">
-                                                    <!--begin::Input group-->
-
-                                                    <input type="hidden" name="is_debt_from_others" value="1">
-                                                    <!--end::Input group-->
                                                     <!--begin::Input group-->
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
