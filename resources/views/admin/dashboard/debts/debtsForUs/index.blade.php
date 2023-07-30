@@ -160,7 +160,7 @@
                                                     data-kt-scroll-offset="300px">
                                                     <!--begin::Input group-->
 
-                                                    <input type="hidden" name="is_debt_from_others" value="0">
+                                                    <input class="d-none" type="hidden" name="is_debt_from_others" value="0">
                                                     <!--end::Input group-->
                                                     <!--begin::Input group-->
                                                     <div class="fv-row mb-7">
@@ -182,7 +182,7 @@
                                                             {{translate('debtsTranslation.amount')}} </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="text" name="amount"
+                                                        <input type="number" name="amount"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="{{translate('debtsTranslation.amount')}}" />
                                                         <!--end::Input-->
