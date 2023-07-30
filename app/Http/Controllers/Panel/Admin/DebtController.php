@@ -28,16 +28,20 @@ class DebtController extends Controller
         $this->debtService = $debtService;
     }
 
-    public function store(Request $request)
+    public function store_on_us(Request $request)
     {
+        $request['is_debt_from_others'] = true;
         $result = $this->debtService->store($request->all());
 
-        if ($result['status'] === 'success') {
-            flash($result['message'])->success();
-            return back();
-        } else {
-            return $this->error($result['message']);
-        }
+        return $this->handleMessage($result);
+    }
+
+    public function store_for_us(Request $request)
+    {
+        $request['is_debt_from_others'] = false;
+        $result = $this->debtService->store($request->all());
+
+        return $this->handleMessage($result);
     }
 
     public function show($id)
@@ -96,7 +100,7 @@ class DebtController extends Controller
                 'status' => 'success',
                 'message' => translate('messages.Deleted'),
             ]);
-        } catch (Exception $e) {
+        } catch (Exception) {
             return Response()->json([
                 'status' => 'error',
                 'message' => translate('messages.Wrong'),
@@ -175,6 +179,20 @@ class DebtController extends Controller
     {
         flash(translate($message ?? 'messages.Wrong'))->error();
         return back();
+    }
+
+    /**
+     * @param  array|RedirectResponse  $result
+     * @return RedirectResponse
+     */
+    public function handleMessage(array|RedirectResponse $result): RedirectResponse
+    {
+        if ($result['status'] === 'success') {
+            flash($result['message'])->success();
+            return back();
+        } else {
+            return $this->error($result['message']);
+        }
     }
 
 }

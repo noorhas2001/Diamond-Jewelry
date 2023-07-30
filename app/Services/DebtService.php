@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class DebtService
 {
-    public function store(array $data): array|RedirectResponse
+    public function store(array $data)
     {
         $validator = Validator::make($data, [
             'person_name' => 'required|string',
