@@ -4,6 +4,7 @@ use App\Models\Setting;
 use Carbon\Translator;
 use Illuminate\Console\Application;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,14 @@ if (!function_exists('handleErrors')) {
             'message' => $validator->errors()->first(),
             'errors' => $validator->errors()
         ], 422);
+    }
+}
+
+if (!function_exists('error')) {
+    function error($message = null): RedirectResponse
+    {
+        flash(translate($message ?? 'messages.Wrong'))->error();
+        return back();
     }
 }
 
