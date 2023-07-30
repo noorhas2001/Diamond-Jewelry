@@ -11,25 +11,20 @@ class CurrencySeeder extends Seeder
     {
         // Create a currency instance for dollars
         $dollar = new Currency([
-            'name' => 'US Dollar',
-            'symbol' => '$',
-            'exchange_rate' => 1.0, // assuming the base currency is dollars
-            'status' => 1,
-            'code' => 'USD',
+            'name' => DOLLAR,
         ]);
         $dollar->save();
-        $dollar->updateExchangeRate();
-
         // Create a currency instance for shekels
         $shekel = new Currency([
-            'name' => 'Israeli Shekel',
-            'symbol' => '₪',
-            'exchange_rate' => 0.29, // assuming 1 dollar = 3.45 shekels
-            'status' => 1,
-            'code' => 'ILS',
+            'name' => SHEKEL,
         ]);
         $shekel->save();
-        $shekel->updateExchangeRate();
+
+        // Create a currency instance for dinaries
+        $dinar = new Currency([
+            'name' => DINAR,
+        ]);
+        $dinar->save();
 
     }
 }
