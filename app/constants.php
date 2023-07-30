@@ -45,3 +45,6 @@ const ADMIN_ID = 'admin_id';
 const DINAR = 'دينار';
 const SHEKEL = 'شيكل';
 const DOLLAR = 'دولار';
+const AMOUNT_TOTAL_DIGITS = 10;
+const AMOUNT_TOTAL_DIGITS_FLOAT = 2;
+const DEFAULT_ID_PAID_VALUE = false;

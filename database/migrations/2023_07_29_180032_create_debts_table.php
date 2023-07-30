@@ -10,11 +10,11 @@ return new class extends Migration {
         Schema::create('debts', function (Blueprint $table) {
             $table->id();
             $table->string('person_name');
-            $table->decimal('amount', 10, 2);
+            $table->decimal('amount', AMOUNT_TOTAL_DIGITS, AMOUNT_TOTAL_DIGITS_FLOAT);
             $table->datetime('debt_date');
             $table->boolean('is_debt_from_others');
             $table->foreignId('currency_id');
-            $table->boolean('is_paid')->default(false);
+            $table->boolean('is_paid')->default(DEFAULT_ID_PAID_VALUE);
             $table->softDeletes();
             $table->timestamps();
         });
