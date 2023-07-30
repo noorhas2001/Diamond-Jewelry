@@ -31,7 +31,6 @@ Route::prefix('dashboard/admin/')->group(function () {
         Route::resource('roles', RoleController::class);
         Route::resource('staffs', StaffController::class);
         Route::post('/staffs/deleteSelected', [StaffController::class, 'deleteSelected'])->name('staffs.deleteSelected');
-        Route::resource('plans', PlanController::class);
         Route::resource('employees', EmployeeController::class);
         Route::post('/employees/deleteSelected', [EmployeeController::class, 'deleteSelected'])->name('employees.deleteSelected');
 
