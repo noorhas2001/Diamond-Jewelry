@@ -14,6 +14,17 @@ use Illuminate\Support\Facades\Validator;
 class DebtController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('permission:'. DEBTS_ON_US_PERMISSION)->only('debtsOnUs');
+        $this->middleware('permission:'. DEBTS_FOR_US_PERMISSION)->only('debtsForUs');
+        $this->middleware('permission:'. CREATE_DEBT_PERMISSION)->only('create' ,'store');
+        $this->middleware('permission:'. UPDATE_DEBT_PERMISSION)->only('edit', 'update');
+        $this->middleware('permission:'. READ_DEBT_PERMISSION)->only('show');
+        $this->middleware('permission:'. VERIFY_DEBT_PERMISSION)->only('verifiedDebt');
+        $this->middleware('permission:'. DELETE_DEBT_PERMISSION)->only('destroy');
+    }
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
