@@ -182,7 +182,7 @@
                                                             {{translate('debtsTranslation.amount')}} </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="text" name="amount"
+                                                        <input type="number" name="amount"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="{{translate('debtsTranslation.amount')}}" />
                                                         <!--end::Input-->
