@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Currency;
+use App\Models\Employee;
 use App\Models\Reservation;
 use App\Observers\CategoryObserver;
 use App\Observers\CourseObserver;
@@ -30,6 +32,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Paginator::useBootstrapFive();
+        view()->composer('*', function ($view) {
+            $employees = Employee::all();
+            $currencies = Currency::all();
+
+            $view->with(compact('employees', 'currencies'));
+        });
     }
 }
