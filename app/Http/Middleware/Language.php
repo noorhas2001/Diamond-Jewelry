@@ -24,7 +24,7 @@ class Language
         if (Session::has(APP_LOCALE) && array_key_exists(Session::get(APP_LOCALE), Config::get(LANGUAGE))) {
             app()->setLocale(Session::get(APP_LOCALE));
         } else {
-            app()->setLocale(Config::get('app.fallback_locale'));
+            app()->setLocale(config('app.fallback_locale'));
         }
         return $next($request);
     }
