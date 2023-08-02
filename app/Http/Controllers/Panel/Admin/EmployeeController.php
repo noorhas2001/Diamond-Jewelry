@@ -26,7 +26,6 @@ class EmployeeController extends Controller
     {
         $employees = Employee::all();
         return view('admin.dashboard.employees.index', compact('employees'));
-        dd($employees);
     }
 
     public function create()
