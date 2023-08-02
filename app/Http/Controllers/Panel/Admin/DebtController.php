@@ -46,15 +46,13 @@ class DebtController extends Controller
 
     public function show($id)
     {
-        $currencies = Currency::pluck('id', 'name');
-
         try {
             $debt = Debt::findOrFail($id);
 
             if ($debt->is_debt_from_others) {
-                return view('admin.dashboard.debts.debtsOnUs.show', compact('debt', 'currencies'));
+                return view('admin.dashboard.debts.debtsOnUs.show', compact('debt'));
             } else {
-                return view('admin.dashboard.debts.debtsForUs.show', compact('debt', 'currencies'));
+                return view('admin.dashboard.debts.debtsForUs.show', compact('debt'));
             }
         } catch (Exception $e) {
             return back()->with('error', 'Failed to fetch debt details.');
@@ -111,16 +109,14 @@ class DebtController extends Controller
 
     public function debtsOnUs()
     {
-        $currencies = Currency::pluck('id', 'name');
         $debts = Debt::where('is_debt_from_others', true)->get();
-        return view('admin.dashboard.debts.debtsOnUs.index', compact('debts', 'currencies'));
+        return view('admin.dashboard.debts.debtsOnUs.index', compact('debts'));
     }
 
     public function debtsForUs()
     {
-        $currencies = Currency::pluck('id', 'name');
         $debts = Debt::where('is_debt_from_others', false)->get();
-        return view('admin.dashboard.debts.debtsForUs.index', compact('debts', 'currencies'));
+        return view('admin.dashboard.debts.debtsForUs.index', compact('debts'));
     }
 
     public function verifiedDebt($id): JsonResponse
@@ -181,10 +177,6 @@ class DebtController extends Controller
         return back();
     }
 
-    /**
-     * @param  array|RedirectResponse  $result
-     * @return RedirectResponse
-     */
     public function handleMessage(array|RedirectResponse $result): RedirectResponse
     {
         if ($result['status'] === 'success') {
