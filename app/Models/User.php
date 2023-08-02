@@ -90,15 +90,6 @@ class User extends Authenticatable implements HasMedia
         return $this->addMediaFromUrl(url(asset($path)))->toMediaCollection($image_tag);
     }
 
-    public function resources(): HasMany
-    {
-        return $this->hasMany(Resource::class);
-    }
-
-    public function reservations(): HasMany
-    {
-        return $this->hasMany(Reservation::class);
-    }
 
     public function isAdmin(): bool
     {
@@ -115,40 +106,11 @@ class User extends Authenticatable implements HasMedia
         return $query->where('user_type', self::User);
     }
 
-    public function courses(): BelongsToMany
-    {
-        return $this->belongsToMany(Course::class);
-    }
-
-    public function ratings(): HasMany
-    {
-        return $this->hasMany(Rating::class);
-    }
-
-    public function subscriptions(): HasMany
-    {
-        return $this->hasMany(Subscription::class);
-    }
-
     public function imageUrl()
     {
         return Media::find($this->avatar)?->getUrl();
     }
 
-    public function plan(): HasOne
-    {
-        return $this->hasOne(Plan::class);
-    }
-
-    public function personalFcmTokens()
-    {
-        return $this->hasMany(PersonalFcmToken::class);
-    }
-
-    public function routeNotificationForFcm($notification = null)
-    {
-        return $this->personalFcmTokens()->pluck('token')->toArray();
-    }
 
     public function canDeleted(): bool
     {
@@ -158,4 +120,5 @@ class User extends Authenticatable implements HasMedia
             return true;
         }
     }
+
 }
