@@ -8,6 +8,8 @@ return [
     'Salary' => 'الراتب',
     'bonuses' => 'المكافأة',
     'phone' => 'رقم الهاتف',
+    'expenses' => 'سحوبات العامل',
+    'salary_after' => 'باقي الراتب',
     'procedures' => ' الاجراءات',
     'AddNewEmployee' => ' اضافة عامل جديد',
     'AddEmployee' => 'اضافة عامل',

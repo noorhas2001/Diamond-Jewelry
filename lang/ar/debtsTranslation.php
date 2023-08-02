@@ -1,11 +1,11 @@
 <?php
 return [
-    'list_dibts' => 'قائمة الديون',
+    'list_debts' => 'قائمة الديون',
     'debts' => 'الديون',
     'dashboard' => 'لوحة التحكم',
     'search_debt' => 'ابحث عن دين',
     'person_name' => 'اسم الشخص',
-    'amount' => 'المبغ',
+    'amount' => 'المبلغ',
     'currency' => 'العملة',
     'reimbursement' => 'السداد',
     'debt_date' => ' تاريخ الدين',

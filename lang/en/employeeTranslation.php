@@ -8,6 +8,8 @@ return [
     'Salary' => 'Salary',
     'bonuses' => 'Bonuses',
     'phone' => 'Phone',
+    'expenses' => 'Expenses',
+    'salary_after' => 'Salary after',
     'procedures' => ' Procedures',
     'AddNewEmployee' => ' Add new employee',
     'AddEmployee' => 'Add employee',

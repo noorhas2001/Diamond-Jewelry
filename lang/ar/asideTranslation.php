@@ -36,4 +36,8 @@ return [
     'debts_on_us' => 'ديون علينا',
     'debts_to_us' => 'ديون لنا',
 
+    'draws_management' => 'ادارة السحوبات',
+    'expenses' => 'المصروفات',
+    'masa_draws' => 'سحوبات الماسة',
+
 ];

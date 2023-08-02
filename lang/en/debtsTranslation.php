@@ -1,6 +1,6 @@
 <?php
 return [
-    'list_dibts' => 'Debts List',
+    'list_debts' => 'Debts List',
     'debts' => 'Debts',
     'dashboard' => 'Dashboard',
     'search_debt' => 'Search for Debts',

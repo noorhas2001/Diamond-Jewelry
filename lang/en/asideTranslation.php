@@ -39,5 +39,10 @@ return [
     'debts_on_us' => 'Debts on us',
     'debts_to_us' => 'Debts to us',
 
+    'draws_management' =>'Draws Management',
+    'expenses' => 'Expenses',
+    'masa_draws' => 'masa Draws',
+
+
 
 ];
