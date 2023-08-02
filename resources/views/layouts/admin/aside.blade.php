@@ -214,6 +214,74 @@
                     </div>
                 @endcan
 
+
+                @can(DRAWS_MANAGEMENT_PERMISSION)
+                    <div data-kt-menu-trigger="click"
+                        class="menu-item menu-accordion {{ hereShowRoutes(['expenses.index', 'expenses.show', 'expenses.from_masa']) }}">
+                        <!--begin:Menu link-->
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <!--begin::Svg Icon | path: icons/duotune/files/fil003.svg-->
+                                <span class="svg-icon svg-icon-2">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.3"
+                                            d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22Z"
+                                            fill="currentColor" />
+                                        <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </span>
+                            <span class="menu-title">{{ translate('asideTranslation.draws_management') }}</span>
+                            <span class="menu-arrow"></span>
+                        </span>
+                        <!--end:Menu link-->
+                        <!--begin:Menu sub-->
+                        <div class="menu-sub menu-sub-accordion">
+                            <!--begin:Menu item-->
+                            <div class="menu-item menu-accordion mb-1">
+                                <!--begin:Menu link-->
+
+                                @can(CREATE_EXPENSE_PERMISSION)
+                                    <a type="button" class="menu-link" data-bs-toggle="modal"
+                                        data-bs-target="#kt_modal_add_expense">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot"></span>
+                                        </span>
+                                        <!--end::Svg Icon--> {{ translate('expenseTranslation.expense') }}
+                                    </a>
+                                @endcan
+
+                                @can(EXPENSES_PERMISSION)
+                                    <a class="menu-link" href="{{ route('expenses.index') }}">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot"></span>
+                                        </span>
+                                        <span class="menu-title">{{ translate('asideTranslation.expenses') }}</span>
+                                    </a>
+                                @endcan
+
+
+                                @can(MASA_DRAWS_PERMISSION)
+                                    <a class="menu-link" href="{{ route('expenses.from_masa') }}">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot"></span>
+                                        </span>
+                                        <span class="menu-title">{{ translate('asideTranslation.masa_draws') }}</span>
+                                    </a>
+                                @endcan
+
+
+                                <!--end:Menu link-->
+                            </div>
+                            <!--end:Menu item-->
+
+                        </div>
+                        <!--end:Menu sub-->
+                    </div>
+                @endcan
+
                 @can(DEBTS_MANAGEMENT_PERMISSION)
                     <div data-kt-menu-trigger="click"
                         class="menu-item menu-accordion {{ hereShowRoutes(['debts.onUs', 'debts.forUs']) }}">
