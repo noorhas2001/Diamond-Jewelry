@@ -195,7 +195,7 @@
                                                             {{ translate('employeeTranslation.Salary') }} </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="text" name="salary"
+                                                        <input type="number" name="salary"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="{{ translate('employeeTranslation.Salary') }}" />
                                                         <!--end::Input-->
@@ -207,7 +207,7 @@
                                                             {{ translate('employeeTranslation.bonuses') }} </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="text" name="bonuses"
+                                                        <input type="number" name="bonuses"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="{{ translate('employeeTranslation.bonuses') }}" />
                                                         <!--end::Input-->
@@ -265,6 +265,8 @@
                                         </th>
                                         <th class="min-w-125px"> {{ translate('employeeTranslation.Employeename') }}</th>
                                         <th class="min-w-125px">{{ translate('employeeTranslation.Salary') }}</th>
+                                        <th class="min-w-125px">{{ translate('employeeTranslation.expenses') }}</th>
+                                        <th class="min-w-125px">{{ translate('employeeTranslation.salary_after') }}</th>
                                         <th class="min-w-125px"> {{ translate('employeeTranslation.phone') }}</th>
                                         <th class="min-w-125px"> {{ translate('employeeTranslation.bonuses') }}</th>
                                         <th class="text-end min-w-100px px-10">
@@ -300,6 +302,8 @@
                                             </td>
 
                                             <td>{{$employee->salary}}</td>
+                                            <td>{{$employee->employeeExpenses()}}</td>
+                                            <td>{{$employee->salaryAfter()}}</td>
                                             <td>{{$employee->phone}}</td>
                                             <td>{{$employee->bonuses}}</td>
 

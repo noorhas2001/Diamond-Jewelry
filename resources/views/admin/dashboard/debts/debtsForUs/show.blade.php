@@ -304,9 +304,9 @@
                                                 class="form-select form-select-solid"
                                                 data-control="select2" data-hide-search="true"
                                                 data-placeholder="{{translate('debtsTranslation.currency')}}" required>
-                                                @foreach ($currencies as $name => $id)
-                                                    <option value="{{ $id }}">
-                                                        {{ $name }}
+                                                @foreach ($currencies as $currency)
+                                                    <option value="{{ $currency->id }}">
+                                                        {{ $currency->name }}
                                                     </option>
                                                 @endforeach
                                             </select>

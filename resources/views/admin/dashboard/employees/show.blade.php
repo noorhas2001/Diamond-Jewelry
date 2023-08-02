@@ -307,7 +307,7 @@
                                             {{ translate('employeeTranslation.Salary') }} </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" name="salary" value="{{ $employee->salary }}"
+                                        <input type="number" name="salary" value="{{ $employee->salary }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                             placeholder="{{ translate('employeeTranslation.Salary') }}" />
                                         <!--end::Input-->
@@ -319,7 +319,7 @@
                                             {{ translate('employeeTranslation.bonuses') }} </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" name="bonuses" value="{{ $employee->bonuses }}"
+                                        <input type="number" name="bonuses" value="{{ $employee->bonuses }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                             placeholder="{{ translate('employeeTranslation.bonuses') }}" />
                                         <!--end::Input-->
