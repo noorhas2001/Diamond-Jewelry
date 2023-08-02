@@ -53,6 +53,13 @@ class PermissionsSeeder extends Seeder
             UPDATE_DEBT_PERMISSION,
             DELETE_DEBT_PERMISSION,
             VERIFY_DEBT_PERMISSION,
+            DRAWS_MANAGEMENT_PERMISSION,
+            MASA_DRAWS_PERMISSION,
+            EXPENSES_PERMISSION,
+            CREATE_EXPENSE_PERMISSION,
+            READ_EXPENSE_PERMISSION,
+            UPDATE_EXPENSE_PERMISSION,
+            DELETE_EXPENSE_PERMISSION,
         ];
 
         foreach ($permissions as $permission) {
