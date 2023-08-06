@@ -26,6 +26,8 @@ class DebtSeeder extends Seeder
                 'is_debt_from_others' => true,
                 'currency_id' => $currencyIds[array_rand($currencyIds)],
                 'is_paid' => false,
+                'weight' => null,
+                'phone_number' => '0567086704',
             ],
             [
                 'person_name' => 'Jane Smith',
@@ -34,6 +36,10 @@ class DebtSeeder extends Seeder
                 'is_debt_from_others' => false,
                 'currency_id' => $currencyIds[array_rand($currencyIds)],
                 'is_paid' => false,
+                'weight' => null,
+                'phone_number' => '0598325681',
+
+
             ],
             [
                 'person_name' => 'Jane Smith',
@@ -42,14 +48,21 @@ class DebtSeeder extends Seeder
                 'is_debt_from_others' => false,
                 'currency_id' => $currencyIds[array_rand($currencyIds)],
                 'is_paid' => false,
+                'weight' => null,
+                'phone_number' => '0598325681',
+
+
             ],
             [
                 'person_name' => 'Jane Smith',
-                'amount' => 450.50,
+                'amount' => null,
                 'debt_date' => '2023-07-30 14:15:00',
                 'is_debt_from_others' => true,
-                'currency_id' => $currencyIds[array_rand($currencyIds)],
+                'currency_id' => null,
                 'is_paid' => false,
+                'weight' => 150.00,
+                'phone_number' => '0598325681',
+
             ],
             [
                 'person_name' => 'Jane Smith',
@@ -58,6 +71,10 @@ class DebtSeeder extends Seeder
                 'is_debt_from_others' => false,
                 'currency_id' => $currencyIds[array_rand($currencyIds)],
                 'is_paid' => false,
+                'weight' => null,
+                'phone_number' => '0598325681',
+
+
             ],
             [
                 'person_name' => 'Jane Smith',
@@ -66,6 +83,10 @@ class DebtSeeder extends Seeder
                 'is_debt_from_others' => true,
                 'currency_id' => $currencyIds[array_rand($currencyIds)],
                 'is_paid' => false,
+                'weight' => null,
+                'phone_number' => '0598325681',
+
+
             ],
         ];
 
