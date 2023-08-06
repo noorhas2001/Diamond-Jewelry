@@ -69,20 +69,7 @@ var KTdebtsList = function () {
                             }
                         }
                     },
-                    'amount': {
-                        validators: {
-                            notEmpty: {
-                                message: '  المبلغ مطلوب '
-                            }
-                        }
-                    },
-                    'currency_id': {
-                        validators: {
-                            notEmpty: {
-                                message: 'نوع العملة '
-                            }
-                        }
-                    },
+                
                     'debt_date': {
                         validators: {
                             notEmpty: {
