@@ -7,6 +7,8 @@ return [
     'person_name' => 'اسم الشخص',
     'amount' => 'المبلغ',
     'currency' => 'العملة',
+    'weight' => 'الوزن',
+    'phone_number' => 'رقم الجوال',
     'reimbursement' => 'السداد',
     'debt_date' => ' تاريخ الدين',
     'procedures' => ' الاجراءات',

@@ -7,6 +7,8 @@ return [
     'person_name' => 'Person name',
     'amount' => 'Amount',
     'currency' => 'Currency',
+    'weight' => 'Weight',
+    'phone_number' => 'phone number',
     'reimbursement' => 'reimbursement',
     'debt_date' => ' Debt Date',
     'procedures' => ' Procedures',
