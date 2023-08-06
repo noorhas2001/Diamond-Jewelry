@@ -12,14 +12,14 @@
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        {{translate('debtsTranslation.view_debt_detail')}}</h1>
+                        {{ translate('debtsTranslation.view_debt_detail') }}</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
                             <a href="{{ route('dashboard') }}"
-                                class="text-muted text-hover-primary">{{translate('debtsTranslation.dashboard')}}</a>
+                                class="text-muted text-hover-primary">{{ translate('debtsTranslation.dashboard') }}</a>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -30,7 +30,7 @@
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
                             <a href="{{ route('debts.onUs') }}"
-                                class="text-muted text-hover-primary">{{translate('debtsTranslation.debts')}}</a>
+                                class="text-muted text-hover-primary">{{ translate('debtsTranslation.debts') }}</a>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -41,7 +41,7 @@
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
                             <a href="{{ route('debts.show', $debt->id) }}"
-                                class="text-muted text-hover-primary">{{translate('debtsTranslation.view')}}</a>
+                                class="text-muted text-hover-primary">{{ translate('debtsTranslation.view') }}</a>
                         </li>
                         <!--end::Item-->
                     </ul>
@@ -105,7 +105,7 @@
                                     <div class="fw-bold rotate collapsible" data-bs-toggle="collapse"
                                         href="#kt_debt_view_details" role="button" aria-expanded="false"
                                         aria-controls="kt_debt_view_details">
-                                        {{translate('debtsTranslation.details')}}
+                                        {{ translate('debtsTranslation.details') }}
                                         <span class="ms-2 rotate-180">
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
                                             <span class="svg-icon svg-icon-3">
@@ -122,7 +122,7 @@
                                     @can(UPDATE_DEBT_PERMISSION)
                                         <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit customer details">
                                             <a href="#" class="btn btn-sm btn-light-primary" data-bs-toggle="modal"
-                                                data-bs-target="#kt_modal_update_details">{{translate('debtsTranslation.edit')}}</a>
+                                                data-bs-target="#kt_modal_update_details">{{ translate('debtsTranslation.edit') }}</a>
                                         </span>
                                     @endcan
                                 </div>
@@ -136,18 +136,28 @@
 
                                         <!--begin::Details item-->
 
-                                        <div class="fw-bold mt-5">{{translate('debtsTranslation.person_name')}}
+                                        <div class="fw-bold mt-5">{{ translate('debtsTranslation.person_name') }}
                                         </div>
                                         <div class="text-gray-600">{{ $debt->person_name }}</div>
 
-                                        <div class="fw-bold mt-5"> {{translate('debtsTranslation.amount')}}</div>
-                                        <div class="text-gray-600">{{ $debt->amount }}</div>
 
-                                        <div class="fw-bold mt-5">{{translate('debtsTranslation.currency')}} </div>
-                                        <div class="text-gray-600">{{ $debt->currency->name }}</div>
+                                        <div class="fw-bold mt-5"> {{ translate('debtsTranslation.amount') }}</div>
+                                        <div class="text-gray-600">{{ $debt?->amount }}</div>
 
-                                        <div class="fw-bold mt-5"> {{translate('debtsTranslation.debt_date')}}</div>
+                                        <div class="fw-bold mt-5">{{ translate('debtsTranslation.currency') }} </div>
+                                        <div class="text-gray-600">{{ $debt?->currency?->name }}</div>
+
+                                        <div class="fw-bold mt-5">{{ translate('debtsTranslation.weight') }} </div>
+                                        <div class="text-gray-600">{{ $debt?->weight }}</div>
+
+
+                                        <div class="fw-bold mt-5"> {{ translate('debtsTranslation.phone_number') }}</div>
+                                        <div class="text-gray-600">{{ $debt->phone_number }}</div>
+
+                                        <div class="fw-bold mt-5"> {{ translate('debtsTranslation.debt_date') }}</div>
                                         <div class="text-gray-600">{{ $debt->debt_date }}</div>
+
+
                                         <!--end::Details item-->
 
                                     </div>
@@ -174,7 +184,7 @@
                                 <!--begin::Action menu-->
                                 <a href="#" class="btn btn-primary ps-7" data-kt-menu-trigger="click"
                                     data-kt-menu-attach="parent"
-                                    data-kt-menu-placement="bottom-end">{{translate('debtsTranslation.procedures')}}
+                                    data-kt-menu-placement="bottom-end">{{ translate('debtsTranslation.procedures') }}
                                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
                                     <span class="svg-icon svg-icon-2 me-0">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -202,7 +212,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <a href="#" class="menu-link text-danger px-5"
-                                                    data-kt-debts-table-filter="delete_row">{{translate('debtsTranslation.delete_debt')}}</a>
+                                                    data-kt-debts-table-filter="delete_row">{{ translate('debtsTranslation.delete_debt') }}</a>
                                             </form>
                                         </div>
 
@@ -237,7 +247,7 @@
                             <!--begin::Modal header-->
                             <div class="modal-header" id="kt_modal_update_debt_header">
                                 <!--begin::Modal title-->
-                                <h2 class="fw-bold"> {{translate('debtsTranslation.update_debt_detail')}} </h2>
+                                <h2 class="fw-bold"> {{ translate('debtsTranslation.update_debt_detail') }} </h2>
                                 <!--end::Modal title-->
                                 <!--begin::Close-->
                                 <div class="btn btn-icon btn-sm btn-active-icon-primary"
@@ -270,12 +280,13 @@
 
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->
-                                        <label class="required fw-semibold fs-6 mb-2">{{translate('debtsTranslation.person_name')}}</label>
+                                        <label
+                                            class="required fw-semibold fs-6 mb-2">{{ translate('debtsTranslation.person_name') }}</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" name="person_name" value="{{$debt->person_name}}"
+                                        <input type="text" name="person_name" value="{{ $debt->person_name }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
-                                            placeholder="{{translate('debtsTranslation.person_name')}}" required />
+                                            placeholder="{{ translate('debtsTranslation.person_name') }}" required />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Input group-->
@@ -284,49 +295,71 @@
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->
                                         <label class="required fw-semibold fs-6 mb-2">
-                                            {{translate('debtsTranslation.amount')}} </label>
+                                            {{ translate('debtsTranslation.amount') }}
+                                        </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" name="amount" value="{{$debt->amount}}"
+                                        <input type="text" name="amount" value="{{ $debt->amount }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
-                                            placeholder="{{translate('debtsTranslation.amount')}}" />
+                                            placeholder="{{ translate('debtsTranslation.amount') }}" />
                                         <!--end::Input-->
                                     </div>
 
                                     <div class="fv-row mb-7">
-                                        <!--begin::Label-->
-                                        <label class="required fw-semibold fs-6 mb-2">{{translate('debtsTranslation.currency')}}</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <!--begin::Col-->
+                                        <label
+                                            class="required fw-semibold fs-6 mb-2">{{ translate('debtsTranslation.currency') }}</label>
                                         <div class="col-6">
-                                            <select name="currency_id"
-                                                class="form-select form-select-solid"
+                                            <select name="currency_id" class="form-select form-select-solid"
                                                 data-control="select2" data-hide-search="true"
-                                                data-placeholder="{{translate('debtsTranslation.currency')}}" required>
+                                                data-placeholder="{{ translate('debtsTranslation.currency') }}" required>
                                                 @foreach ($currencies as $currency)
-                                                    <option value="{{ $currency->id }}">
+                                                    <option value=""></option>
+                                                    <option value="{{ $currency->id }}"
+                                                        @if ($currency->id == $debt->currency_id) selected @endif>
                                                         {{ $currency->name }}
                                                     </option>
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <!--end::Col-->
+                                    </div>
+
+                                    <div class="fv-row mb-7">
+                                        <!--begin::Label-->
+                                        <label class="required fw-semibold fs-6 mb-2">
+                                            {{ translate('debtsTranslation.weight') }}
+                                        </label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="number" name="weight" value="{{ $debt->weight }}"
+                                            class="form-control form-control-solid mb-3 mb-lg-0"
+                                            placeholder="{{ translate('debtsTranslation.weight') }}" />
+                                        <!--end::Input-->
+                                    </div>
+
+
+                                    <div class="fv-row mb-7">
+                                        <!--begin::Label-->
+                                        <label class="required fw-semibold fs-6 mb-2">
+                                            {{ translate('debtsTranslation.phone_number') }} </label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" name="phone_number" value="{{ $debt->phone_number }}"
+                                            class="form-control form-control-solid mb-3 mb-lg-0"
+                                            placeholder="{{ translate('debtsTranslation.phone_number') }}" />
                                         <!--end::Input-->
                                     </div>
 
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->
                                         <label class="fs-6 fw-semibold form-label mb-2">
-                                            <span class="required">{{translate('debtsTranslation.debt_date')}}</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7"
-                                                data-bs-toggle="popover" data-bs-trigger="hover"
-                                                data-bs-html="true"
+                                            <span class="required">{{ translate('debtsTranslation.debt_date') }}</span>
+                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="popover"
+                                                data-bs-trigger="hover" data-bs-html="true"
                                                 data-bs-content="Select a date & time."></i>
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input class="form-control form-control-solid" value="{{$debt->debt_date}}"
+                                        <input class="form-control form-control-solid" value="{{ $debt->debt_date }}"
                                             placeholder="Select a date & time." name="debt_date"
                                             id="kt_modal_add_debts_datepicker" />
                                         <!--end::Input-->
@@ -341,13 +374,13 @@
                             <div class="modal-footer flex-center">
                                 <!--begin::Button-->
                                 <button type="reset" class="btn btn-light me-3"
-                                    data-kt-debts-modal-action="cancel">{{translate('debtsTranslation.cancel')}}
+                                    data-kt-debts-modal-action="cancel">{{ translate('debtsTranslation.cancel') }}
                                 </button>
                                 <!--end::Button-->
                                 <!--begin::Button-->
                                 <button type="submit" class="btn btn-primary" data-kt-debts-modal-action="submit">
-                                    <span class="indicator-label">{{translate('debtsTranslation.update')}}</span>
-                                    <span class="indicator-progress">{{translate('debtsTranslation.waiting')}}
+                                    <span class="indicator-label">{{ translate('debtsTranslation.update') }}</span>
+                                    <span class="indicator-progress">{{ translate('debtsTranslation.waiting') }}
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->
@@ -402,7 +435,7 @@
                                 url: form.attr('action'),
                                 type: 'POST',
                                 data: form
-                            .serialize(), // Include the CSRF token and the DELETE method
+                                    .serialize(), // Include the CSRF token and the DELETE method
                                 dataType: 'json',
                                 success: function(response) {
                                     if (response.status === 'success') {
@@ -411,7 +444,7 @@
 
                                         // Redirect to 'resources.index' route
                                         window.location.href =
-                                        '{{ route('debts.onUs') }}';
+                                            '{{ route('debts.onUs') }}';
                                     } else if (response.status === 'warning') {
                                         Swal.fire('Warning', response.message, 'warning');
                                     } else {
@@ -459,7 +492,7 @@
                                 url: form.attr('action'),
                                 type: 'POST',
                                 data: form
-                            .serialize(), // Include the CSRF token and the DELETE method
+                                    .serialize(), // Include the CSRF token and the DELETE method
                                 dataType: 'json',
                                 success: function(response) {
                                     if (response.status === 'success') {
@@ -468,7 +501,7 @@
 
                                         // Redirect to 'resources.index' route
                                         window.location.href =
-                                        '{{ route('debts.onUs') }}';
+                                            '{{ route('debts.onUs') }}';
                                     } else if (response.status === 'warning') {
                                         Swal.fire('Warning', response.message, 'warning');
                                     } else {

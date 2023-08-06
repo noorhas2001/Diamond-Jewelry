@@ -29,7 +29,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="{{ route('expenses.index') }}"
+                            <a href="{{ route('expenses.from_masa') }}"
                                 class="text-muted text-hover-primary">{{ translate('expenseTranslation.draws') }}</a>
                         </li>
                         <!--end::Item-->
@@ -276,7 +276,7 @@
                                             {{ translate('expenseTranslation.amount') }} </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="number" name="amount" value="{{$expense->amount}}"
+                                        <input type="number" name="amount" value="{{ $expense->amount }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                             placeholder="{{ translate('expenseTranslation.amount') }}" />
                                         <!--end::Input-->
@@ -295,7 +295,8 @@
                                                 data-placeholder="{{ translate('expenseTranslation.currency') }}"
                                                 required>
                                                 @foreach ($currencies as $currency)
-                                                    <option value="{{ $currency->id }}">
+                                                    <option value="{{ $currency->id }}"
+                                                        @if ($currency->id == $expense->currency_id) selected @endif>
                                                         {{ $currency->name }}
                                                     </option>
                                                 @endforeach
@@ -316,7 +317,8 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input class="form-control form-control-solid" placeholder="Select a date & time."
-                                            name="draw_date" id="kt_modal_update_expense_datepicker" value="{{$expense->draw_date}}" />
+                                            name="draw_date" id="kt_modal_update_expense_datepicker"
+                                            value="{{ $expense->draw_date }}" />
                                         <!--end::Input-->
                                     </div>
 
@@ -326,7 +328,7 @@
                                             {{ translate('expenseTranslation.notes') }} </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" name="description" value="{{$expense->description}}"
+                                        <input type="text" name="description" value="{{ $expense->description }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                             placeholder="{{ translate('expenseTranslation.notes') }}" />
                                         <!--end::Input-->

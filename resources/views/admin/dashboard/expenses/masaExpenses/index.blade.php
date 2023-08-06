@@ -29,7 +29,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="{{ route('expenses.index') }}"
+                            <a href="{{ route('expenses.from_masa') }}"
                                 class="text-muted text-hover-primary">{{ translate('expenseTranslation.draws') }}</a>
                         </li>
                         <!--end::Item-->

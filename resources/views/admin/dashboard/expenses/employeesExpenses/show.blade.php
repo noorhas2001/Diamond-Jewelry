@@ -299,7 +299,7 @@
                                             {{ translate('expenseTranslation.description') }} </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" name="description"
+                                        <input type="text" name="description" value="{{$expense->description}}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                             placeholder="{{ translate('expenseTranslation.description') }}" />
                                         <!--end::Input-->
@@ -311,7 +311,7 @@
                                             {{ translate('expenseTranslation.amount') }} </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="number" name="amount"
+                                        <input type="number" name="amount" value="{{$expense->amount}}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                             placeholder="{{ translate('expenseTranslation.amount') }}" />
                                         <!--end::Input-->
@@ -331,9 +331,9 @@
                                                 data-placeholder="{{ translate('expenseTranslation.currency') }}"
                                                 required>
                                                 @foreach ($currencies as $currency)
-                                                    <option value="{{ $currency->id }}">
-                                                        {{ $currency->name }}
-                                                    </option>
+                                                <option value="{{ $currency->id }}" @if ($currency->id == $expense->currency_id) selected @endif>
+                                                    {{ $currency->name }}
+                                                </option>
                                                 @endforeach
                                             </select>
                                         </div>
