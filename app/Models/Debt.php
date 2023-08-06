@@ -18,6 +18,8 @@ class Debt extends Model
         'is_debt_from_others',
         'currency_id',
         'is_paid',
+        'weight',
+        'phone_number',
     ];
 
     public function currency(): BelongsTo
