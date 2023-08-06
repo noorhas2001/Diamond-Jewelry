@@ -63,9 +63,12 @@ class DebtController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'person_name' => 'required|string',
-            'amount' => 'required|numeric',
+            'amount' => 'nullable|numeric',
             'debt_date' => 'required|date',
-            'currency_id' => 'required|exists:currencies,id',
+            'currency_id' => 'nullable|exists:currencies,id',
+            'weight' => 'nullable',
+            'phone_number' => 'required',
+
         ]);
 
         if ($validator->fails()) {
@@ -76,9 +79,11 @@ class DebtController extends Controller
             $debt = Debt::findOrFail($id);
             $debt->update([
                 'person_name' => $request->person_name,
-                'amount' => $request->amount,
+                'amount' => $request?->amount,
                 'debt_date' => $request->debt_date,
-                'currency_id' => $request->currency_id,
+                'currency_id' => $request?->currency_id,
+                'weight' => $request?->weight,
+                'phone_number' => $request->phone_number,
             ]);
 
             flash(translate('messages.Updated'))->success();
