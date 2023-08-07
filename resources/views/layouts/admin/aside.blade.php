@@ -167,7 +167,7 @@
 
                 @can(EMPLOYEES_MANAGEMENT_PERMISSION)
                     <div data-kt-menu-trigger="click"
-                        class="menu-item menu-accordion {{ hereShowRoutes(['employees.index', 'employees.show']) }}">
+                        class="menu-item menu-accordion {{ hereShowRoutes(['employees.index', 'employees.show' ,'withdrawals.index']) }}">
                         <!--begin:Menu link-->
                         <span class="menu-link">
                             <span class="menu-icon">
@@ -187,30 +187,39 @@
                             <span class="menu-arrow"></span>
                         </span>
                         <!--end:Menu link-->
-                        @can(EMPLOYEES_PERMISSION)
-                            <!--begin:Menu sub-->
-                            <div class="menu-sub menu-sub-accordion">
-                                <!--begin:Menu item-->
-                                <div class="menu-item menu-accordion mb-1">
-                                    <!--begin:Menu link-->
 
+                        <!--begin:Menu sub-->
+                        <div class="menu-sub menu-sub-accordion">
+                            <!--begin:Menu item-->
+                            <div class="menu-item menu-accordion mb-1">
+                                <!--begin:Menu link-->
+                                @can(EMPLOYEES_PERMISSION)
                                     <a class="menu-link" href="{{ route('employees.index') }}">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
                                         <span class="menu-title">{{ translate('asideTranslation.Users') }}</span>
                                     </a>
+                                @endcan
 
-                                    <!--end:Menu link-->
-                                    <!--begin:Menu link-->
+                                @can(WITHDRAWALS_PERMISSION)
+                                    <a class="menu-link" href="{{ route('withdrawals.index') }}">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot"></span>
+                                        </span>
+                                        <span class="menu-title">سحوبات العاملين</span>
+                                    </a>
+                                @endcan
 
-                                    <!--end:Menu link-->
-                                </div>
-                                <!--end:Menu item-->
+                                <!--end:Menu link-->
+                                <!--begin:Menu link-->
 
+                                <!--end:Menu link-->
                             </div>
-                            <!--end:Menu sub-->
-                        @endcan
+                            <!--end:Menu item-->
+
+                        </div>
+                        <!--end:Menu sub-->
                     </div>
                 @endcan
 

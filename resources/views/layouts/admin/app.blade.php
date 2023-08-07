@@ -22,7 +22,7 @@
                         <h2 class="fw-bold">{{ translate('expenseTranslation.add_expense') }}</h2>
 
                         <!-- Button for Employee Expense -->
-                        <button class="btn btn-primary" data-action="employee">مصروفات العاملين</button>
+                        <button class="btn btn-primary" data-action="employee">مصروفات </button>
                         <!-- Button for Masa Expense -->
                         <button class="btn btn-primary" data-action="masa">سحب الماسة</button>
 
