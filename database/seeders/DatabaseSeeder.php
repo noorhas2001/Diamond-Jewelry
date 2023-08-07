@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             EmployeeSeeder::class,
             DebtSeeder::class,
             ExpenseSeeder::class,
+            // WithdrawalSeeder::class,
         ]);
     }
 }
