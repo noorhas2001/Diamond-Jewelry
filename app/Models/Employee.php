@@ -18,9 +18,14 @@ class Employee extends Model
         return $this->hasMany(Expense::class);
     }
 
+    public function withdrawals(): HasMany
+    {
+        return $this->hasMany(Withdrawal::class);
+    }
+
     public function employeeExpenses()
     {
-        $totalExpenses = Expense::where('employee_id', '=', $this->id)
+        $totalExpenses = Withdrawal::where('employee_id', '=', $this->id)
             ->sum('amount');
 
         return $totalExpenses;
