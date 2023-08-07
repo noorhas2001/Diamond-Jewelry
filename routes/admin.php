@@ -6,9 +6,9 @@ use App\Http\Controllers\Panel\Admin\DebtController;
 use App\Http\Controllers\Panel\Admin\EmployeeController;
 use App\Http\Controllers\Panel\Admin\ExpensesController;
 use App\Http\Controllers\Panel\Admin\LanguageController;
-use App\Http\Controllers\PlanController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\Panel\Admin\WithdrawalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,5 +58,9 @@ Route::prefix('dashboard/admin/')->group(function () {
             Route::post('/deleteSelected', [ExpensesController::class, 'deleteSelected'])->name('expenses.deleteSelected');
 
         });
+
+        Route::resource('withdrawals' , WithdrawalController::class);
+        Route::post('/withdrawals/deleteSelected', [WithdrawalController::class, 'deleteSelected'])->name('withdrawals.deleteSelected');
+
     });
 });
