@@ -60,6 +60,11 @@ class PermissionsSeeder extends Seeder
             READ_EXPENSE_PERMISSION,
             UPDATE_EXPENSE_PERMISSION,
             DELETE_EXPENSE_PERMISSION,
+            WITHDRAWALS_PERMISSION,
+            CREATE_WITHDRAWAL_PERMISSION,
+            READ_WITHDRAWAL_PERMISSION,
+            UPDATE_WITHDRAWAL_PERMISSION,
+            DELETE_WITHDRAWAL_PERMISSION,
         ];
 
         foreach ($permissions as $permission) {
