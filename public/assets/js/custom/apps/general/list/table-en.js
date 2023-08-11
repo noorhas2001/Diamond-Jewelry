@@ -1,10 +1,5 @@
 "use strict";
 
-$("#kt_modal_add_expenses_datepicker").flatpickr({
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-});
-
 
 var KTGeneralList = function () {
 
@@ -38,13 +33,6 @@ var KTGeneralList = function () {
                         validators: {
                             notEmpty: {
                                 message: 'نوع العملة مطلوب '
-                            }
-                        }
-                    },
-                    'draw_date': {
-                        validators: {
-                            notEmpty: {
-                                message: 'تاريخ السحب مطلوب '
                             }
                         }
                     },

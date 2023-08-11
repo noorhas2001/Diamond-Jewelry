@@ -83,13 +83,6 @@ var KTdebtsList = function () {
                             }
                         }
                     },
-                    'debt_date': {
-                        validators: {
-                            notEmpty: {
-                                message: 'debt date is required'
-                            }
-                        }
-                    },
                 },
 
                 plugins: {

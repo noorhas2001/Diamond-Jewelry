@@ -108,13 +108,6 @@ const KTdebtUpdateDetails = function () {
                             }
                         }
                     },
-                    'debt_date': {
-                        validators: {
-                            notEmpty: {
-                                message: 'تاريخ الدين مطلوب '
-                            }
-                        }
-                    },
                 },
 
                 plugins: {

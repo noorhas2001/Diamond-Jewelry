@@ -1,12 +1,5 @@
-"use strict";
-
-$("#kt_modal_add_debts_datepicker").flatpickr({
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-});
-
-var KTdebtsList = function () {
-    let table = document.getElementById('kt_table_debts');
+var KTdelarsList = function () {
+    let table = document.getElementById('kt_table_delars');
     let datatable;
     let toolbarBase;
     let toolbarSelected;
@@ -17,7 +10,7 @@ var KTdebtsList = function () {
     };
 
 
-    let initdebtsTable = function () {
+    let initdelarsTable = function () {
         datatable = $(table).DataTable({
             "info": false,
             'order': [],
@@ -25,7 +18,7 @@ var KTdebtsList = function () {
             "lengthChange": false,
             'columnDefs': [
                 { orderable: false, targets: 0 }, // Disable ordering on column 0 (checkbox)
-                { orderable: false, targets: 6 }, // Disable ordering on column 6 (actions)
+                { orderable: false, targets: 5 }, // Disable ordering on column 6 (actions)
             ],
             fixedColumns: {
                 left: 1,
@@ -38,37 +31,44 @@ var KTdebtsList = function () {
             initToggleToolbar();
             handleDeleteRows();
             toggleToolbars();
-            handleVerfiedDebt();
         });
     }
 
     // Search Datatable --- official docs reference: https://datatables.net/reference/api/search()
     let handleSearchDatatable = () => {
-        const filterSearch = document.querySelector('[data-kt-debts-table-filter="search"]');
+        const filterSearch = document.querySelector('[data-kt-delars-table-filter="search"]');
         filterSearch.addEventListener('keyup', function (e) {
             datatable.search(e.target.value).draw();
         });
     }
 
-    let handleAdddebt = () => {
+    let handleAdddelar = () => {
         // Shared variables
-        const element = document.getElementById('kt_modal_add_debt');
-        const form = element.querySelector('#kt_modal_add_debt_form');
+        const element = document.getElementById('kt_modal_add_delar');
+        const form = element.querySelector('#kt_modal_add_delar_form');
         const modal = new bootstrap.Modal(element);
-
 
         // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
         const validator = FormValidation.formValidation(
             form,
             {
                 fields: {
-                    'person_name': {
+                    'name': {
                         validators: {
                             notEmpty: {
-                                message: 'الاسم مطلوب'
+                                message: 'Name is required'
                             }
                         }
                     },
+
+                    'phone': {
+                        validators: {
+                            notEmpty: {
+                                message: 'phone is required '
+                            }
+                        }
+                    },
+
                 },
 
                 plugins: {
@@ -83,7 +83,7 @@ var KTdebtsList = function () {
         );
 
         // Submit button handler
-        const submitButton = element.querySelector('[data-kt-debts-modal-action="submit"]');
+        const submitButton = element.querySelector('[data-kt-delars-modal-action="submit"]');
         submitButton.addEventListener('click', e => {
             e.preventDefault();
 
@@ -109,10 +109,10 @@ var KTdebtsList = function () {
 
                             // Show popup confirmation
                             Swal.fire({
-                                text: "تم تقديم النموذج بنجاح!",
+                                text: "Form has been successfully submitted!",
                                 icon: "success",
                                 buttonsStyling: false,
-                                confirmButtonText: "حسنًا ، اذهب!",
+                                confirmButtonText: "Ok, got it!",
                                 customClass: {
                                     confirmButton: "btn btn-primary"
                                 }
@@ -127,10 +127,10 @@ var KTdebtsList = function () {
                     } else {
                         // Show popup warning. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                         Swal.fire({
-                            text: "معذرة ، يبدو أنه تم اكتشاف بعض الأخطاء ، يرجى المحاولة مرة أخرى.",
+                            text: "Sorry, looks like there are some errors detected, please try again.",
                             icon: "error",
                             buttonsStyling: false,
-                            confirmButtonText: "حسنًا ، اذهب!",
+                            confirmButtonText: "Ok, got it!",
                             customClass: {
                                 confirmButton: "btn btn-primary"
                             }
@@ -141,17 +141,17 @@ var KTdebtsList = function () {
         });
 
         // Cancel button handler
-        const cancelButton = element.querySelector('[data-kt-debts-modal-action="cancel"]');
+        const cancelButton = element.querySelector('[data-kt-delars-modal-action="cancel"]');
         cancelButton.addEventListener('click', e => {
             e.preventDefault();
 
             Swal.fire({
-                text: "هل أنت متأكد أنك تريد الإلغاء؟",
+                text: "Are you sure you would like to cancel?",
                 icon: "warning",
                 showCancelButton: true,
                 buttonsStyling: true,
-                confirmButtonText: "نعم ، قم بإلغائها!",
-                cancelButtonText: "لا، ارجع",
+                confirmButtonText: "Yes, cancel it!",
+                cancelButtonText: "No, return",
                 customClass: {
                     confirmButton: "btn btn-primary",
                     cancelButton: "btn btn-active-light"
@@ -162,10 +162,10 @@ var KTdebtsList = function () {
                     modal.hide();
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
-                        text: "لم يتم إلغاء النموذج الخاص بك !.",
+                        text: "Your form has not been cancelled!.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "حسنًا ، اذهب!",
+                        confirmButtonText: "Ok, got it!",
                         customClass: {
                             confirmButton: "btn btn-primary",
                         }
@@ -175,17 +175,17 @@ var KTdebtsList = function () {
         });
 
         // Close button handler
-        const closeButton = element.querySelector('[data-kt-debts-modal-action="close"]');
+        const closeButton = element.querySelector('[data-kt-delars-modal-action="close"]');
         closeButton.addEventListener('click', e => {
             e.preventDefault();
 
             Swal.fire({
-                text: "هل أنت متأكد أنك تريد الإلغاء؟",
+                text: "Are you sure you would like to cancel?",
                 icon: "warning",
                 showCancelButton: true,
                 buttonsStyling: true,
-                confirmButtonText: "نعم ، قم بإلغائها!",
-                cancelButtonText: "لا، ارجع",
+                confirmButtonText: "Yes, cancel it!",
+                cancelButtonText: "No, return",
                 customClass: {
                     confirmButton: "btn btn-primary",
                     cancelButton: "btn btn-active-light"
@@ -196,10 +196,10 @@ var KTdebtsList = function () {
                     modal.hide();
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
-                        text: "لم يتم إلغاء النموذج الخاص بك !.",
+                        text: "Your form has not been cancelled!.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "حسنًا ، اذهب!",
+                        confirmButtonText: "Ok, got it!",
                         customClass: {
                             confirmButton: "btn btn-primary",
                         }
@@ -208,10 +208,10 @@ var KTdebtsList = function () {
             });
         });
     }
-    // Delete debts
+    // Delete delars
     let handleDeleteRows = () => {
         // Select all delete buttons
-        const deleteButtons = table.querySelectorAll('[data-kt-debts-table-filter="delete_row"]');
+        const deleteButtons = table.querySelectorAll('[data-kt-delars-table-filter="delete_row"]');
 
         deleteButtons.forEach(d => {
             // Delete button on click
@@ -219,18 +219,18 @@ var KTdebtsList = function () {
                 e.preventDefault();
                 // Select parent row
                 const parent = e.target.closest('tr');
-                const debtName = parent.querySelectorAll('td')[1].innerText;
+                const delarName = parent.querySelectorAll('td')[1].innerText;
                 // Select all delete form
-                const deletForm = parent.querySelector('[data-kt-debts-table-filter="delete_form"]');
+                const deletForm = parent.querySelector('[data-kt-delars-table-filter="delete_form"]');
 
                 // SweetAlert2 pop up --- official docs reference: https://sweetalert2.github.io/
                 Swal.fire({
-                    text: "هل أنت متأكد من أنك تريد حذف  " + debtName + "؟",
+                    text: "Are you sure you want to delete " + delarName + "?",
                     icon: "warning",
                     showCancelButton: true,
                     buttonsStyling: false,
-                    confirmButtonText: "نعم ، احذف!",
-                    cancelButtonText: "لا ، ارجع",
+                    confirmButtonText: "Yes, delete!",
+                    cancelButtonText: "No, cancel",
                     customClass: {
                         confirmButton: "btn fw-bold btn-danger",
                         cancelButton: "btn fw-bold btn-active-light-primary"
@@ -270,10 +270,10 @@ var KTdebtsList = function () {
                         });
                     } else if (result.dismiss === 'cancel') {
                         Swal.fire({
-                            text: debtName + " لم يتم حذفه .",
+                            text: delarName + "Was Not Deleted .",
                             icon: "error",
                             buttonsStyling: false,
-                            confirmButtonText: "حسنا ، اذهب!",
+                            confirmButtonText: "Ok , Go it!",
                             customClass: {
                                 confirmButton: "btn fw-bold btn-primary",
                             }
@@ -291,10 +291,10 @@ var KTdebtsList = function () {
         const checkboxes = table.querySelectorAll('[type="checkbox"]');
 
         // Select elements
-        toolbarBase = document.querySelector('[data-kt-debt-table-toolbar="base"]');
-        toolbarSelected = document.querySelector('[data-kt-debt-table-toolbar="selected"]');
-        selectedCount = document.querySelector('[data-kt-debt-table-select="selected_count"]');
-        const deleteSelected = document.querySelector('[data-kt-debt-table-select="delete_selected"]');
+        toolbarBase = document.querySelector('[data-kt-delar-table-toolbar="base"]');
+        toolbarSelected = document.querySelector('[data-kt-delar-table-toolbar="selected"]');
+        selectedCount = document.querySelector('[data-kt-delar-table-select="selected_count"]');
+        const deleteSelected = document.querySelector('[data-kt-delar-table-select="delete_selected"]');
 
         // Toggle delete selected toolbar
         checkboxes.forEach(c => {
@@ -310,12 +310,12 @@ var KTdebtsList = function () {
         deleteSelected.addEventListener('click', function () {
             // SweetAlert2 pop up --- official docs reference: https://sweetalert2.github.io/
             Swal.fire({
-                text: "هل أنت متأكد من أنك تريد حذف الديون المختارة",
+                text: "Are You Sure You Want To Delete Selected delars?",
                 icon: "warning",
                 showCancelButton: true,
                 buttonsStyling: false,
-                confirmButtonText: "نعم ، احذف!",
-                cancelButtonText: "لا ، ارجع للخلف",
+                confirmButtonText: "Yes, delete!",
+                cancelButtonText: "No, cancel",
                 customClass: {
                     confirmButton: "btn fw-bold btn-danger",
                     cancelButton: "btn fw-bold btn-active-light-primary"
@@ -325,17 +325,15 @@ var KTdebtsList = function () {
                     let selectedData = [];
                     let csrfToken = $('meta[name="csrf-token"]').attr('content');
                     checkboxes.forEach(c => {
-                        if (c.checked) {
-                            datatable.row($(c.closest('tbody tr'))).remove().draw();
-                            selectedData.push(c.value);
-                        }
+                        datatable.row($(c.closest('tbody tr'))).remove().draw();
+                        selectedData.push(c.value);
                     });
                     let filterSelectedData = selectedData.filter(element => element !== '');
                     let data = {
                         selectedData: filterSelectedData
                     };
                     $.ajax({
-                        url: 'deleteSelected',
+                        url: 'currency_delars/deleteSelected',
                         type: 'POST',
                         data: data,
                         headers: {
@@ -353,10 +351,10 @@ var KTdebtsList = function () {
                     headerCheckbox.checked = false;
 
                     Swal.fire({
-                        text: "لقد حذفت جميع الديون المختارة!.",
+                        text: "You Have Deleted All Selected delars!.",
                         icon: "success",
                         buttonsStyling: false,
-                        confirmButtonText: "حسنا، اذهب",
+                        confirmButtonText: "Ok, got it!",
                         customClass: {
                             confirmButton: "btn fw-bold btn-primary",
                         }
@@ -367,10 +365,10 @@ var KTdebtsList = function () {
 
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
-                        text: "الديون المختارة لم يتم حذفها",
+                        text: "Selected delars Was Not Deleted.",
                         icon: "error",
                         buttonsStyling: false,
-                        confirmButtonText: "حسنا ، اذهب!",
+                        confirmButtonText: "Ok, got it!",
                         customClass: {
                             confirmButton: "btn fw-bold btn-primary",
                         }
@@ -408,80 +406,6 @@ var KTdebtsList = function () {
         }
     }
 
-    const handleVerfiedDebt = () => {
-        const payButtons = document.querySelectorAll('[data-kt-Subscription-table-filter="verfiedSubscriptionPaynment_row"]');
-        payButtons.forEach(d => {
-            d.addEventListener('click', function (e) {
-                e.preventDefault();
-                // Select parent row
-                const parent = e.target.closest('tr');
-
-
-                let paynmentStatusTd = parent.querySelector('[data-status="paidStatus"]');
-                // Get subscription name
-                const subscriptionName = parent.querySelectorAll('td')[1].innerText;
-
-                // Select all delete form
-                const verfiedForm = parent.querySelector('[data-kt-subscription-table-filter="verifiedSubscriptionPayment_form"]');
-
-                Swal.fire({
-                    text: "هل أنت متأكد من أنك تريد الدفع  " + subscriptionName + "?",
-                    icon: "warning",
-                    showCancelButton: true,
-                    buttonsStyling: false,
-                    confirmButtonText: "نعم ، ادفع المبلغ!",
-                    cancelButtonText: "لا ، ارجع",
-                    customClass: {
-                        confirmButton: "btn fw-bold btn-danger",
-                        cancelButton: "btn fw-bold btn-active-light-primary"
-                    }
-                }).then(function (result) {
-                    if (result.value) {
-                        if (paynmentStatusTd.innerText === 'مدفوع') {
-                            Swal.fire({
-                                text: "لا يمكن دفع الديون المدفوعة",
-                                icon: "error",
-                                buttonsStyling: false,
-                                confirmButtonText: "حسنا، اذهب",
-                                customClass: {
-                                    confirmButton: "btn fw-bold btn-primary",
-                                }
-                            });
-                        } else {
-                            let Url = verfiedForm.action;
-                            let method = verfiedForm.method;
-                            let csrfToken = $('meta[name="csrf-token"]').attr('content');
-                            $.ajax({
-                                url: Url,
-                                type: method,
-                                headers: {
-                                    'X-CSRF-TOKEN': csrfToken,
-                                },
-                                success: function (response) {
-                                    if (response.status == 'success') {
-                                        toastr.success(response.message);
-                                        let paynmentStatusSpan = paynmentStatusTd.getElementsByTagName('span')[0]
-                                        paynmentStatusSpan.innerText = 'مدفوع'
-                                        paynmentStatusSpan.classList.add('badge-light-success');
-                                        paynmentStatusSpan.classList.remove('badge-light-danger');
-                                    } else if (response.status == 'warning') {
-                                        toastr.warning(response.message);
-                                    } else if (response.status == 'error') {
-                                        toastr.error(response.message);
-                                    }
-                                },
-                                error: function (xhr, status, error) {
-                                    console.log(error);
-                                }
-                            })
-                        }
-                    }
-                })
-            })
-        })
-
-    }
-
 
     return {
         // Public functions
@@ -490,17 +414,16 @@ var KTdebtsList = function () {
                 return;
             }
 
-            initdebtsTable();
+            initdelarsTable();
             handleSearchDatatable();
             initToggleToolbar();
             handleDeleteRows();
-            handleAdddebt();
-            handleVerfiedDebt();
+            handleAdddelar();
 
         }
     }
 }();
 
 KTUtil.onDOMContentLoaded(function () {
-    KTdebtsList.init();
+    KTdelarsList.init();
 });
