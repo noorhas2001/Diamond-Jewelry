@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Validator;
 class CurrencyDelarController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('permission:' . CURRENCY_DELARS_PERMISSION)->only('index');
+        $this->middleware('permission:' . CREAT_CURRENCY_DELAR_PERMISSION)->only('create', 'store');
+        $this->middleware('permission:' . READ_CURRENCY_DELAR_PERMISSION)->only('show');
+        $this->middleware('permission:' . UPDATE_CURRENCY_DELAR_PERMISSION)->only('edit', 'update');
+        $this->middleware('permission:' . DELETE_CURRENCY_DELAR_PERMISSION)->only('destroy');
+    }
+
     public function index()
     {
         $currencyDelars = CurrencyDelar::all();
