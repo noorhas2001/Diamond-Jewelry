@@ -16,7 +16,6 @@ class ExpenseService
             'description' => 'nullable|string',
             'amount' => 'required|numeric|min:0',
             'currency_id' => 'required|integer|exists:currencies,id',
-            'draw_date' => 'required|date',
         ]);
 
         if ($validator->fails()) {
@@ -30,7 +29,7 @@ class ExpenseService
                 'amount' => $data['amount'],
                 'is_from_masa' => $data['is_from_masa'] ?? null,
                 'currency_id' => $data['currency_id'],
-                'draw_date' => $data['draw_date'],
+                'draw_date' => now(),
             ]);
 
             return ['status' => 'success', 'message' => translate('messages.Added')];
