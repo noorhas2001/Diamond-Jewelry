@@ -128,7 +128,8 @@
                         <div id="masa_expense_section" style="display: none;">
                             <!--begin::Form-->
                             <form id="kt_modal_add_expense_masa_form" class="form"
-                                action="{{ route('expenses.store_from_masa') }}" method="POST" enctype="multipart/form-data">
+                                action="{{ route('expenses.store_from_masa') }}" method="POST"
+                                enctype="multipart/form-data">
 
 
                                 @csrf
@@ -214,6 +215,47 @@
             <!--end::Modal dialog-->
         </div>
         <!--end::Modal - Add expense-->
+
+        <!--start::Modal - Confirm Password-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">تاكيد كلمة السر</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="kt_modal_add_expense_form" class="form" action="{{ route('check-password') }}"
+                            method="POST" enctype="multipart/form-data">
+
+
+                            @csrf
+                            <div class="fv-row mb-7">
+                                <!-- begin::Label -->
+                                <label class="required fw-semibold fs-6 mb-2">كلمة السر</label>
+                                <!-- end::Label -->
+                                <!-- begin::Input -->
+                                <input type="password" id="passwordInput" name="password"
+                                    class="form-control form-control-solid mb-3 mb-lg-0"
+                                    placeholder="الرجاء تاكيد كلمة السر" />
+                                <!-- end::Input -->
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+                                <button type="submit" id="confirmPasswordBtn" class="btn btn-primary">تأكيد</button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--end::Modal - Confirm Password-->
+
+
         <!--end::Aside-->
         <!--begin::Main-->
         <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
