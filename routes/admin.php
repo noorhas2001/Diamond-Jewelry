@@ -9,6 +9,7 @@ use App\Http\Controllers\Panel\Admin\ExpensesController;
 use App\Http\Controllers\Panel\Admin\LanguageController;
 use App\Http\Controllers\Panel\Admin\TransactionController;
 use App\Http\Controllers\Panel\Admin\WithdrawalController;
+use App\Http\Controllers\RestrectedPageController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
@@ -70,6 +71,8 @@ Route::prefix('dashboard/admin/')->group(function () {
         Route::resource('transactions' , TransactionController::class);
         Route::post('currency_delars/transactions/deleteSelected', [TransactionController::class, 'deleteSelected'])->name('transactions.deleteSelected');
 
+        Route::get('/safe', [RestrectedPageController::class, 'showSafePage'])->name('safe-page');
+        Route::post('/check-password', [RestrectedPageController::class, 'checkPassword'])->name('check-password');
 
     });
 });
