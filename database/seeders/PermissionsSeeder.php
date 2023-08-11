@@ -72,6 +72,8 @@ class PermissionsSeeder extends Seeder
             UPDATE_CURRENCY_DELAR_PERMISSION,
             DELETE_CURRENCY_DELAR_PERMISSION,
             CREATE_TRANSACTIONS_CURRENCY_DELAR_PERMISSION,
+            SAFE_MANAGEMENT_PERMISSION,
+            SAFE_PERMISSION
         ];
 
         foreach ($permissions as $permission) {

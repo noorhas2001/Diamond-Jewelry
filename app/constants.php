@@ -57,6 +57,8 @@ const READ_CURRENCY_DELAR_PERMISSION = 'عرض-تاجر-عملة';
 const UPDATE_CURRENCY_DELAR_PERMISSION = 'تحديث-تاجر-عملة';
 const DELETE_CURRENCY_DELAR_PERMISSION = 'حذف-تاجر-عملة';
 const CREATE_TRANSACTIONS_CURRENCY_DELAR_PERMISSION = 'اضافة-معاملة-تاجر-عملة';
+const SAFE_MANAGEMENT_PERMISSION = 'ادارة-الخزنة';
+const SAFE_PERMISSION = 'الخزنة';
 
 const WEEK = 7;
 const ADMIN_ROLE = 'admin_role';
