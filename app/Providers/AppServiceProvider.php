@@ -2,15 +2,11 @@
 
 namespace App\Providers;
 
-use App\Models\Category;
-use App\Models\Course;
 use App\Models\Currency;
+use App\Models\CurrencyDelar;
 use App\Models\Employee;
-use App\Models\Reservation;
-use App\Observers\CategoryObserver;
-use App\Observers\CourseObserver;
-use App\Observers\ReservationObserver;
-use Illuminate\Pagination\Paginator;
+use App\Observers\DelarObserver;
+use App\Observers\EmployeeObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -38,5 +34,9 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with(compact('employees', 'currencies'));
         });
+
+        Employee::observe(EmployeeObserver::class);
+        CurrencyDelar::observe(DelarObserver::class);
+
     }
 }
