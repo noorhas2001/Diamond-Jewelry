@@ -233,23 +233,6 @@
                                                         <!--end::Input-->
                                                     </div>
 
-                                                    <div class="fv-row mb-7">
-                                                        <!--begin::Label-->
-                                                        <label class="fs-6 fw-semibold form-label mb-2">
-                                                            <span
-                                                                class="required">{{ translate('debtsTranslation.debt_date') }}</span>
-                                                            <i class="fas fa-exclamation-circle ms-2 fs-7"
-                                                                data-bs-toggle="popover" data-bs-trigger="hover"
-                                                                data-bs-html="true"
-                                                                data-bs-content="Select a date & time."></i>
-                                                        </label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <input class="form-control form-control-solid"
-                                                            placeholder="Select a date & time." name="debt_date"
-                                                            id="kt_modal_add_debts_datepicker" />
-                                                        <!--end::Input-->
-                                                    </div>
 
 
 
