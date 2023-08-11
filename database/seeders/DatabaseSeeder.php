@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             DebtSeeder::class,
             ExpenseSeeder::class,
             // WithdrawalSeeder::class,
+            CurrencyDelarSeeder::class,
+            // TransactionSeeder::class,
         ]);
     }
 }

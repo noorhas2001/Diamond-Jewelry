@@ -50,6 +50,14 @@ const CREATE_WITHDRAWAL_PERMISSION = 'create-withdrawal';
 const READ_WITHDRAWAL_PERMISSION ='read-withdrawal';
 const UPDATE_WITHDRAWAL_PERMISSION = 'update-withdrawal';
 const DELETE_WITHDRAWAL_PERMISSION = 'delete-withdrawal';
+const CURRENCY_DELARS_MANAGEMENT_PERMISSION = 'ادارة-تجار-العملة';
+const CURRENCY_DELARS_PERMISSION = 'تجار-العملة';
+const CREAT_CURRENCY_DELAR_PERMISSION = 'اضافة-تاجر-عملة';
+const READ_CURRENCY_DELAR_PERMISSION = 'عرض-تاجر-عملة';
+const UPDATE_CURRENCY_DELAR_PERMISSION = 'تحديث-تاجر-عملة';
+const DELETE_CURRENCY_DELAR_PERMISSION = 'حذف-تاجر-عملة';
+const CREATE_TRANSACTIONS_CURRENCY_DELAR_PERMISSION = 'اضافة-معاملة-تاجر-عملة';
+
 const WEEK = 7;
 const ADMIN_ROLE = 'admin_role';
 const ADMIN_PLAN = 'admin_plan';
