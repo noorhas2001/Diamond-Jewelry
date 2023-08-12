@@ -75,6 +75,13 @@ class PermissionsSeeder extends Seeder
             READ_DEPOSIT_PERMISSION,
             UPDATE_DEPOSIT_PERMISSION,
             DELETE_DEPOSIT_PERMISSION,
+            CONTRIBUTORS_MANAGEMENT_PERMISSION,
+            CONTRIBUTORS_PERMISSION,
+            CREAT_CONTRIBUTOR_PERMISSION,
+            READ_CONTRIBUTOR_PERMISSION,
+            UPDATE_CONTRIBUTOR_PERMISSION,
+            DELETE_CONTRIBUTOR_PERMISSION,
+            CREATE_TRANSACTIONS_CONTRIBUTOR_PERMISSION,
         ];
 
         foreach ($permissions as $permission) {

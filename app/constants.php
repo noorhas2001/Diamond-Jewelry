@@ -60,6 +60,14 @@ const CREATE_DEPOSIT_PERMISSION = 'اضافة-ايداع';
 const READ_DEPOSIT_PERMISSION ='عرض-ايداع';
 const UPDATE_DEPOSIT_PERMISSION = 'تحديث-ايداع';
 const DELETE_DEPOSIT_PERMISSION = 'حذف-ايداع';
+const CONTRIBUTORS_MANAGEMENT_PERMISSION = 'ادارة-المساهمين';
+const CONTRIBUTORS_PERMISSION = 'المساهمين';
+const CREAT_CONTRIBUTOR_PERMISSION = 'اضافة-مساهم';
+const READ_CONTRIBUTOR_PERMISSION = 'عرض-مساهم';
+const UPDATE_CONTRIBUTOR_PERMISSION = 'تحديث-مساهم';
+const DELETE_CONTRIBUTOR_PERMISSION = 'حذف-مساهم';
+const CREATE_TRANSACTIONS_CONTRIBUTOR_PERMISSION = 'اضافة-معاملة-مساهم';
+
 
 const WEEK = 7;
 const ADMIN_ROLE = 'admin_role';
