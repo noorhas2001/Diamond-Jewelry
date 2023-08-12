@@ -35,11 +35,6 @@ class PermissionsSeeder extends Seeder
             UPDATE_EMPLOYEE_PERMISSION,
             DELETE_EMPLOYEE_PERMISSION,
             SETTINGS_MANAGEMENT_PERMISSION,
-            SLIDERS_PERMISSION,
-            CREATE_SLIDER_PERMISSION,
-            READ_SLIDER_PERMISSION,
-            UPDATE_SLIDER_PERMISSION,
-            DELETE_SLIDER_PERMISSION,
             SETTINGS_PERMISSION,
             CREATE_SETTING_PERMISSION,
             READ_SETTING_PERMISSION,
@@ -73,7 +68,13 @@ class PermissionsSeeder extends Seeder
             DELETE_CURRENCY_DELAR_PERMISSION,
             CREATE_TRANSACTIONS_CURRENCY_DELAR_PERMISSION,
             SAFE_MANAGEMENT_PERMISSION,
-            SAFE_PERMISSION
+            SAFE_PERMISSION,
+            DEPOSITS_MANAGEMENT_PERMISSION,
+            DEPOSITS_PERMISSION,
+            CREATE_DEPOSIT_PERMISSION,
+            READ_DEPOSIT_PERMISSION,
+            UPDATE_DEPOSIT_PERMISSION,
+            DELETE_DEPOSIT_PERMISSION,
         ];
 
         foreach ($permissions as $permission) {
