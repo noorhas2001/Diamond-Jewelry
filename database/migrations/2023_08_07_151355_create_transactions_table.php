@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('delar_id');
+            $table->foreignId('delar_id')->nullable();
+            $table->foreignId('contributor_id')->nullable();
             $table->enum('transaction_type', ['استلام', 'دفعة']);
             $table->decimal('amount',AMOUNT_TOTAL_DIGITS, AMOUNT_TOTAL_DIGITS_FLOAT);
             $table->foreignId('currency_id');
