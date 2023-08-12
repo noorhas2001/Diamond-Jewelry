@@ -17,6 +17,18 @@ class TransactionSeeder extends Seeder
         $transactions = [
             [
                 'delar_id' => 1,
+                'contributor_id' => null,
+                'transaction_type' => 'استلام',
+                'amount' => 1000.50,
+                'currency_id' => 1,
+                'date' => '2023-08-07 12:00:00',
+                'notes' => 'Withdrawal for expenses',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'delar_id' => null,
+                'contributor_id' => 1,
                 'transaction_type' => 'استلام',
                 'amount' => 1000.50,
                 'currency_id' => 1,
