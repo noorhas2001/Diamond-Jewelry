@@ -16,33 +16,4 @@ class CurrencyDelar extends Model
     {
         return $this->hasMany(Transaction::class, 'delar_id');
     }
-
-    // public function shekels_balance(): int
-    // {
-    //     $withdrawalTransactions = $this->transactions->where('transaction_type', 'سحب')
-    //         ->where('currency_id', 2);
-
-    //     $withdrawalAmount = $withdrawalTransactions->sum('amount');
-
-    //     return $this->shekels_balance - $withdrawalAmount;
-    // }
-    // public function dollars_balance(): int
-    // {
-    //     $withdrawalTransactions = $this->transactions->where('transaction_type', 'سحب')
-    //         ->where('currency_id', 1);
-
-    //     $withdrawalAmount = $withdrawalTransactions->sum('amount');
-
-    //     return $this->dollars_balance - $withdrawalAmount;
-    // }
-    // public function dinars_balance(): int
-    // {
-    //     $withdrawalTransactions = $this->transactions->where('transaction_type', 'سحب')
-    //         ->where('currency_id', 3);
-
-    //     $withdrawalAmount = $withdrawalTransactions->sum('amount');
-
-    //     return $this->dinars_balance - $withdrawalAmount;
-    // }
-
 }
