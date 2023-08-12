@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
+use App\Models\Contributor;
 use App\Models\CurrencyDelar;
 use App\Models\Transaction;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class TransactionService
@@ -14,7 +14,8 @@ class TransactionService
     public function store(array $data)
     {
         $validator = Validator::make($data, [
-            'delar_id' => 'required|exists:currency_delars,id',
+            'delar_id' => 'nullable|exists:currency_delars,id',
+            'contributor_id' => 'nullable|exists:contributors,id',
             'transaction_type' => 'required|in:دفعة,استلام',
             'amount' => 'required|numeric|min:0',
             'currency_id' => 'required|exists:currencies,id',
@@ -28,7 +29,8 @@ class TransactionService
 
         try {
             $transaction = Transaction::create([
-                'delar_id' => $data['delar_id'],
+                'delar_id' => $data['delar_id'] ?? null,
+                'contributor_id' => $data['contributor_id'] ?? null,
                 'transaction_type' => $data['transaction_type'],
                 'amount' => $data['amount'],
                 'currency_id' => $data['currency_id'],
@@ -47,18 +49,37 @@ class TransactionService
 
     private function updateCurrencyBalance(Transaction $transaction)
     {
-        $delar = CurrencyDelar::find($transaction->delar_id);
-        if ($delar) {
-            $currencyField = $this->getCurrencyField($transaction->currency_id);
+        $delarId = $transaction->delar_id ?? $transaction->contributor_id;
 
-            if ($transaction->transaction_type == 'دفعة') {
-                $delar->$currencyField -= $transaction->amount;
-            } elseif ($transaction->transaction_type == 'استلام') {
-                $delar->$currencyField += $transaction->amount;
-            }
-
-            $delar->save();
+        if (!$delarId) {
+            return;
         }
+
+        $delarType = $transaction->delar_id ? CurrencyDelar::class : Contributor::class;
+        $delar = $delarType::find($delarId);
+
+        if (!$delar) {
+            return;
+        }
+
+        $currencyField = $this->getCurrencyField($transaction->currency_id);
+
+        if ($currencyField === null) {
+            return;
+        }
+
+        $amount = $transaction->amount;
+
+        if ($transaction->transaction_type == 'استلام') {
+            $amount *= 1; // You can add any necessary calculations here
+        } elseif ($transaction->transaction_type == 'دفعة') {
+            $amount *= -1; // Multiply by -1 to subtract
+        } else {
+            return;
+        }
+
+        $delar->$currencyField += $amount;
+        $delar->save();
     }
 
     private function getCurrencyField($currencyId)
