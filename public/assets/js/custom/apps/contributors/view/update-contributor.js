@@ -6,7 +6,7 @@ $("#kt_modal_add_schedule_datepicker_two").flatpickr({
 });
 
 // Class definition
-const KTdelarUpdateDetails = function () {
+const KTcontributorUpdateDetails = function () {
 
 
     let table = document.getElementById('kt_table_transactions');
@@ -128,10 +128,10 @@ const KTdelarUpdateDetails = function () {
     const initUpdateDetails = () => {
         // Shared variables
         const element = document.getElementById('kt_modal_update_details');
-        const form = element.querySelector('#kt_modal_update_delar_form');
+        const form = element.querySelector('#kt_modal_update_contributor_form');
         const modal = new bootstrap.Modal(element);
         // Close button handler
-        const closeButton = element.querySelector('[data-kt-delars-modal-action="close"]');
+        const closeButton = element.querySelector('[data-kt-contributors-modal-action="close"]');
         closeButton.addEventListener('click', e => {
             e.preventDefault();
 
@@ -165,7 +165,7 @@ const KTdelarUpdateDetails = function () {
         });
 
         // Cancel button handler
-        const cancelButton = element.querySelector('[data-kt-delars-modal-action="cancel"]');
+        const cancelButton = element.querySelector('[data-kt-contributors-modal-action="cancel"]');
         cancelButton.addEventListener('click', e => {
             e.preventDefault();
 
@@ -230,7 +230,7 @@ const KTdelarUpdateDetails = function () {
         );
 
         // Submit button handler
-        const submitButton = element.querySelector('[data-kt-delars-modal-action="submit"]');
+        const submitButton = element.querySelector('[data-kt-contributors-modal-action="submit"]');
         submitButton.addEventListener('click', function (e) {
             // Prevent default button action
             e.preventDefault();
@@ -467,10 +467,10 @@ const KTdelarUpdateDetails = function () {
         const checkboxes = table.querySelectorAll('[type="checkbox"]');
 
         // Select elements
-        toolbarBase = document.querySelector('[data-kt-delar-table-toolbar="base"]');
-        toolbarSelected = document.querySelector('[data-kt-delar-table-toolbar="selected"]');
-        selectedCount = document.querySelector('[data-kt-delar-table-select="selected_count"]');
-        const deleteSelected = document.querySelector('[data-kt-delar-table-select="delete_selected"]');
+        toolbarBase = document.querySelector('[data-kt-contributor-table-toolbar="base"]');
+        toolbarSelected = document.querySelector('[data-kt-contributor-table-toolbar="selected"]');
+        selectedCount = document.querySelector('[data-kt-contributor-table-select="selected_count"]');
+        const deleteSelected = document.querySelector('[data-kt-contributor-table-select="delete_selected"]');
 
         // Toggle delete selected toolbar
         checkboxes.forEach(c => {
@@ -543,7 +543,7 @@ const KTdelarUpdateDetails = function () {
 
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
-                        text: "المعاملات المختارة لم يتم حذفها",
+                        text: "المعاملات المختارة لم يتم حذفهم",
                         icon: "error",
                         buttonsStyling: false,
                         confirmButtonText: "حسنا ، اذهب!",
@@ -599,5 +599,5 @@ const KTdelarUpdateDetails = function () {
 
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
-    KTdelarUpdateDetails.init();
+    KTcontributorUpdateDetails.init();
 });

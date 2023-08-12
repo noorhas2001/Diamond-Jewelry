@@ -1,32 +1,24 @@
-"use strict";
-
-$("#kt_modal_add_schedule_datepicker_two").flatpickr({
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-});
-
-// Class definition
-const KTdelarUpdateDetails = function () {
-
-
-    let table = document.getElementById('kt_table_transactions');
+var KTcontributorsList = function () {
+    let table = document.getElementById('kt_table_contributors');
     let datatable;
     let toolbarBase;
     let toolbarSelected;
     let selectedCount;
+
     toastr.options = {
         "positionClass": "toastr-bottom-left",
     };
 
-    let initTransactionTable = function () {
+
+    let initcontributorsTable = function () {
         datatable = $(table).DataTable({
             "info": false,
             'order': [],
-            "pageLength": 5,
+            "pageLength": 10,
             "lengthChange": false,
             'columnDefs': [
                 { orderable: false, targets: 0 }, // Disable ordering on column 0 (checkbox)
-                { orderable: false, targets: 5 }, // Disable ordering on column 6 (actions)
+                { orderable: false, targets: 6 }, // Disable ordering on column 6 (actions)
             ],
             fixedColumns: {
                 left: 1,
@@ -42,162 +34,22 @@ const KTdelarUpdateDetails = function () {
         });
     }
 
-
-    // Delete subscirption
-    let handleDeleteRows = () => {
-        // Select all delete buttons
-        const deleteButtons = table.querySelectorAll('[data-kt-transcation-table-filter="delete_row"]');
-
-
-
-        deleteButtons.forEach(d => {
-            // Delete button on click
-            d.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                // Select parent row
-                const parent = e.target.closest('tr');
-
-                let statusElement = parent.querySelector('[data-status="status"]')
-
-                // Select all delete form
-                const deletForm = parent.querySelector('[data-kt-transaction-table-filter="delete_form"]');
-
-                // SweetAlert2 pop up --- official docs reference: https://sweetalert2.github.io/
-                Swal.fire({
-                    text: "هل أنت متأكد من أنك تريد حذف المعاملة ؟",
-                    icon: "warning",
-                    showCancelButton: true,
-                    buttonsStyling: false,
-                    confirmButtonText: "نعم ، احذف!",
-                    cancelButtonText: "لا ، ارجع",
-                    customClass: {
-                        confirmButton: "btn fw-bold btn-danger",
-                        cancelButton: "btn fw-bold btn-active-light-primary"
-                    }
-                }).then(function (result) {
-                    if (result.value) {
-                        // Remove current row
-                        let Url = deletForm.action;
-                        let method = deletForm.method;
-                        let csrfToken = $('meta[name="csrf-token"]').attr('content');
-                        $.ajax({
-                            url: Url,
-                            type: method,
-                            headers: {
-                                'X-CSRF-TOKEN': csrfToken,
-                            },
-                            data: {
-                                '_method': 'delete'
-                            },
-                            success: function (response) {
-                                if (response.status == 'success') {
-                                    toastr.success(response.message);
-                                    datatable.row($(parent)).remove().draw();
-                                } else if (response.status == 'warning') {
-                                    toastr.warning(response.message);
-                                } else if (response.status == 'error') {
-                                    toastr.error(response.message);
-                                }
-                                console.log(response.message)
-                            },
-                            error: function (xhr, status, error) {
-                                console.log(error);
-                            }
-                        });
-
-
-
-                    } else if (result.dismiss === 'cancel') {
-                        Swal.fire({
-                            text: "لم يتم حذف المعاملة",
-                            icon: "error",
-                            buttonsStyling: false,
-                            confirmButtonText: "حسنا ، اذهب!",
-                            customClass: {
-                                confirmButton: "btn fw-bold btn-primary",
-                            }
-                        });
-                    }
-                });
-            })
+    // Search Datatable --- official docs reference: https://datatables.net/reference/api/search()
+    let handleSearchDatatable = () => {
+        const filterSearch = document.querySelector('[data-kt-contributors-table-filter="search"]');
+        filterSearch.addEventListener('keyup', function (e) {
+            datatable.search(e.target.value).draw();
         });
     }
 
-    // Init add schedule modal
-    const initUpdateDetails = () => {
+    let handleAddcontributor = () => {
         // Shared variables
-        const element = document.getElementById('kt_modal_update_details');
-        const form = element.querySelector('#kt_modal_update_delar_form');
+        const element = document.getElementById('kt_modal_add_contributor');
+        const form = element.querySelector('#kt_modal_add_contributor_form');
         const modal = new bootstrap.Modal(element);
-        // Close button handler
-        const closeButton = element.querySelector('[data-kt-delars-modal-action="close"]');
-        closeButton.addEventListener('click', e => {
-            e.preventDefault();
 
-            Swal.fire({
-                text: "هل أنت متأكد أنك تريد الإلغاء؟",
-                icon: "warning",
-                showCancelButton: true,
-                buttonsStyling: true,
-                confirmButtonText: "نعم ، قم بإلغائها!",
-                cancelButtonText: "لا، ارجع",
-                customClass: {
-                    confirmButton: "btn btn-primary",
-                    cancelButton: "btn btn-active-light"
-                }
-            }).then(function (result) {
-                if (result.value) {
-                    form.reset(); // Reset form
-                    modal.hide(); // Hide modal
-                } else if (result.dismiss === 'cancel') {
-                    Swal.fire({
-                        text: "لم يتم إلغاء النموذج الخاص بك !.",
-                        icon: "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "حسنًا ، اذهب!",
-                        customClass: {
-                            confirmButton: "btn btn-primary",
-                        }
-                    });
-                }
-            });
-        });
 
-        // Cancel button handler
-        const cancelButton = element.querySelector('[data-kt-delars-modal-action="cancel"]');
-        cancelButton.addEventListener('click', e => {
-            e.preventDefault();
-
-            Swal.fire({
-                text: "هل أنت متأكد أنك تريد الإلغاء؟",
-                icon: "warning",
-                showCancelButton: true,
-                buttonsStyling: true,
-                confirmButtonText: "نعم ، قم بإلغائها!",
-                cancelButtonText: "لا، ارجع",
-                customClass: {
-                    confirmButton: "btn btn-primary",
-                    cancelButton: "btn btn-active-light"
-                }
-            }).then(function (result) {
-                if (result.value) {
-                    form.reset(); // Reset form
-                    modal.hide(); // Hide modal
-                } else if (result.dismiss === 'cancel') {
-                    Swal.fire({
-                        text: "لم يتم إلغاء النموذج الخاص بك !.",
-                        icon: "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "حسنًا ، اذهب!",
-                        customClass: {
-                            confirmButton: "btn btn-primary",
-                        }
-                    });
-                }
-            });
-        });
-
+        // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
         const validator = FormValidation.formValidation(
             form,
             {
@@ -205,7 +57,7 @@ const KTdelarUpdateDetails = function () {
                     'name': {
                         validators: {
                             notEmpty: {
-                                message: 'الاسم  مطلوب'
+                                message: 'الاسم مطلوب'
                             }
                         }
                     },
@@ -230,13 +82,15 @@ const KTdelarUpdateDetails = function () {
         );
 
         // Submit button handler
-        const submitButton = element.querySelector('[data-kt-delars-modal-action="submit"]');
-        submitButton.addEventListener('click', function (e) {
-            // Prevent default button action
+        const submitButton = element.querySelector('[data-kt-contributors-modal-action="submit"]');
+        submitButton.addEventListener('click', e => {
             e.preventDefault();
 
+            // Validate form before submit
             if (validator) {
                 validator.validate().then(function (status) {
+                    console.log('validated!');
+
                     if (status === 'Valid') {
                         // Show loading indication
                         submitButton.setAttribute('data-kt-indicator', 'on');
@@ -281,11 +135,78 @@ const KTdelarUpdateDetails = function () {
                             }
                         });
                     }
-                })
+                });
             }
-
         });
-    };
+
+        // Cancel button handler
+        const cancelButton = element.querySelector('[data-kt-contributors-modal-action="cancel"]');
+        cancelButton.addEventListener('click', e => {
+            e.preventDefault();
+
+            Swal.fire({
+                text: "هل أنت متأكد أنك تريد الإلغاء؟",
+                icon: "warning",
+                showCancelButton: true,
+                buttonsStyling: true,
+                confirmButtonText: "نعم ، قم بإلغائها!",
+                cancelButtonText: "لا، ارجع",
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                    cancelButton: "btn btn-active-light"
+                }
+            }).then(function (result) {
+                if (result.value) {
+                    form.reset(); // Reset form
+                    modal.hide();
+                } else if (result.dismiss === 'cancel') {
+                    Swal.fire({
+                        text: "لم يتم إلغاء النموذج الخاص بك !.",
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "حسنًا ، اذهب!",
+                        customClass: {
+                            confirmButton: "btn btn-primary",
+                        }
+                    });
+                }
+            });
+        });
+
+        // Close button handler
+        const closeButton = element.querySelector('[data-kt-contributors-modal-action="close"]');
+        closeButton.addEventListener('click', e => {
+            e.preventDefault();
+
+            Swal.fire({
+                text: "هل أنت متأكد أنك تريد الإلغاء؟",
+                icon: "warning",
+                showCancelButton: true,
+                buttonsStyling: true,
+                confirmButtonText: "نعم ، قم بإلغائها!",
+                cancelButtonText: "لا، ارجع",
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                    cancelButton: "btn btn-active-light"
+                }
+            }).then(function (result) {
+                if (result.value) {
+                    form.reset(); // Reset form
+                    modal.hide();
+                } else if (result.dismiss === 'cancel') {
+                    Swal.fire({
+                        text: "لم يتم إلغاء النموذج الخاص بك !.",
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "حسنًا ، اذهب!",
+                        customClass: {
+                            confirmButton: "btn btn-primary",
+                        }
+                    });
+                }
+            });
+        });
+    }
 
     let handleAddTransaction = () => {
         // Shared variables
@@ -299,24 +220,17 @@ const KTdelarUpdateDetails = function () {
             form,
             {
                 fields: {
-                    'transaction_type': {
+                    'name': {
                         validators: {
                             notEmpty: {
-                                message: 'نوع المعاملة مطلوب'
+                                message: 'الاسم مطلوب'
                             }
                         }
                     },
-                    'amount': {
+                    'phone': {
                         validators: {
                             notEmpty: {
-                                message: 'المبلغ مطلوب '
-                            }
-                        }
-                    },
-                    'currency_id': {
-                        validators: {
-                            notEmpty: {
-                                message: 'نوع العملة مطلوب '
+                                message: 'رقم الهاتف مطلوب '
                             }
                         }
                     },
@@ -459,6 +373,81 @@ const KTdelarUpdateDetails = function () {
             });
         });
     }
+    // Delete contributors
+    let handleDeleteRows = () => {
+        // Select all delete buttons
+        const deleteButtons = table.querySelectorAll('[data-kt-contributors-table-filter="delete_row"]');
+
+        deleteButtons.forEach(d => {
+            // Delete button on click
+            d.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Select parent row
+                const parent = e.target.closest('tr');
+                const contributorName = parent.querySelectorAll('td')[1].innerText;
+                // Select all delete form
+                const deletForm = parent.querySelector('[data-kt-contributors-table-filter="delete_form"]');
+
+                // SweetAlert2 pop up --- official docs reference: https://sweetalert2.github.io/
+                Swal.fire({
+                    text: "هل أنت متأكد من أنك تريد حذف  " + contributorName + "؟",
+                    icon: "warning",
+                    showCancelButton: true,
+                    buttonsStyling: false,
+                    confirmButtonText: "نعم ، احذف!",
+                    cancelButtonText: "لا ، ارجع",
+                    customClass: {
+                        confirmButton: "btn fw-bold btn-danger",
+                        cancelButton: "btn fw-bold btn-active-light-primary"
+                    }
+                }).then(function (result) {
+                    if (result.value) {
+                        // Remove current row
+                        let Url = deletForm.action;
+                        let method = deletForm.method;
+                        let csrfToken = $('meta[name="csrf-token"]').attr('content');
+                        $.ajax({
+                            url: Url,
+                            type: method,
+                            headers: {
+                                'X-CSRF-TOKEN': csrfToken,
+                            },
+                            data: {
+                                '_method': 'delete'
+                            },
+                            success: function (response) {
+                                if (response.status == 'success') {
+                                    toastr.success(response.message);
+                                    datatable.row($(parent)).remove().draw();
+                                } else if (response.status == 'warning') {
+                                    toastr.warning(response.message);
+                                } else if (response.status == 'error') {
+                                    toastr.error(response.message);
+                                }
+                                console.log(response.message)
+                            },
+                            error: function (xhr, status, error) {
+                                console.log(error);
+                            }
+                        }).then(function () {
+                            // Detect checked checkboxes
+                            toggleToolbars();
+                        });
+                    } else if (result.dismiss === 'cancel') {
+                        Swal.fire({
+                            text: contributorName + " لم يتم حذفه .",
+                            icon: "error",
+                            buttonsStyling: false,
+                            confirmButtonText: "حسنا ، اذهب!",
+                            customClass: {
+                                confirmButton: "btn fw-bold btn-primary",
+                            }
+                        });
+                    }
+                });
+            })
+        });
+    }
 
     // Init toggle toolbar
     let initToggleToolbar = () => {
@@ -467,10 +456,10 @@ const KTdelarUpdateDetails = function () {
         const checkboxes = table.querySelectorAll('[type="checkbox"]');
 
         // Select elements
-        toolbarBase = document.querySelector('[data-kt-delar-table-toolbar="base"]');
-        toolbarSelected = document.querySelector('[data-kt-delar-table-toolbar="selected"]');
-        selectedCount = document.querySelector('[data-kt-delar-table-select="selected_count"]');
-        const deleteSelected = document.querySelector('[data-kt-delar-table-select="delete_selected"]');
+        toolbarBase = document.querySelector('[data-kt-contributor-table-toolbar="base"]');
+        toolbarSelected = document.querySelector('[data-kt-contributor-table-toolbar="selected"]');
+        selectedCount = document.querySelector('[data-kt-contributor-table-select="selected_count"]');
+        const deleteSelected = document.querySelector('[data-kt-contributor-table-select="delete_selected"]');
 
         // Toggle delete selected toolbar
         checkboxes.forEach(c => {
@@ -486,7 +475,7 @@ const KTdelarUpdateDetails = function () {
         deleteSelected.addEventListener('click', function () {
             // SweetAlert2 pop up --- official docs reference: https://sweetalert2.github.io/
             Swal.fire({
-                text: "هل أنت متأكد من أنك تريد حذف المعاملات المختارة",
+                text: "هل أنت متأكد من أنك تريد حذف المساهمين المختارين",
                 icon: "warning",
                 showCancelButton: true,
                 buttonsStyling: false,
@@ -511,7 +500,7 @@ const KTdelarUpdateDetails = function () {
                         selectedData: filterSelectedData
                     };
                     $.ajax({
-                        url: 'transactions/deleteSelected',
+                        url: 'contributors/deleteSelected',
                         type: 'POST',
                         data: data,
                         headers: {
@@ -529,7 +518,7 @@ const KTdelarUpdateDetails = function () {
                     headerCheckbox.checked = false;
 
                     Swal.fire({
-                        text: "لقد حذفت جميع المعاملات المختارة!.",
+                        text: "لقد حذفت جميع المساهمين المختارين!.",
                         icon: "success",
                         buttonsStyling: false,
                         confirmButtonText: "حسنا، اذهب",
@@ -543,7 +532,7 @@ const KTdelarUpdateDetails = function () {
 
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
-                        text: "المعاملات المختارة لم يتم حذفها",
+                        text: "المساهمين المختارين لم يتم حذفهم",
                         icon: "error",
                         buttonsStyling: false,
                         confirmButtonText: "حسنا ، اذهب!",
@@ -584,20 +573,25 @@ const KTdelarUpdateDetails = function () {
         }
     }
 
+
     return {
         // Public functions
         init: function () {
-            initTransactionTable();
+            if (!table) {
+                return;
+            }
+
+            initcontributorsTable();
+            handleSearchDatatable();
             initToggleToolbar();
             handleDeleteRows();
-            initUpdateDetails();
+            handleAddcontributor();
             handleAddTransaction();
 
         }
-    };
+    }
 }();
 
-// On document ready
 KTUtil.onDOMContentLoaded(function () {
-    KTdelarUpdateDetails.init();
+    KTcontributorsList.init();
 });
