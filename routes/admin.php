@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FeatureFlagController;
 use App\Http\Controllers\Panel\Admin\AdminController;
+use App\Http\Controllers\Panel\Admin\ContributorController;
 use App\Http\Controllers\Panel\Admin\CurrencyDelarController;
 use App\Http\Controllers\Panel\Admin\DebtController;
 use App\Http\Controllers\Panel\Admin\DepositController;
@@ -66,17 +67,24 @@ Route::prefix('dashboard/admin/')->group(function () {
         Route::resource('withdrawals', WithdrawalController::class);
         Route::post('/withdrawals/deleteSelected', [WithdrawalController::class, 'deleteSelected'])->name('withdrawals.deleteSelected');
 
+        Route::resource('transactions', TransactionController::class);
+
         Route::resource('currency_delars', CurrencyDelarController::class);
         Route::post('/currency_delars/deleteSelected', [CurrencyDelarController::class, 'deleteSelected'])->name('currency_delars.deleteSelected');
-
-        Route::resource('transactions', TransactionController::class);
         Route::post('currency_delars/transactions/deleteSelected', [TransactionController::class, 'deleteSelected'])->name('transactions.deleteSelected');
+
+        Route::resource('contributors', ContributorController::class);
+        Route::post('/contributors/deleteSelected', [ContributorController::class, 'deleteSelected'])->name('contributors.deleteSelected');
+        Route::post('contributors/transactions/deleteSelected', [TransactionController::class, 'deleteSelected'])->name('transactions.deleteSelected');
+
 
         Route::get('/safe', [RestrectedPageController::class, 'showSafePage'])->name('safe-page');
         Route::post('/check-password', [RestrectedPageController::class, 'checkPassword'])->name('check-password');
 
         Route::resource('deposits', DepositController::class);
         Route::post('/deposits/deleteSelected', [DepositController::class, 'deleteSelected'])->name('deposits.deleteSelected');
+
+
 
     });
 });
