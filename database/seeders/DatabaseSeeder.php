@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             // WithdrawalSeeder::class,
             CurrencyDelarSeeder::class,
             // TransactionSeeder::class,
+            DepositSeeder::class,
         ]);
     }
 }
