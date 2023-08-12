@@ -352,7 +352,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="kt_modal_add_expense_form" class="form" action="{{ route('check-password') }}"
+                        <form id="check_password" class="form" action="{{ route('check-password') }}"
                             method="POST" enctype="multipart/form-data">
 
 

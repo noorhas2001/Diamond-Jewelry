@@ -12,14 +12,14 @@
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        قائمة تجار العملة</h1>
+                        قائمة المساهمين</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
                             <a href="{{ route('dashboard') }}" class="text-muted text-hover-primary">
-                                {{ translate('employeeTranslation.Dashborad') }}</a>
+                                لوحة التحكم</a>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -29,8 +29,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="{{ route('currency_delars.index') }}" class="text-muted text-hover-primary">تجار
-                                العملة</a>
+                            <a href="{{ route('contributors.index') }}" class="text-muted text-hover-primary">المساهمين</a>
                         </li>
                         <!--end::Item-->
                     </ul>
@@ -66,8 +65,8 @@
                                 </span>
                                 <!--end::Svg Icon-->
 
-                                <input type="text" data-kt-delars-table-filter="search"
-                                    class="form-control form-control-solid w-250px ps-14" placeholder=" ابحث عن تاجر " />
+                                <input type="text" data-kt-contributors-table-filter="search"
+                                    class="form-control form-control-solid w-250px ps-14" placeholder=" ابحث عن مساهم " />
 
                             </div>
                             <!--end::Search-->
@@ -76,11 +75,11 @@
                         <!--begin::Card toolbar-->
                         <div class="card-toolbar">
                             <!--begin::Toolbar-->
-                            <div class="d-flex justify-content-end" data-kt-delar-table-toolbar="base">
+                            <div class="d-flex justify-content-end" data-kt-contributor-table-toolbar="base">
                                 <!--begin::Add Category-->
-                                @can(CREAT_CURRENCY_DELAR_PERMISSION)
+                                @can(CREAT_CONTRIBUTOR_PERMISSION)
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#kt_modal_add_delar">
+                                        data-bs-target="#kt_modal_add_contributor">
                                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                                         <span class="svg-icon svg-icon-2">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -91,11 +90,11 @@
                                                     fill="currentColor" />
                                             </svg>
                                         </span>
-                                        <!--end::Svg Icon--> اضافة تاجر جديد
+                                        <!--end::Svg Icon--> اضافة مساهم جديد
                                     </button>
                                 @endcan
 
-                                @can(CREATE_TRANSACTIONS_CURRENCY_DELAR_PERMISSION)
+                                @can(CREATE_TRANSACTIONS_CONTRIBUTOR_PERMISSION)
                                     <button type="button" class="btn btn-primary" style="margin-right: 20px"
                                         data-bs-toggle="modal" data-bs-target="#kt_modal_add_transaction">
                                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
@@ -117,30 +116,30 @@
                             <!--end::Toolbar-->
                             <!--begin::Group actions-->
                             <div class="d-flex justify-content-end align-items-center d-none"
-                                data-kt-delar-table-toolbar="selected">
+                                data-kt-contributor-table-toolbar="selected">
                                 <div class="fw-bold me-5">
                                     <span class="me-2"
-                                        data-kt-delar-table-select="selected_count"></span>{{ translate('employeeTranslation.Selected') }}
+                                        data-kt-contributor-table-select="selected_count"></span>{{ translate('employeeTranslation.Selected') }}
                                 </div>
                                 <button type="button" class="btn btn-danger"
-                                    data-kt-delar-table-select="delete_selected">{{ translate('employeeTranslation.DeleteSelected') }}
+                                    data-kt-contributor-table-select="delete_selected">{{ translate('employeeTranslation.DeleteSelected') }}
                                 </button>
                             </div>
                             <!--end::Group actions-->
-                            <!--begin::Modal - Add Delar-->
-                            <div class="modal fade" id="kt_modal_add_delar" tabindex="-1" aria-hidden="true">
+                            <!--begin::Modal - Add contributor-->
+                            <div class="modal fade" id="kt_modal_add_contributor" tabindex="-1" aria-hidden="true">
                                 <!--begin::Modal dialog-->
                                 <div class="modal-dialog modal-dialog-centered mw-650px">
                                     <!--begin::Modal content-->
                                     <div class="modal-content">
                                         <!--begin::Modal header-->
-                                        <div class="modal-header" id="kt_modal_add_delar_header">
+                                        <div class="modal-header" id="kt_modal_add_contributor_header">
                                             <!--begin::Modal title-->
-                                            <h2 class="fw-bold">اضافة تاجر عملة</h2>
+                                            <h2 class="fw-bold">اضافة مساهم</h2>
                                             <!--end::Modal title-->
                                             <!--begin::Close-->
                                             <div class="btn btn-icon btn-sm btn-active-icon-primary"
-                                                data-kt-delars-modal-action="close">
+                                                data-kt-contributors-modal-action="close">
                                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
                                                 <span class="svg-icon svg-icon-1">
                                                     <svg width="24" height="24" viewBox="0 0 24 24"
@@ -161,19 +160,19 @@
                                         <!--begin::Modal body-->
                                         <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                                             <!--begin::Form-->
-                                            <form id="kt_modal_add_delar_form" class="form"
-                                                action="{{ route('currency_delars.store') }}" method="POST"
+                                            <form id="kt_modal_add_contributor_form" class="form"
+                                                action="{{ route('contributors.store') }}" method="POST"
                                                 enctype="multipart/form-data">
 
 
                                                 @csrf
                                                 <!--begin::Scroll-->
                                                 <div class="d-flex flex-column scroll-y me-n7 pe-7"
-                                                    id="kt_modal_add_delar_scroll" data-kt-scroll="true"
+                                                    id="kt_modal_add_contributor_scroll" data-kt-scroll="true"
                                                     data-kt-scroll-activate="{default: false, lg: true}"
                                                     data-kt-scroll-max-height="auto"
-                                                    data-kt-scroll-dependencies="#kt_modal_add_delar_header"
-                                                    data-kt-scroll-wrappers="#kt_modal_add_delar_scroll"
+                                                    data-kt-scroll-dependencies="#kt_modal_add_contributor_header"
+                                                    data-kt-scroll-wrappers="#kt_modal_add_contributor_scroll"
                                                     data-kt-scroll-offset="300px">
                                                     <!--begin::Input group-->
 
@@ -183,16 +182,16 @@
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
                                                         <label
-                                                            class="required fw-semibold fs-6 mb-2">اسم التاجر</label>
+                                                            class="required fw-semibold fs-6 mb-2">{{ translate('employeeTranslation.Employeename') }}</label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
                                                         <input type="text" name="name"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
-                                                            placeholder="اسم التاجر" required />
+                                                            placeholder="اسم المساهم" required />
                                                         <!--end::Input-->
                                                     </div>
                                                     <!--end::Input group-->
-                                                    <!--begin::Input group select delar-->
+                                                    <!--begin::Input group select contributor-->
 
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
@@ -261,10 +260,10 @@
                                                 <!--begin::Actions-->
                                                 <div class="text-center pt-15">
                                                     <button type="reset" class="btn btn-light me-3"
-                                                        data-kt-delars-modal-action="cancel">{{ translate('employeeTranslation.cancel') }}
+                                                        data-kt-contributors-modal-action="cancel">{{ translate('employeeTranslation.cancel') }}
                                                     </button>
                                                     <button type="submit" class="btn btn-primary"
-                                                        data-kt-delars-modal-action="submit">
+                                                        data-kt-contributors-modal-action="submit">
                                                         <span
                                                             class="indicator-label">{{ translate('employeeTranslation.add') }}</span>
                                                         <span
@@ -283,7 +282,7 @@
                                 </div>
                                 <!--end::Modal dialog-->
                             </div>
-                            <!--end::Modal - Add Delar-->
+                            <!--end::Modal - Add contributor-->
 
 
                             <!--begin::Modal - Add Transaction-->
@@ -341,18 +340,18 @@
                                                     <!--begin::Input group-->
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
-                                                        <label class="required fw-semibold fs-6 mb-2">التاجر</label>
+                                                        <label class="required fw-semibold fs-6 mb-2">المساهم</label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
                                                         <!--begin::Col-->
                                                         <div class="col-6">
-                                                            <select name="delar_id"
+                                                            <select name="contributor_id"
                                                                 class="form-select form-select-solid"
                                                                 data-control="select2" data-hide-search="true"
-                                                                data-placeholder="التاجر" required>
-                                                                @foreach ($currencyDelars as $cd)
-                                                                    <option value="{{ $cd->id }}">
-                                                                        {{ $cd->name }}
+                                                                data-placeholder="المساهم" required>
+                                                                @foreach ($contributors as $contributor)
+                                                                    <option value="{{ $contributor->id }}">
+                                                                        {{ $contributor->name }}
                                                                     </option>
                                                                 @endforeach
                                                             </select>
@@ -361,7 +360,7 @@
                                                         <!--end::Input-->
                                                     </div>
                                                     <!--end::Input group-->
-                                                    <!--begin::Input group select delar-->
+                                                    <!--begin::Input group select contributor-->
 
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
@@ -456,7 +455,7 @@
                     <div class="card-body py-4">
                         <div class="table-responsive">
                             <!--begin::Table-->
-                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_delars">
+                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_contributors">
                                 <!--begin::Table head-->
                                 <thead>
                                     <!--begin::Table row-->
@@ -464,16 +463,15 @@
                                         <th class="w-10px pe-2">
                                             <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
                                                 <input class="form-check-input" type="checkbox" data-kt-check="true"
-                                                    data-kt-check-target="#kt_table_delars .form-check-input"
+                                                    data-kt-check-target="#kt_table_contributors .form-check-input"
                                                     value="" />
                                             </div>
                                         </th>
-                                        <th class="min-w-125px"> اسم التاجر</th>
+                                        <th class="min-w-125px"> اسم المساهم</th>
                                         <th class="min-w-125px">حساب الشيكل</th>
                                         <th class="min-w-125px">حساب الدولار</th>
                                         <th class="min-w-125px">حساب الدينار</th>
                                         <th class="min-w-125px"> رقم الهاتف</th>
-                                        <th class="min-w-125px"> ملاحظات</th>
                                         <th class="text-end min-w-100px px-10">
                                             {{ translate('employeeTranslation.procedures') }}</th>
                                     </tr>
@@ -482,14 +480,14 @@
                                 <!--end::Table head-->
                                 <!--begin::Table body-->
                                 <tbody class="text-gray-600 fw-semibold">
-                                    @foreach ($currencyDelars as $delar)
+                                    @foreach ($contributors as $contributor)
                                         <!--begin::Table row-->
                                         <tr>
                                             <!--begin::Checkbox-->
                                             <td>
                                                 <div class="form-check form-check-sm form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="checkbox"
-                                                        value="{{ $delar->id }}" />
+                                                        value="{{ $contributor->id }}" />
                                                 </div>
                                             </td>
                                             <!--end::Checkbox-->
@@ -500,17 +498,16 @@
                                                 <!--end::Avatar-->
                                                 <!--begin::Category details-->
                                                 <div class="d-flex flex-column">
-                                                    <a @can(READ_CURRENCY_DELAR_PERMISSION) href="{{ route('currency_delars.show', $delar->id) }}" @endcan
-                                                        class="text-gray-800 text-hover-primary mb-1">{{ $delar->name }}</a>
+                                                    <a @can(READ_CONTRIBUTOR_PERMISSION) href="{{ route('contributors.show', $contributor->id) }}" @endcan
+                                                        class="text-gray-800 text-hover-primary mb-1">{{ $contributor->name }}</a>
                                                 </div>
                                                 <!--begin::Category details-->
                                             </td>
 
-                                            <td>{{ $delar->shekels_balance }}</td>
-                                            <td>{{ $delar->dollars_balance }}</td>
-                                            <td>{{ $delar->dinars_balance }}</td>
-                                            <td>{{ $delar->phone }}</td>
-                                            <td>{{ $delar->notes }}</td>
+                                            <td>{{ $contributor->shekels_balance }}</td>
+                                            <td>{{ $contributor->dollars_balance }}</td>
+                                            <td>{{ $contributor->dinars_balance }}</td>
+                                            <td>{{ $contributor->phone }}</td>
 
                                             <!--begin::Action=-->
                                             <td class="text-end">
@@ -532,21 +529,21 @@
                                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
                                                     data-kt-menu="true">
                                                     <!--begin::Menu item-->
-                                                    @can(READ_CURRENCY_DELAR_PERMISSION)
+                                                    @can(READ_CONTRIBUTOR_PERMISSION)
                                                         <div class="menu-item px-3">
-                                                            <a href="{{ route('currency_delars.show', $delar->id) }}"
+                                                            <a href="{{ route('contributors.show', $contributor->id) }}"
                                                                 class="menu-link px-3">{{ translate('employeeTranslation.View') }}</a>
                                                         </div>
                                                     @endcan
                                                     <!--end::Menu item-->
                                                     <!--begin::Menu item-->
-                                                    @can(DELETE_CURRENCY_DELAR_PERMISSION)
+                                                    @can(DELETE_CONTRIBUTOR_PERMISSION)
                                                         <div class="menu-item px-3">
-                                                            <form action="{{ route('currency_delars.destroy', $delar->id) }}"
-                                                                method="post" data-kt-delars-table-filter="delete_form">
+                                                            <form action="{{ route('contributors.destroy', $contributor->id) }}"
+                                                                method="post" data-kt-contributors-table-filter="delete_form">
                                                             </form>
                                                             <a href="" class="menu-link px-3"
-                                                                data-kt-delars-table-filter="delete_row">{{ translate('employeeTranslation.delete') }}</a>
+                                                                data-kt-contributors-table-filter="delete_row">{{ translate('employeeTranslation.delete') }}</a>
                                                         </div>
                                                     @endcan
                                                     <!--end::Menu item-->
@@ -581,9 +578,9 @@
 @push('scripts')
 
     @if (Cookie::get(APP_LOCALE) == 'ar')
-        <script src="{{ asset('assets/js/custom/apps/currency_delars/list/table.js') }}"></script>
+        <script src="{{ asset('assets/js/custom/apps/contributors/list/table.js') }}"></script>
     @else
-        <script src="{{ asset('assets/js/custom/apps/currency_delars/list/table-en.js') }}"></script>
+        <script src="{{ asset('assets/js/custom/apps/contributors/list/table-en.js') }}"></script>
     @endif
 
 @endpush

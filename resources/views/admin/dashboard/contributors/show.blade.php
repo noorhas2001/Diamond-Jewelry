@@ -12,14 +12,14 @@
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        عرض تفاصيل تجار العملة</h1>
+                        عرض تفاصيل المساهمين</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
                             <a href="{{ route('dashboard') }}"
-                                class="text-muted text-hover-primary">{{ translate('employeeTranslation.Dashborad') }}</a>
+                                class="text-muted text-hover-primary">لوحة التحكم</a>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -29,8 +29,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="{{ route('currency_delars.index') }}" class="text-muted text-hover-primary">تجار
-                                العملة</a>
+                            <a href="{{ route('contributors.index') }}" class="text-muted text-hover-primary">المساهمين</a>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -40,8 +39,8 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="{{ route('currency_delars.show', $currency_delar->id) }}"
-                                class="text-muted text-hover-primary">{{ translate('employeeTranslation.View') }}</a>
+                            <a href="{{ route('contributors.show', $contributor->id) }}"
+                                class="text-muted text-hover-primary">عرض</a>
                         </li>
                         <!--end::Item-->
                     </ul>
@@ -74,12 +73,12 @@
                                     <!--end::Avatar-->
                                     <!--begin::Name-->
                                     <a href="#"
-                                        class="fs-3 text-gray-800 text-hover-primary fw-bold mb-3">{{ $currency_delar->name }}</a>
+                                        class="fs-3 text-gray-800 text-hover-primary fw-bold mb-3">{{ $contributor->name }}</a>
                                     <!--end::Name-->
                                     <!--begin::Position-->
                                     <div class="mb-9">
                                         <!--begin::Badge-->
-                                        <div class="badge-lg badge-light-primary d-inline">{{ $currency_delar->phone }}
+                                        <div class="badge-lg badge-light-primary d-inline">{{ $contributor->phone }}
                                         </div>
                                         <!--begin::Badge-->
                                     </div>
@@ -105,9 +104,9 @@
                                 <!--begin::Details toggle-->
                                 <div class="d-flex flex-stack fs-4 py-3">
                                     <div class="fw-bold rotate collapsible" data-bs-toggle="collapse"
-                                        href="#kt_delar_view_details" role="button" aria-expanded="false"
-                                        aria-controls="kt_delar_view_details">
-                                        {{ translate('employeeTranslation.Details') }}
+                                        href="#kt_contributor_view_details" role="button" aria-expanded="false"
+                                        aria-controls="kt_contributor_view_details">
+                                        تفاصيل
                                         <span class="ms-2 rotate-180">
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
                                             <span class="svg-icon svg-icon-3">
@@ -121,17 +120,17 @@
                                             <!--end::Svg Icon-->
                                         </span>
                                     </div>
-                                    @can(UPDATE_CURRENCY_DELAR_PERMISSION)
+                                    @can(UPDATE_CONTRIBUTOR_PERMISSION)
                                         <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit customer details">
                                             <a href="#" class="btn btn-sm btn-light-primary" data-bs-toggle="modal"
-                                                data-bs-target="#kt_modal_update_details">{{ translate('employeeTranslation.Edit') }}</a>
+                                                data-bs-target="#kt_modal_update_details">تعديل</a>
                                         </span>
                                     @endcan
                                 </div>
                                 <!--end::Details toggle-->
                                 <div class="separator"></div>
                                 <!--begin::Details content-->
-                                <div id="kt_delar_view_details" class="collapse show">
+                                <div id="kt_contributor_view_details" class="collapse show">
                                     <div class="pb-5 fs-6">
 
 
@@ -139,21 +138,19 @@
                                         <!--begin::Details item-->
 
                                         <div class="fw-bold mt-5"> حساب الشيكل</div>
-                                        <div class="text-gray-600">{{ $currency_delar->shekels_balance }}</div>
+                                        <div class="text-gray-600">{{ $contributor->shekels_balance }}</div>
 
                                         <div class="fw-bold mt-5">حساب الدولار</div>
-                                        <div class="text-gray-600">{{ $currency_delar->dollars_balance }}</div>
+                                        <div class="text-gray-600">{{ $contributor->dollars_balance }}</div>
 
                                         <div class="fw-bold mt-5"> حساب الدينار</div>
-                                        <div class="text-gray-600">{{ $currency_delar->dinars_balance }}</div>
+                                        <div class="text-gray-600">{{ $contributor->dinars_balance }}</div>
 
                                         <div class="fw-bold mt-5"> رقم الهاتف</div>
-                                        <div class="text-gray-600">{{ $currency_delar->phone }}</div>
+                                        <div class="text-gray-600">{{ $contributor->phone }}</div>
 
-                                        <div class="fw-bold mt-5"> ملاحظات</div>
-                                        <div class="text-gray-600">{{ $currency_delar->notes }}</div>
-                                        <div class="fw-bold mt-5"> {{ translate('employeeTranslation.created_at') }}</div>
-                                        <div class="text-gray-600">{{ $currency_delar->created_at }}</div>
+                                        <div class="fw-bold mt-5"> تاريخ الاضافة</div>
+                                        <div class="text-gray-600">{{ $contributor->created_at }}</div>
 
                                         <!--end::Details item-->
 
@@ -170,7 +167,7 @@
                     <div class="flex-lg-row-fluid ms-lg-15">
 
 
-                        <!--start::Delar Transactions-->
+                        <!--start::contributor Transactions-->
                         <div class="tab-content" id="myTabContent">
                             <!--begin:::Tab pane-->
                             <div class="tab-pane fade show active" id="kt_resource_view_overview_tab" role="tabpanel">
@@ -180,15 +177,15 @@
                                     <div class="card-header mt-6">
                                         <!--begin::Card title-->
                                         <div class="card-title flex-column">
-                                            <h2 class="mb-1">معاملات التاجر
+                                            <h2 class="mb-1">معاملات المساهم
                                             </h2>
 
                                         </div>
                                         <!--end::Card title-->
                                         <!--begin::Card toolbar-->
                                         <div class="card-toolbar">
-                                            <div class="d-flex justify-content-end" data-kt-delar-table-toolbar="base">
-                                                @can(CREATE_TRANSACTIONS_CURRENCY_DELAR_PERMISSION)
+                                            <div class="d-flex justify-content-end" data-kt-contributor-table-toolbar="base">
+                                                @can(CREATE_TRANSACTIONS_CONTRIBUTOR_PERMISSION)
                                                 <button type="button" class="btn btn-light-primary btn-sm"
                                                     data-bs-toggle="modal" data-bs-target="#kt_modal_add_transaction">
                                                     <!--SVG file not found: media/icons/duotune/art/art008.svg-->
@@ -198,13 +195,13 @@
                                             </div>
 
                                             <div class="d-flex justify-content-end align-items-center d-none"
-                                                data-kt-delar-table-toolbar="selected">
+                                                data-kt-contributor-table-toolbar="selected">
                                                 <div class="fw-bold me-5">
                                                     <span class="me-2"
-                                                        data-kt-delar-table-select="selected_count"></span>{{ translate('employeeTranslation.Selected') }}
+                                                        data-kt-contributor-table-select="selected_count"></span>{{ translate('employeeTranslation.Selected') }}
                                                 </div>
                                                 <button type="button" class="btn btn-danger"
-                                                    data-kt-delar-table-select="delete_selected">{{ translate('employeeTranslation.DeleteSelected') }}
+                                                    data-kt-contributor-table-select="delete_selected">{{ translate('employeeTranslation.DeleteSelected') }}
                                                 </button>
                                             </div>
                                         </div>
@@ -269,10 +266,10 @@
 
                                                                 <!--end::Input group-->
                                                                 <!--begin::Input group-->
-                                                                <input class="d-none" name="delar_id" type="hidden"
-                                                                    value="{{ $currency_delar->id }}">
+                                                                <input class="d-none" name="contributor_id" type="hidden"
+                                                                    value="{{ $contributor->id }}">
                                                                 <!--end::Input group-->
-                                                                <!--begin::Input group select delar-->
+                                                                <!--begin::Input group select contributor-->
 
                                                                 <div class="fv-row mb-7">
                                                                     <!--begin::Label-->
@@ -310,7 +307,7 @@
                                                                 <div class="fv-row mb-7">
                                                                     <!--begin::Label-->
                                                                     <label
-                                                                        class="required fw-semibold fs-6 mb-2">{{ translate('expenseTranslation.currency') }}</label>
+                                                                        class="required fw-semibold fs-6 mb-2">العملة</label>
                                                                     <!--end::Label-->
                                                                     <!--begin::Input-->
                                                                     <!--begin::Col-->
@@ -318,7 +315,7 @@
                                                                         <select name="currency_id"
                                                                             class="form-select form-select-solid"
                                                                             data-control="select2" data-hide-search="true"
-                                                                            data-placeholder="{{ translate('expenseTranslation.currency') }}"
+                                                                            data-placeholder="العملة"
                                                                             required>
                                                                             @foreach ($currencies as $currency)
                                                                                 <option value="{{ $currency->id }}">
@@ -338,14 +335,14 @@
                                                             <!--begin::Actions-->
                                                             <div class="text-center pt-15">
                                                                 <button type="reset" class="btn btn-light me-3"
-                                                                    data-kt-transactions-modal-action="cancel">{{ translate('employeeTranslation.cancel') }}
+                                                                    data-kt-transactions-modal-action="cancel">الغاء
                                                                 </button>
                                                                 <button type="submit" class="btn btn-primary"
                                                                     data-kt-transactions-modal-action="submit">
                                                                     <span
-                                                                        class="indicator-label">{{ translate('employeeTranslation.add') }}</span>
+                                                                        class="indicator-label">اضافة</span>
                                                                     <span
-                                                                        class="indicator-progress">{{ translate('employeeTranslation.Waiting') }}
+                                                                        class="indicator-progress">الرجاء الانتظار ...
                                                                         <span
                                                                             class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                                                 </button>
@@ -468,7 +465,7 @@
                             </div>
                             <!--end:::Tab pane-->
                         </div>
-                        <!--end::Delar Transactions-->
+                        <!--end::contributor Transactions-->
                     </div>
 
                 </div>
@@ -476,26 +473,26 @@
             </div>
             <!--end::Layout-->
             <!--begin::Modals-->
-            <!--begin::Modal - Update delar details-->
-            <!--begin::Modal - Update delar details-->
+            <!--begin::Modal - Update contributor details-->
+            <!--begin::Modal - Update contributor details-->
             <div class="modal fade" id="kt_modal_update_details" tabindex="-1" aria-hidden="true">
                 <!--begin::Modal dialog-->
                 <div class="modal-dialog modal-dialog-centered mw-650px">
                     <!--begin::Modal content-->
                     <div class="modal-content">
                         <!--begin::Form-->
-                        <form class="form" action="{{ route('currency_delars.update', $currency_delar->id) }}"
-                            method="POST" id="kt_modal_update_delar_form" enctype="multipart/form-data">
+                        <form class="form" action="{{ route('contributors.update', $contributor->id) }}"
+                            method="POST" id="kt_modal_update_contributor_form" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <!--begin::Modal header-->
-                            <div class="modal-header" id="kt_modal_update_delar_header">
+                            <div class="modal-header" id="kt_modal_update_contributor_header">
                                 <!--begin::Modal title-->
-                                <h2 class="fw-bold"> {{ translate('employeeTranslation.UpdateEmployeeDetails ') }} </h2>
+                                <h2 class="fw-bold"> تحديث تفاصيل المساهم </h2>
                                 <!--end::Modal title-->
                                 <!--begin::Close-->
                                 <div class="btn btn-icon btn-sm btn-active-icon-primary"
-                                    data-kt-delars-modal-action="close">
+                                    data-kt-contributors-modal-action="close">
                                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
                                     <span class="svg-icon svg-icon-1">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -515,26 +512,26 @@
                             <!--begin::Modal body-->
                             <div class="modal-body py-10 px-lg-17">
                                 <!--begin::Form-->
-                                <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_update_delar_scroll"
+                                <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_update_contributor_scroll"
                                     data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}"
                                     data-kt-scroll-max-height="auto"
-                                    data-kt-scroll-dependencies="#kt_modal_update_delar_header"
-                                    data-kt-scroll-wrappers="#kt_modal_update_delar_scroll" data-kt-scroll-offset="300px">
+                                    data-kt-scroll-dependencies="#kt_modal_update_contributor_header"
+                                    data-kt-scroll-wrappers="#kt_modal_update_contributor_scroll" data-kt-scroll-offset="300px">
                                     <!--begin::Input group-->
 
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->
                                         <label
-                                            class="required fw-semibold fs-6 mb-2">اسم التاجر</label>
+                                            class="required fw-semibold fs-6 mb-2">اسم المساهم</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" name="name" value="{{ $currency_delar->name }}"
-                                            class="form-control form-control-solid mb-3 mb-lg-0" placeholder="اسم التاجر"
+                                        <input type="text" name="name" value="{{ $contributor->name }}"
+                                            class="form-control form-control-solid mb-3 mb-lg-0" placeholder="اسم المساهم"
                                             required />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Input group-->
-                                    <!--begin::Input group select delar-->
+                                    <!--begin::Input group select contributor-->
 
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->
@@ -543,7 +540,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" name="shekels_balance"
-                                            value="{{ $currency_delar->shekels_balance }}"
+                                            value="{{ $contributor->shekels_balance }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                             placeholder="حساب الشيكل" />
                                         <!--end::Input-->
@@ -556,7 +553,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" name="dollars_balance"
-                                            value="{{ $currency_delar->dollars_balance }}"
+                                            value="{{ $contributor->dollars_balance }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                             placeholder="حساب الدولار" />
                                         <!--end::Input-->
@@ -569,7 +566,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" name="dinars_balance"
-                                            value="{{ $currency_delar->dinars_balance }}"
+                                            value="{{ $contributor->dinars_balance }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                             placeholder="حساب الدينار" />
                                         <!--end::Input-->
@@ -581,7 +578,7 @@
                                             رقم الهاتف </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" name="phone" value="{{ $currency_delar->phone }}"
+                                        <input type="text" name="phone" value="{{ $contributor->phone }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                             placeholder="رقم الهاتف" />
                                         <!--end::Input-->
@@ -593,7 +590,7 @@
                                             ملاحظات </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" name="notes" value="{{ $currency_delar->notes }}"
+                                        <input type="text" name="notes" value="{{ $contributor->notes }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0" placeholder="ملاحظات" />
                                         <!--end::Input-->
                                     </div>
@@ -607,11 +604,11 @@
                             <div class="modal-footer flex-center">
                                 <!--begin::Button-->
                                 <button type="reset" class="btn btn-light me-3"
-                                    data-kt-delars-modal-action="cancel">{{ translate('employeeTranslation.cancel') }}
+                                    data-kt-contributors-modal-action="cancel">{{ translate('employeeTranslation.cancel') }}
                                 </button>
                                 <!--end::Button-->
                                 <!--begin::Button-->
-                                <button type="submit" class="btn btn-primary" data-kt-delars-modal-action="submit">
+                                <button type="submit" class="btn btn-primary" data-kt-contributors-modal-action="submit">
                                     <span class="indicator-label">{{ translate('employeeTranslation.Update') }}</span>
                                     <span class="indicator-progress">الانتظار
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -637,9 +634,9 @@
     <!--begin::Javascript-->
 
     @if (Cookie::get(APP_LOCALE) == 'ar')
-        <script src="{{ asset('assets/js/custom/apps/currency_delars/view/update-delar.js') }}"></script>
+        <script src="{{ asset('assets/js/custom/apps/contributors/view/update-contributor.js') }}"></script>
     @else
-        <script src="{{ asset('assets/js/custom/apps/currency_delars/view/update-delar-en.js') }}"></script>
+        <script src="{{ asset('assets/js/custom/apps/contributors/view/update-contributor-en.js') }}"></script>
     @endif
 
     <!--end::Custom Javascript-->
