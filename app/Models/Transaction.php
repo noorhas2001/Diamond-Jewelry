@@ -11,11 +11,15 @@ class Transaction extends Model
 {
     use HasFactory , SoftDeletes;
 
-    protected $fillable = ['delar_id', 'transaction_type', 'amount', 'currency_id', 'date', 'notes'];
+    protected $fillable = ['delar_id','contributor_id' ,'transaction_type', 'amount', 'currency_id', 'date', 'notes'];
 
     public function currencyDelars(): BelongsTo
     {
         return $this->belongsTo(CurrencyDelar::class ,'delar_id');
+    }
+    public function contributor(): BelongsTo
+    {
+        return $this->belongsTo(Contributor::class ,'contributor_id');
     }
 
     public function currency(): BelongsTo
