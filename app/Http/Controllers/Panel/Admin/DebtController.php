@@ -48,11 +48,12 @@ class DebtController extends Controller
     {
         try {
             $debt = Debt::findOrFail($id);
+            $transactions = $debt->debt_transactions;
 
             if ($debt->is_debt_from_others) {
-                return view('admin.dashboard.debts.debtsOnUs.show', compact('debt'));
+                return view('admin.dashboard.debts.debtsOnUs.show', compact('debt' ,'transactions'));
             } else {
-                return view('admin.dashboard.debts.debtsForUs.show', compact('debt'));
+                return view('admin.dashboard.debts.debtsForUs.show', compact('debt' ,'transactions'));
             }
         } catch (Exception $e) {
             return back()->with('error', 'Failed to fetch debt details.');
