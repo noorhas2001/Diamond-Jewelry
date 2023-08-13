@@ -11,6 +11,12 @@
 
         @include('layouts.admin.aside')
 
+        <style>
+            .btn.btn-primary.masa.active {
+                background-color: red !important; /* لون عند الضغط */
+            }
+        </style>
+
 
         <!--begin::Modal - Add expense-->
         <div class="modal fade" id="kt_modal_add_expense" tabindex="-1" aria-hidden="true">
@@ -24,9 +30,10 @@
                         <h2 class="fw-bold">{{ translate('expenseTranslation.add_expense') }}</h2>
 
                         <!-- Button for Employee Expense -->
-                        <button class="btn btn-primary" data-action="employee">مصروفات </button>
+                        <button class="btn btn-primary masa active"  data-action="employee">مصروفات </button>
+
                         <!-- Button for Masa Expense -->
-                        <button class="btn btn-primary" data-action="masa">سحب الماسة</button>
+                        <button class="btn btn-primary masa" data-action="masa">سحب الماسة</button>
 
                         <!-- Close button -->
                         <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-expenses-modal-action="close">
@@ -275,8 +282,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" name="amount"
-                                            class="form-control form-control-solid mb-3 mb-lg-0"
-                                            placeholder="المبلغ" />
+                                            class="form-control form-control-solid mb-3 mb-lg-0" placeholder="المبلغ" />
                                         <!--end::Input-->
                                     </div>
 
@@ -312,8 +318,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="text" name="notes"
-                                            class="form-control form-control-solid mb-3 mb-lg-0"
-                                            placeholder="ملاحظات" />
+                                            class="form-control form-control-solid mb-3 mb-lg-0" placeholder="ملاحظات" />
                                         <!--end::Input-->
                                     </div>
 
@@ -322,7 +327,8 @@
                                 <!--end::Scroll-->
                                 <!--begin::Actions-->
                                 <div class="text-center pt-15">
-                                    <button type="submit" class="btn btn-primary" data-kt-deposits-modal-action="submit">
+                                    <button type="submit" class="btn btn-primary"
+                                        data-kt-deposits-modal-action="submit">
                                         <span class="indicator-label">{{ translate('expenseTranslation.add') }}</span>
                                         <span class="indicator-progress">{{ translate('expenseTranslation.waiting') }}
                                             <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -352,8 +358,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="check_password" class="form" action="{{ route('check-password') }}"
-                            method="POST" enctype="multipart/form-data">
+                        <form id="check_password" class="form" action="{{ route('check-password') }}" method="POST"
+                            enctype="multipart/form-data">
 
 
                             @csrf
@@ -471,6 +477,17 @@
             });
         });
     </script>
+
+<script>
+    document.querySelectorAll('.btn.btn-primary.masa').forEach(button => {
+        button.addEventListener('click', function () {
+            document.querySelectorAll('.btn.btn-primary.masa').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            this.classList.add('active');
+        });
+    });
+</script>
 
     @yield('script')
 @endsection
