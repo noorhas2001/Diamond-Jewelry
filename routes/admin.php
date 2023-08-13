@@ -8,6 +8,8 @@ use App\Http\Controllers\Panel\Admin\DebtController;
 use App\Http\Controllers\Panel\Admin\DepositController;
 use App\Http\Controllers\Panel\Admin\EmployeeController;
 use App\Http\Controllers\Panel\Admin\ExpensesController;
+use App\Http\Controllers\Panel\Admin\GoldDelarController;
+use App\Http\Controllers\Panel\Admin\GoldTransactionController;
 use App\Http\Controllers\Panel\Admin\LanguageController;
 use App\Http\Controllers\Panel\Admin\TransactionController;
 use App\Http\Controllers\Panel\Admin\WithdrawalController;
@@ -83,6 +85,12 @@ Route::prefix('dashboard/admin/')->group(function () {
 
         Route::resource('deposits', DepositController::class);
         Route::post('/deposits/deleteSelected', [DepositController::class, 'deleteSelected'])->name('deposits.deleteSelected');
+
+        Route::resource('gold_delars' , GoldDelarController::class);
+        Route::post('/gold_delars/deleteSelected', [GoldDelarController::class, 'deleteSelected'])->name('gold_delars.deleteSelected');
+        
+        Route::resource('gold_transactions', GoldTransactionController::class);
+        Route::post('gold_delars/gold_transactions/deleteSelected', [GoldTransactionController::class, 'deleteSelected'])->name('gold_transactions.deleteSelected');
 
 
 
