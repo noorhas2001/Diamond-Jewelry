@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Validator;
 class DepositController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('permission:' . DEPOSITS_PERMISSION)->only('index');
+        $this->middleware('permission:' . CREATE_DEPOSIT_PERMISSION)->only('create', 'store');
+        $this->middleware('permission:' . READ_DEPOSIT_PERMISSION)->only('show');
+        $this->middleware('permission:' . UPDATE_DEPOSIT_PERMISSION)->only('edit', 'update');
+        $this->middleware('permission:' . DELETE_DEPOSIT_PERMISSION)->only('destroy');
+    }
+
     public function index()
     {
         $deposits = Deposit::all();
