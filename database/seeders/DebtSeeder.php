@@ -20,7 +20,7 @@ class DebtSeeder extends Seeder
 
         $debts = [
             [
-                'person_name' => 'John Doe',
+                'person_name' => 'يوسف عبد المعطي',
                 'amount' => 1000.00,
                 'debt_date' => '2023-07-29 08:30:00',
                 'is_debt_from_others' => true,
@@ -30,7 +30,7 @@ class DebtSeeder extends Seeder
                 'phone_number' => '0567086704',
             ],
             [
-                'person_name' => 'Jane Smith',
+                'person_name' => 'ايمن الاخرس',
                 'amount' => 500.50,
                 'debt_date' => '2023-07-30 14:15:00',
                 'is_debt_from_others' => false,
@@ -42,7 +42,7 @@ class DebtSeeder extends Seeder
 
             ],
             [
-                'person_name' => 'Jane Smith',
+                'person_name' => 'ابراهيم صالح',
                 'amount' => 300.50,
                 'debt_date' => '2023-07-30 14:15:00',
                 'is_debt_from_others' => false,
@@ -54,7 +54,7 @@ class DebtSeeder extends Seeder
 
             ],
             [
-                'person_name' => 'Jane Smith',
+                'person_name' => 'عصام محمد',
                 'amount' => null,
                 'debt_date' => '2023-07-30 14:15:00',
                 'is_debt_from_others' => true,
@@ -65,7 +65,7 @@ class DebtSeeder extends Seeder
 
             ],
             [
-                'person_name' => 'Jane Smith',
+                'person_name' => 'خالد محمود',
                 'amount' => 200.50,
                 'debt_date' => '2023-07-30 14:15:00',
                 'is_debt_from_others' => false,
@@ -77,7 +77,7 @@ class DebtSeeder extends Seeder
 
             ],
             [
-                'person_name' => 'Jane Smith',
+                'person_name' => 'محمد احمد',
                 'amount' => 900.50,
                 'debt_date' => '2023-07-30 14:15:00',
                 'is_debt_from_others' => true,
