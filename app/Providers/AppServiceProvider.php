@@ -5,8 +5,10 @@ namespace App\Providers;
 use App\Models\Contributor;
 use App\Models\Currency;
 use App\Models\CurrencyDelar;
+use App\Models\Debt;
 use App\Models\Employee;
 use App\Observers\ContributorObserver;
+use App\Observers\DebtObserver;
 use App\Observers\DelarObserver;
 use App\Observers\EmployeeObserver;
 use Illuminate\Support\ServiceProvider;
@@ -40,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
         Employee::observe(EmployeeObserver::class);
         CurrencyDelar::observe(DelarObserver::class);
         Contributor::observe(ContributorObserver::class);
+        Debt::observe(DebtObserver::class);
 
     }
 }
