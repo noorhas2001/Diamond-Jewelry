@@ -5,6 +5,7 @@ use App\Http\Controllers\Panel\Admin\AdminController;
 use App\Http\Controllers\Panel\Admin\ContributorController;
 use App\Http\Controllers\Panel\Admin\CurrencyDelarController;
 use App\Http\Controllers\Panel\Admin\DebtController;
+use App\Http\Controllers\Panel\Admin\DebtTransactionController;
 use App\Http\Controllers\Panel\Admin\DepositController;
 use App\Http\Controllers\Panel\Admin\EmployeeController;
 use App\Http\Controllers\Panel\Admin\ExpensesController;
@@ -43,17 +44,21 @@ Route::prefix('dashboard/admin/')->group(function () {
         Route::post('/employees/deleteSelected', [EmployeeController::class, 'deleteSelected'])->name('employees.deleteSelected');
 
         Route::prefix('debts')->group(function () {
-            Route::post('/debts/store_on_us', [DebtController::class, 'store_on_us'])->name('debts.store_on_us');
-            Route::post('/debts/store_for_us', [DebtController::class, 'store_for_us'])->name('debts.store_for_us');
-            Route::get('/debts/show/{id}', [DebtController::class, 'show'])->name('debts.show');
-            Route::DELETE('/debts/destroy/{id}', [DebtController::class, 'destroy'])->name('debts.destroy');
-            Route::put('/debts/update/{id}', [DebtController::class, 'update'])->name('debts.update');
+            Route::post('/store_on_us', [DebtController::class, 'store_on_us'])->name('debts.store_on_us');
+            Route::post('/store_for_us', [DebtController::class, 'store_for_us'])->name('debts.store_for_us');
+            Route::get('/show/{id}', [DebtController::class, 'show'])->name('debts.show');
+            Route::DELETE('/destroy/{id}', [DebtController::class, 'destroy'])->name('debts.destroy');
+            Route::put('/update/{id}', [DebtController::class, 'update'])->name('debts.update');
             Route::get('/onUs', [DebtController::class, 'debtsOnUs'])->name('debts.onUs');
             Route::get('/forUs', [DebtController::class, 'debtsForUs'])->name('debts.forUs');
             Route::post('/verifiedDebt/{id}', [DebtController::class, 'verifiedDebt'])->name('debts.verifiedDebt');
             Route::post('/deleteSelected', [DebtController::class, 'deleteSelected'])->name('debts.deleteSelected');
 
         });
+
+        Route::resource('debt_transactions', DebtTransactionController::class);
+        Route::post('debts/show/debt_transactions/deleteSelected', [DebtTransactionController::class, 'deleteSelected'])->name('debt_transactions.deleteSelected');
+
         Route::prefix('expenses')->group(function () {
             Route::get('/expenses', [ExpensesController::class, 'expenses'])->name('expenses.index');
             Route::get('/expenses/masa_expenses', [ExpensesController::class, 'masa_expenses'])->name('expenses.from_masa');
@@ -79,20 +84,17 @@ Route::prefix('dashboard/admin/')->group(function () {
         Route::post('/contributors/deleteSelected', [ContributorController::class, 'deleteSelected'])->name('contributors.deleteSelected');
         Route::post('contributors/transactions/deleteSelected', [TransactionController::class, 'deleteSelected'])->name('transactions.deleteSelected');
 
-
         Route::get('/safe', [RestrectedPageController::class, 'showSafePage'])->name('safe-page');
         Route::post('/check-password', [RestrectedPageController::class, 'checkPassword'])->name('check-password');
 
         Route::resource('deposits', DepositController::class);
         Route::post('/deposits/deleteSelected', [DepositController::class, 'deleteSelected'])->name('deposits.deleteSelected');
 
-        Route::resource('gold_delars' , GoldDelarController::class);
+        Route::resource('gold_delars', GoldDelarController::class);
         Route::post('/gold_delars/deleteSelected', [GoldDelarController::class, 'deleteSelected'])->name('gold_delars.deleteSelected');
-        
+
         Route::resource('gold_transactions', GoldTransactionController::class);
         Route::post('gold_delars/gold_transactions/deleteSelected', [GoldTransactionController::class, 'deleteSelected'])->name('gold_transactions.deleteSelected');
-
-
 
     });
 });
