@@ -67,6 +67,13 @@ const READ_CONTRIBUTOR_PERMISSION = 'عرض-مساهم';
 const UPDATE_CONTRIBUTOR_PERMISSION = 'تحديث-مساهم';
 const DELETE_CONTRIBUTOR_PERMISSION = 'حذف-مساهم';
 const CREATE_TRANSACTIONS_CONTRIBUTOR_PERMISSION = 'اضافة-معاملة-مساهم';
+const GOLD_DELARS_MANAGEMENT_PERMISSION = 'ادارة-تجار-الذهب';
+const GOLD_DELARS_PERMISSION = 'تجار-الذهب';
+const CREAT_GOLD_DELAR_PERMISSION = 'اضافة-تاجر-ذهب';
+const READ_GOLD_DELAR_PERMISSION = 'عرض-تاجر-ذهب';
+const UPDATE_GOLD_DELAR_PERMISSION = 'تحديث-تاجر-ذهب';
+const DELETE_GOLD_DELAR_PERMISSION = 'حذف-تاجر-ذهب';
+const CREATE_TRANSACTIONS_GOLD_DELAR_PERMISSION = 'اضافة-معاملة-تاجر-ذهب';
 
 
 const WEEK = 7;

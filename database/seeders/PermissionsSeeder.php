@@ -82,6 +82,13 @@ class PermissionsSeeder extends Seeder
             UPDATE_CONTRIBUTOR_PERMISSION,
             DELETE_CONTRIBUTOR_PERMISSION,
             CREATE_TRANSACTIONS_CONTRIBUTOR_PERMISSION,
+            GOLD_DELARS_MANAGEMENT_PERMISSION,
+            GOLD_DELARS_PERMISSION,
+            CREAT_GOLD_DELAR_PERMISSION,
+            READ_GOLD_DELAR_PERMISSION,
+            UPDATE_GOLD_DELAR_PERMISSION,
+            DELETE_GOLD_DELAR_PERMISSION,
+            CREATE_TRANSACTIONS_GOLD_DELAR_PERMISSION,
         ];
 
         foreach ($permissions as $permission) {
