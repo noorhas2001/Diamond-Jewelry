@@ -12,7 +12,7 @@
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        عرض تفاصيل تجار العملة</h1>
+                        عرض تفاصيل تجار الذهب</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -29,8 +29,8 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="{{ route('currency_delars.index') }}" class="text-muted text-hover-primary">تجار
-                                العملة</a>
+                            <a href="{{ route('gold_delars.index') }}" class="text-muted text-hover-primary">تجار
+                                الذهب</a>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -40,7 +40,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="{{ route('currency_delars.show', $currency_delar->id) }}"
+                            <a href="{{ route('gold_delars.show', $gold_delar->id) }}"
                                 class="text-muted text-hover-primary">{{ translate('employeeTranslation.View') }}</a>
                         </li>
                         <!--end::Item-->
@@ -74,12 +74,12 @@
                                     <!--end::Avatar-->
                                     <!--begin::Name-->
                                     <a href="#"
-                                        class="fs-3 text-gray-800 text-hover-primary fw-bold mb-3">{{ $currency_delar->name }}</a>
+                                        class="fs-3 text-gray-800 text-hover-primary fw-bold mb-3">{{ $gold_delar->name }}</a>
                                     <!--end::Name-->
                                     <!--begin::Position-->
                                     <div class="mb-9">
                                         <!--begin::Badge-->
-                                        <div class="badge-lg badge-light-primary d-inline">{{ $currency_delar->phone }}
+                                        <div class="badge-lg badge-light-primary d-inline">{{ $gold_delar->phone_number }}
                                         </div>
                                         <!--begin::Badge-->
                                     </div>
@@ -138,22 +138,17 @@
 
                                         <!--begin::Details item-->
 
-                                        <div class="fw-bold mt-5"> حساب الشيكل</div>
-                                        <div class="text-gray-600">{{ $currency_delar->shekels_balance }}</div>
+                                        <div class="fw-bold mt-5"> صافي الوزن</div>
+                                        <div class="text-gray-600">{{ $gold_delar->total_weight }}</div>
 
-                                        <div class="fw-bold mt-5">حساب الدولار</div>
-                                        <div class="text-gray-600">{{ $currency_delar->dollars_balance }}</div>
-
-                                        <div class="fw-bold mt-5"> حساب الدينار</div>
-                                        <div class="text-gray-600">{{ $currency_delar->dinars_balance }}</div>
+                                        <div class="fw-bold mt-5">صافي الصنعة</div>
+                                        <div class="text-gray-600">{{ $gold_delar->total_workmanship }}</div>
 
                                         <div class="fw-bold mt-5"> رقم الهاتف</div>
-                                        <div class="text-gray-600">{{ $currency_delar->phone }}</div>
+                                        <div class="text-gray-600">{{ $gold_delar->phone_number }}</div>
 
-                                        <div class="fw-bold mt-5"> ملاحظات</div>
-                                        <div class="text-gray-600">{{ $currency_delar->notes }}</div>
                                         <div class="fw-bold mt-5"> {{ translate('employeeTranslation.created_at') }}</div>
-                                        <div class="text-gray-600">{{ $currency_delar->created_at }}</div>
+                                        <div class="text-gray-600">{{ $gold_delar->created_at }}</div>
 
                                         <!--end::Details item-->
 
@@ -251,7 +246,7 @@
                                                     <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                                                         <!--begin::Form-->
                                                         <form id="kt_modal_add_transaction_form" class="form"
-                                                            action="{{ route('transactions.store') }}" method="POST"
+                                                            action="{{ route('gold_transactions.store') }}" method="POST"
                                                             enctype="multipart/form-data">
 
 
@@ -269,8 +264,8 @@
 
                                                                 <!--end::Input group-->
                                                                 <!--begin::Input group-->
-                                                                <input class="d-none" name="delar_id" type="hidden"
-                                                                    value="{{ $currency_delar->id }}">
+                                                                <input class="d-none" name="gold_delar_id" type="hidden"
+                                                                    value="{{ $gold_delar->id }}">
                                                                 <!--end::Input group-->
                                                                 <!--begin::Input group select delar-->
 
@@ -297,37 +292,49 @@
 
                                                                 <div class="fv-row mb-7">
                                                                     <!--begin::Label-->
-                                                                    <label class="required fw-semibold fs-6 mb-2">
-                                                                        المبلغ </label>
+                                                                    <label class="fw-semibold fs-6 mb-2">
+                                                                        الصنف </label>
                                                                     <!--end::Label-->
                                                                     <!--begin::Input-->
-                                                                    <input type="number" name="amount"
+                                                                    <input type="text" name="item"
                                                                         class="form-control form-control-solid mb-3 mb-lg-0"
-                                                                        placeholder="المبلغ" />
+                                                                        placeholder="الصنف" />
                                                                     <!--end::Input-->
                                                                 </div>
 
                                                                 <div class="fv-row mb-7">
                                                                     <!--begin::Label-->
-                                                                    <label
-                                                                        class="required fw-semibold fs-6 mb-2">{{ translate('expenseTranslation.currency') }}</label>
+                                                                    <label class="required fw-semibold fs-6 mb-2">
+                                                                        الوزن </label>
                                                                     <!--end::Label-->
                                                                     <!--begin::Input-->
-                                                                    <!--begin::Col-->
-                                                                    <div class="col-6">
-                                                                        <select name="currency_id"
-                                                                            class="form-select form-select-solid"
-                                                                            data-control="select2" data-hide-search="true"
-                                                                            data-placeholder="{{ translate('expenseTranslation.currency') }}"
-                                                                            required>
-                                                                            @foreach ($currencies as $currency)
-                                                                                <option value="{{ $currency->id }}">
-                                                                                    {{ $currency->name }}
-                                                                                </option>
-                                                                            @endforeach
-                                                                        </select>
-                                                                    </div>
-                                                                    <!--end::Col-->
+                                                                    <input type="number" name="weight" value="0.00"
+                                                                        class="form-control form-control-solid mb-3 mb-lg-0"
+                                                                        placeholder="الوزن" />
+                                                                    <!--end::Input-->
+                                                                </div>
+
+                                                                <div class="fv-row mb-7">
+                                                                    <!--begin::Label-->
+                                                                    <label class="required fw-semibold fs-6 mb-2">
+                                                                        الصنعة </label>
+                                                                    <!--end::Label-->
+                                                                    <!--begin::Input-->
+                                                                    <input type="number" name="workmanship" value="0.00"
+                                                                        class="form-control form-control-solid mb-3 mb-lg-0"
+                                                                        placeholder="الصنعة" />
+                                                                    <!--end::Input-->
+                                                                </div>
+
+                                                                <div class="fv-row mb-7">
+                                                                    <!--begin::Label-->
+                                                                    <label class="fw-semibold fs-6 mb-2">
+                                                                        ملاحظات </label>
+                                                                    <!--end::Label-->
+                                                                    <!--begin::Input-->
+                                                                    <input type="text" name="notes"
+                                                                        class="form-control form-control-solid mb-3 mb-lg-0"
+                                                                        placeholder="ملاحظات" />
                                                                     <!--end::Input-->
                                                                 </div>
 
@@ -383,9 +390,10 @@
                                                             </div>
                                                         </th>
                                                         <th class="min-w-125px">المعاملة</th>
-                                                        <th class="min-w-125px">المبلغ</th>
-                                                        <th class="min-w-125px">العملة</th>
-                                                        <th class="min-w-125px">التاريخ</th>
+                                                        <th class="min-w-125px">الوزن</th>
+                                                        <th class="min-w-125px">الصنعة</th>
+                                                        <th class="min-w-125px">الصنف</th>
+                                                        <th class="min-w-125px">ملاحظات</th>
                                                         <th class="text-end min-w-100px px-10">
                                                             الاجراءات</th>
                                                     </tr>
@@ -408,9 +416,10 @@
                                                             <!--end::Checkbox-->
 
                                                             <td>{{ $transaction->transaction_type }}</td>
-                                                            <td>{{ $transaction->amount }}</td>
-                                                            <td>{{ $transaction->currency->name }}</td>
-                                                            <td>{{ $transaction->date }}</td>
+                                                            <td>{{ $transaction->weight }}</td>
+                                                            <td>{{ $transaction->workmanship }}</td>
+                                                            <td>{{ $transaction->item }}</td>
+                                                            <td>{{ $transaction->notes }}</td>
 
                                                             <!--begin::Action=-->
                                                             <td class="text-end">
@@ -435,7 +444,7 @@
                                                                     data-kt-menu="true">
                                                                     <div class="menu-item px-3">
                                                                         <form
-                                                                            action="{{ route('transactions.destroy', $transaction->id) }}"
+                                                                            action="{{ route('gold_transactions.destroy', $transaction->id) }}"
                                                                             method="post"
                                                                             data-kt-transaction-table-filter="delete_form">
                                                                             @csrf
@@ -484,14 +493,14 @@
                     <!--begin::Modal content-->
                     <div class="modal-content">
                         <!--begin::Form-->
-                        <form class="form" action="{{ route('currency_delars.update', $currency_delar->id) }}"
+                        <form class="form" action="{{ route('gold_delars.update', $gold_delar->id) }}"
                             method="POST" id="kt_modal_update_delar_form" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <!--begin::Modal header-->
                             <div class="modal-header" id="kt_modal_update_delar_header">
                                 <!--begin::Modal title-->
-                                <h2 class="fw-bold"> تحديث تفاصيل تاجر العملة </h2>
+                                <h2 class="fw-bold">تحديث تفاصيل تاجر الذهب </h2>
                                 <!--end::Modal title-->
                                 <!--begin::Close-->
                                 <div class="btn btn-icon btn-sm btn-active-icon-primary"
@@ -528,7 +537,7 @@
                                             class="required fw-semibold fs-6 mb-2">اسم التاجر</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" name="name" value="{{ $currency_delar->name }}"
+                                        <input type="text" name="name" value="{{ $gold_delar->name }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0" placeholder="اسم التاجر"
                                             required />
                                         <!--end::Input-->
@@ -539,41 +548,29 @@
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->
                                         <label class=" fw-semibold fs-6 mb-2">
-                                            حساب الشيكل </label>
+                                            صافي الوزن </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="number" name="shekels_balance"
-                                            value="{{ $currency_delar->shekels_balance }}"
+                                        <input type="number" name="total_weight"
+                                            value="{{ $gold_delar->total_weight }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
-                                            placeholder="حساب الشيكل" />
+                                            placeholder="صافي الوزن" />
                                         <!--end::Input-->
                                     </div>
 
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->
                                         <label class=" fw-semibold fs-6 mb-2">
-                                            حساب الدولار </label>
+                                            صافي الصنعة </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="number" name="dollars_balance"
-                                            value="{{ $currency_delar->dollars_balance }}"
+                                        <input type="number" name="total_workmanship"
+                                            value="{{ $gold_delar->total_workmanship }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
-                                            placeholder="حساب الدولار" />
+                                            placeholder="صافي الصنعة" />
                                         <!--end::Input-->
                                     </div>
 
-                                    <div class="fv-row mb-7">
-                                        <!--begin::Label-->
-                                        <label class=" fw-semibold fs-6 mb-2">
-                                            حساب الدينار </label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input type="number" name="dinars_balance"
-                                            value="{{ $currency_delar->dinars_balance }}"
-                                            class="form-control form-control-solid mb-3 mb-lg-0"
-                                            placeholder="حساب الدينار" />
-                                        <!--end::Input-->
-                                    </div>
 
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->
@@ -581,20 +578,9 @@
                                             رقم الهاتف </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" name="phone" value="{{ $currency_delar->phone }}"
+                                        <input type="text" name="phone_number" value="{{ $gold_delar->phone_number }}"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                             placeholder="رقم الهاتف" />
-                                        <!--end::Input-->
-                                    </div>
-
-                                    <div class="fv-row mb-7">
-                                        <!--begin::Label-->
-                                        <label class=" fw-semibold fs-6 mb-2">
-                                            ملاحظات </label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input type="text" name="notes" value="{{ $currency_delar->notes }}"
-                                            class="form-control form-control-solid mb-3 mb-lg-0" placeholder="ملاحظات" />
                                         <!--end::Input-->
                                     </div>
 
@@ -637,9 +623,9 @@
     <!--begin::Javascript-->
 
     @if (Cookie::get(APP_LOCALE) == 'ar')
-        <script src="{{ asset('assets/js/custom/apps/currency_delars/view/update-delar.js') }}"></script>
+        <script src="{{ asset('assets/js/custom/apps/gold_delars/view/update-gold-delar.js') }}"></script>
     @else
-        <script src="{{ asset('assets/js/custom/apps/currency_delars/view/update-delar-en.js') }}"></script>
+        <script src="{{ asset('assets/js/custom/apps/gold_delars/view/update-gold-delar-en.js') }}"></script>
     @endif
 
     <!--end::Custom Javascript-->
