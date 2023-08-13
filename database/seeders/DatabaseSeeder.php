@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             TransactionSeeder::class,
             ContributorSeeder::class,
             DepositSeeder::class,
+            GoldDelarSeeder::class,
+            // GoldTransactionSeeder::class,
         ]);
     }
 }
