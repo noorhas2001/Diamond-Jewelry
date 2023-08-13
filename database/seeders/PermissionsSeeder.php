@@ -89,6 +89,8 @@ class PermissionsSeeder extends Seeder
             UPDATE_GOLD_DELAR_PERMISSION,
             DELETE_GOLD_DELAR_PERMISSION,
             CREATE_TRANSACTIONS_GOLD_DELAR_PERMISSION,
+            CREATE_DEBT_TRANSACTIONS_PERMISSION,
+            DELETE_DEBT_TRANSACTIONS_PERMISSION,
         ];
 
         foreach ($permissions as $permission) {

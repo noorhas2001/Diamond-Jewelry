@@ -74,6 +74,8 @@ const READ_GOLD_DELAR_PERMISSION = 'عرض-تاجر-ذهب';
 const UPDATE_GOLD_DELAR_PERMISSION = 'تحديث-تاجر-ذهب';
 const DELETE_GOLD_DELAR_PERMISSION = 'حذف-تاجر-ذهب';
 const CREATE_TRANSACTIONS_GOLD_DELAR_PERMISSION = 'اضافة-معاملة-تاجر-ذهب';
+const CREATE_DEBT_TRANSACTIONS_PERMISSION = 'اضافة-معاملة-دين';
+const DELETE_DEBT_TRANSACTIONS_PERMISSION = 'حذف-معاملات-دين';
 
 
 const WEEK = 7;

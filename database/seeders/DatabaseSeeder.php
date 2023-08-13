@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             DepositSeeder::class,
             GoldDelarSeeder::class,
             // GoldTransactionSeeder::class,
+            // DebtTransactionSeeder::class,
         ]);
     }
 }
