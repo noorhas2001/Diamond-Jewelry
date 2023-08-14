@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
+use App\Models\FeatureFlag;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -16,7 +18,10 @@ class RestrectedPageController extends Controller
 
     public function showSafePage()
     {
-        return view('admin.dashboard.restrecated');
+        $employeesNum = Employee::count();
+        $features = FeatureFlag::where('name', 'chart_feature')->where('enabled', 1)->first();
+
+        return view('admin.dashboard.restrecated' , compact('employeesNum', 'features'));
     }
 
     public function checkPassword(Request $request): RedirectResponse

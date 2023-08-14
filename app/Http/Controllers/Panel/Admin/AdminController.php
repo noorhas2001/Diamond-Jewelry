@@ -21,11 +21,6 @@ class AdminController extends Controller
     }
     public function index(): Factory|View|Application
     {
-
-        $employeesNum = Employee::count();
-
-        $features = FeatureFlag::where('name', 'chart_feature')->where('enabled', 1)->first();
-
-        return view('admin.dashboard.index', compact( 'features' ,'employeesNum'));
+        return view('admin.dashboard.index');
     }
 }
