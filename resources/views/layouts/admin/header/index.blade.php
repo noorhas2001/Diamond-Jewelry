@@ -175,14 +175,14 @@
                     </div>
                     <!--end::Menu-->
 
-                    <!--begin::Languages-->
+                    {{-- <!--begin::Languages-->
                     <div class="app-navbar-item ms-1 ms-lg-3">
                         <!--begin::Menu wrapper-->
                         <div class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px w-md-40px h-md-40px"
                              data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
                              data-kt-menu-placement="bottom-end">
 										<span class="symbol symbol-20px">
-                                            @if (Cookie::get(APP_LOCALE) === "ar")
+                                            @if (Cookie::get(APP_LOCALE) != "en")
                                                 <img class="rounded"
                                                      src="{{asset('assets/media/flags/palestine.svg')}}" alt=""/>
                                             @else
@@ -218,7 +218,7 @@
 
                         <!--end::Menu wrapper-->
                     </div>
-                    <!--end::Languages-->
+                    <!--end::Languages--> --}}
                     <!--begin::User menu-->
                     <div class="app-navbar-item ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
                         <!--begin::Menu wrapper-->
