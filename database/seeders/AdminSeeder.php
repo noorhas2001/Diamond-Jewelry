@@ -31,7 +31,7 @@ class AdminSeeder extends Seeder
 
         $user = $this->createUser(
             name: 'User',
-            user_type: User::User,
+            user_type: User::ADMIN,
             email: 'user@masa.com',
             phone: '0567086704',
             password: bcrypt('user@masa.com'),
@@ -47,7 +47,7 @@ class AdminSeeder extends Seeder
 
         $this->createUser(
             name: 'Hassan',
-            user_type: User::User,
+            user_type: User::ADMIN,
             email: 'hasan@masa.com',
             phone: '0567086704',
             password: bcrypt('hasan@masa.com'),
