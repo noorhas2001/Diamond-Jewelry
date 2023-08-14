@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             // BalanceSeeder::class,
             FeatureFlagSeeder::class,
             EmployeeSeeder::class,
-            DebtSeeder::class,
+            // DebtSeeder::class,
             ExpenseSeeder::class,
             // WithdrawalSeeder::class,
             CurrencyDelarSeeder::class,
