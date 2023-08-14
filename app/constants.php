@@ -76,6 +76,10 @@ const DELETE_GOLD_DELAR_PERMISSION = 'حذف-تاجر-ذهب';
 const CREATE_TRANSACTIONS_GOLD_DELAR_PERMISSION = 'اضافة-معاملة-تاجر-ذهب';
 const CREATE_DEBT_TRANSACTIONS_PERMISSION = 'اضافة-معاملة-دين';
 const DELETE_DEBT_TRANSACTIONS_PERMISSION = 'حذف-معاملات-دين';
+const INVENTORY_MANAGEMENT_PERMISSION = 'ادارة-الجرد';
+const INVENTORY_PERMISSION = 'الجرد';
+const CREATE_INVENTORY_PERMISSION = 'اضافة-جرد';
+const DELETE_INVENTORY_PERMISSION = 'حذف-جرد';
 
 
 const WEEK = 7;
