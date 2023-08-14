@@ -302,7 +302,7 @@
     <!--end::Content wrapper-->
 @endsection
 @push('scripts')
-    @if (Cookie::get(APP_LOCALE) == 'ar')
+    @if (App::getLocale() == 'ar')
         <script src="{{ asset('assets/js/custom/apps/roles/list/add.js') }}"></script>
         <script>
             $(document).ready(function() {

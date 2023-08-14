@@ -370,7 +370,7 @@
                                                             placeholder="الصنف" />
                                                         <!--end::Input-->
                                                     </div>
-                                                    
+
 
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
@@ -567,7 +567,7 @@
 
 @push('scripts')
 
-    @if (Cookie::get(APP_LOCALE) == 'ar')
+    @if (App::getLocale() == 'ar')
         <script src="{{ asset('assets/js/custom/apps/gold_delars/list/table.js') }}"></script>
     @else
         <script src="{{ asset('assets/js/custom/apps/gold_delars/list/table-en.js') }}"></script>

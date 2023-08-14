@@ -580,7 +580,7 @@
 
 @push('scripts')
 
-    @if (Cookie::get(APP_LOCALE) == 'ar')
+    @if (App::getLocale() == 'ar')
         <script src="{{ asset('assets/js/custom/apps/currency_delars/list/table.js') }}"></script>
     @else
         <script src="{{ asset('assets/js/custom/apps/currency_delars/list/table-en.js') }}"></script>

@@ -228,7 +228,7 @@
 
 @push('scripts')
 
-    @if (Cookie::get(APP_LOCALE) == 'ar')
+    @if (App::getLocale() == 'ar')
         <script src="{{ asset('assets/js/custom/apps/expenses/list/table.js') }}"></script>
     @else
         <script src="{{ asset('assets/js/custom/apps/expenses/list/table-en.js') }}"></script>

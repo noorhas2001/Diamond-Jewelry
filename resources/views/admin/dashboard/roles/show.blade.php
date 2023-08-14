@@ -412,7 +412,7 @@
 @endsection
 @push('scripts')
 
-    @if (Cookie::get(APP_LOCALE) == 'ar')
+    @if (App::getLocale() == 'ar')
         <script src="{{ asset('assets/js/custom/apps/roles/view/update-role.js') }}"></script>
     @else
         <script src="{{ asset('assets/js/custom/apps/roles/view/update-role.js') }}"></script>

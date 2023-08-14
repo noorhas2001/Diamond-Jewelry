@@ -356,7 +356,7 @@
 @push('scripts')
     <!--begin::Javascript-->
 
-    @if (Cookie::get(APP_LOCALE) == 'ar')
+    @if (App::getLocale() == 'ar')
         <script src="{{ asset('assets/js/custom/apps/deposits/view/update-deposit.js') }}"></script>
 
         <script>

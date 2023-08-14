@@ -622,7 +622,7 @@
 @push('scripts')
     <!--begin::Javascript-->
 
-    @if (Cookie::get(APP_LOCALE) == 'ar')
+    @if (App::getLocale() == 'ar')
         <script src="{{ asset('assets/js/custom/apps/gold_delars/view/update-gold-delar.js') }}"></script>
     @else
         <script src="{{ asset('assets/js/custom/apps/gold_delars/view/update-gold-delar-en.js') }}"></script>

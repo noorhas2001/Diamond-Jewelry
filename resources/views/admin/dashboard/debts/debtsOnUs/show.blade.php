@@ -639,7 +639,7 @@
 @push('scripts')
     <!--begin::Javascript-->
 
-    @if (Cookie::get(APP_LOCALE) == 'ar')
+    @if (App::getLocale() == 'ar')
         <script src="{{ asset('assets/js/custom/apps/debts/view/update-debt.js') }}"></script>
 
         <script>

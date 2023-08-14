@@ -95,12 +95,22 @@
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->
                                         <label class="fw-semibold fs-6 mb-2">
-                                            {{ translate('expenseTranslation.description') }} </label>
+                                            الصنف </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" name="description"
-                                            class="form-control form-control-solid mb-3 mb-lg-0"
-                                            placeholder="{{ translate('expenseTranslation.description') }}" />
+                                        <select name="description" class="form-select form-select-solid"
+                                                data-control="select2" data-hide-search="true"
+                                                data-placeholder="الصنف" required>
+                                                    <option value="مشروبات">مشروبات</option>
+                                                    <option value="وجبات طعام">وجبات طعام</option>
+                                                    <option value="م.صيانة">م.صيانة</option>
+                                                    <option value="صيانة ذهب">صيانة ذهب</option>
+                                                    <option value="مشتريات">مشتريات</option>
+                                                    <option value="انترنت">انترنت</option>
+                                                    <option value="كهرباء">كهرباء</option>
+                                                    <option value="مولد">مولد</option>
+                                                    <option value="غير ذلك">غير ذلك</option>
+                                            </select>
                                         <!--end::Input-->
                                     </div>
 
@@ -443,7 +453,7 @@
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
 
-    @if (Cookie::get(APP_LOCALE) == 'ar')
+    @if (App::getLocale() == 'ar')
         <script src="{{ asset('assets/js/custom/apps/general/list/table.js') }}"></script>
     @else
         <script src="{{ asset('assets/js/custom/apps/general/list/table-en.js') }}"></script>
