@@ -19,11 +19,11 @@ class FeatureFlagSeeder extends Seeder
             [
                 [
                     'name' => 'otp_phone',
-                    'enabled' => true,
+                    'enabled' => false,
                 ],
                 [
                     'name' => 'chart_feature',
-                    'enabled' => true,
+                    'enabled' => false,
                 ],
             ]
         );
