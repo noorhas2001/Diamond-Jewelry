@@ -156,13 +156,6 @@ var KTGeneralList = function () {
             form,
             {
                 fields: {
-                    'employee_id': {
-                        validators: {
-                            notEmpty: {
-                                message: 'العامل مطلوب'
-                            }
-                        }
-                    },
                     'amount': {
                         validators: {
                             notEmpty: {
@@ -174,13 +167,6 @@ var KTGeneralList = function () {
                         validators: {
                             notEmpty: {
                                 message: 'نوع العملة مطلوب '
-                            }
-                        }
-                    },
-                    'draw_date': {
-                        validators: {
-                            notEmpty: {
-                                message: 'تاريخ السحب مطلوب '
                             }
                         }
                     },
