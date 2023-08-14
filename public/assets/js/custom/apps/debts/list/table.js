@@ -69,6 +69,13 @@ var KTdebtsList = function () {
                             }
                         }
                     },
+                    'phone_number': {
+                        validators: {
+                            notEmpty: {
+                                message: 'رقم الهاتف مطلوب'
+                            }
+                        }
+                    },
                 },
 
                 plugins: {

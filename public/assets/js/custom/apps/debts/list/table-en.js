@@ -69,17 +69,10 @@ var KTdebtsList = function () {
                             }
                         }
                     },
-                    'amount': {
+                    'phone_number': {
                         validators: {
                             notEmpty: {
-                                message: '  amount is required'
-                            }
-                        }
-                    },
-                    'currency_id': {
-                        validators: {
-                            notEmpty: {
-                                message: 'currency_id is required'
+                                message: 'رقم الهاتف مطلوب'
                             }
                         }
                     },
