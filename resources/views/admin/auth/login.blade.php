@@ -5,7 +5,7 @@
     <div class="d-flex flex-column flex-lg-row flex-column-fluid">
         <!--begin::Aside-->
         <div class="d-flex flex-lg-row-fluid w-lg-50 bgi-size-cover bgi-position-center overlay-container"
-             style="background-image: url({{asset('assets/img/LogoLogin.avif')}})">
+            style="background-image: url({{ asset('assets/img/LogoLogin.avif') }})">
             <!--begin::Overlay-->
             <div class="overlay"></div>
             <!--end::Overlay-->
@@ -32,7 +32,8 @@
                 <!--begin::Alert-->
                 <div class="alert alert-danger d-flex align-items-center p-5">
                     <!--begin::Icon-->
-                    <i class="ki-duotone ki-shield-tick fs-2hx text-success me-4"><span class="path1"></span><span class="path2"></span></i>
+                    <i class="ki-duotone ki-shield-tick fs-2hx text-success me-4"><span class="path1"></span><span
+                            class="path2"></span></i>
                     <!--end::Icon-->
                     <!--begin::Wrapper-->
                     <div class="d-flex flex-column">
@@ -48,12 +49,12 @@
                 <!--begin::Wrapper-->
                 <div class="w-lg-500px p-10">
                     <!--begin::Form-->
-                    <form class="form w-100" action="{{route('login')}}" method="POST">
+                    <form class="form w-100" action="{{ route('login') }}" method="POST">
                         @csrf
                         <!--begin::Heading-->
                         <div class="text-center mb-11">
                             <!--begin::Title-->
-                            <h1 class="text-dark fw-bolder mb-3">{{translate('loginTranslation.SignIn')}}</h1>
+                            <h1 class="text-dark fw-bolder mb-3">{{ translate('loginTranslation.SignIn') }}</h1>
                             <!--end::Title-->
                         </div>
                         <!--begin::Heading-->
@@ -63,31 +64,30 @@
                         <div class="fv-row mb-8">
                             <!--begin::Email-->
                             <input type="text" placeholder="Email" name="email" autocomplete="on"
-                                   class="form-control bg-transparent" required/>
+                                class="form-control bg-transparent" required />
                             <!--end::Email-->
                         </div>
                         <!--end::Input group=-->
                         <div class="fv-row mb-3">
                             <!--begin::Password-->
                             <input type="password" placeholder="Password" name="password" autocomplete="on"
-                                   class="form-control bg-transparent" required/>
+                                class="form-control bg-transparent" required />
                             <!--end::Password-->
                         </div>
                         <!--end::Input group=-->
                         <!--begin::Wrapper-->
-                        {{-- <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">--}}
-{{--                            <div></div>--}}
-{{--                            <!--begin::Link-->--}}
-{{--                            <a href="#"--}}
-{{--                               class="link-primary">Forgot Password ?</a>--}}
-{{--                            <!--end::Link-->--}}
-{{--                        </div> --}}
+                        <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
+                            <div></div>
+                            <!--begin::Link-->
+                            <a href="{{route('password.request')}}" class="link-primary">نسيت كلمة السر ؟</a>
+                            <!--end::Link-->
+                        </div>
                         <!--end::Wrapper-->
                         <!--begin::Submit button-->
                         <div class="d-grid mb-10">
                             <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
                                 <!--begin::Indicator label-->
-                                <span class="indicator-label">{{translate('loginTranslation.SignIn')}}</span>
+                                <span class="indicator-label">{{ translate('loginTranslation.SignIn') }}</span>
                                 <!--end::Indicator label-->
                             </button>
                         </div>
@@ -103,7 +103,4 @@
         <!--end::Body-->
     </div>
     <!--end::Authentication - Sign-in-->
-
 @endsection
-
-
