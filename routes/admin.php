@@ -62,14 +62,13 @@ Route::prefix('dashboard/admin/')->group(function () {
 
         Route::prefix('expenses')->group(function () {
             Route::get('/expenses', [ExpensesController::class, 'expenses'])->name('expenses.index');
-            Route::get('/expenses/masa_expenses', [ExpensesController::class, 'masa_expenses'])->name('expenses.from_masa');
-            Route::post('/expenses/store', [ExpensesController::class, 'store'])->name('expenses.store');
-            Route::post('/expenses/store_from_masa', [ExpensesController::class, 'store_from_masa'])->name('expenses.store_from_masa');
-            Route::get('/expenses/show/{id}', [ExpensesController::class, 'show'])->name('expenses.show');
-            Route::put('/expenses/update/{id}', [ExpensesController::class, 'update'])->name('expenses.update');
-            Route::DELETE('/expenses/destroy/{id}', [ExpensesController::class, 'destroy'])->name('expenses.destroy');
+            Route::get('/masa_expenses', [ExpensesController::class, 'masa_expenses'])->name('expenses.from_masa');
+            Route::post('/store', [ExpensesController::class, 'store'])->name('expenses.store');
+            Route::post('/store_from_masa', [ExpensesController::class, 'store_from_masa'])->name('expenses.store_from_masa');
+            Route::get('/show/{id}', [ExpensesController::class, 'show'])->name('expenses.show');
+            Route::put('/update/{id}', [ExpensesController::class, 'update'])->name('expenses.update');
+            Route::DELETE('/destroy/{id}', [ExpensesController::class, 'destroy'])->name('expenses.destroy');
             Route::post('/deleteSelected', [ExpensesController::class, 'deleteSelected'])->name('expenses.deleteSelected');
-
         });
 
         Route::resource('withdrawals', WithdrawalController::class);
