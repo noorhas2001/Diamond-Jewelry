@@ -71,7 +71,7 @@ var KTModalExportUsers = function () {
                             });
 
                             //form.submit(); // Submit form
-                        }, 2000);
+                        }, 500);
                     } else {
                         Swal.fire({
                             text: "Sorry, looks like there are some errors detected, please try again.",
@@ -105,8 +105,8 @@ var KTModalExportUsers = function () {
                 }
             }).then(function (result) {
                 if (result.value) {
-                    form.reset(); // Reset form	
-                    modal.hide(); // Hide modal				
+                    form.reset(); // Reset form
+                    modal.hide(); // Hide modal
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",
@@ -139,8 +139,8 @@ var KTModalExportUsers = function () {
                 }
             }).then(function (result) {
                 if (result.value) {
-                    form.reset(); // Reset form	
-                    modal.hide(); // Hide modal				
+                    form.reset(); // Reset form
+                    modal.hide(); // Hide modal
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",

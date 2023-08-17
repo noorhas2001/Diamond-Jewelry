@@ -33,7 +33,7 @@ var KTAppEcommerceSalesSaveOrder = function () {
             return $(span);
         }
 
-        // Init Select2 --- more info: https://select2.org/        
+        // Init Select2 --- more info: https://select2.org/
         $('#kt_ecommerce_edit_order_billing_country').select2({
             placeholder: "Select a country",
             minimumResultsForSearch: Infinity,
@@ -98,13 +98,13 @@ var KTAppEcommerceSalesSaveOrder = function () {
             checkbox.addEventListener('change', e => {
                 // Select parent row element
                 const parent = checkbox.closest('tr');
-                
+
                 // Clone parent element as variable
                 const product = parent.querySelector('[data-kt-ecommerce-edit-order-filter="product"]').cloneNode(true);
 
                 // Create inner wrapper
                 const innerWrapper = document.createElement('div');
-                
+
                 // Store inner content
                 const innerContent = product.innerHTML;
 
@@ -124,7 +124,7 @@ var KTAppEcommerceSalesSaveOrder = function () {
 
                 // Update inner wrapper classes
                 innerWrapper.classList.add(...wrapperClassesRemove);
-                innerWrapper.classList.add(...additionalClasses);                
+                innerWrapper.classList.add(...additionalClasses);
 
                 // Apply stored inner content into new inner wrapper
                 innerWrapper.innerHTML = innerContent;
@@ -301,7 +301,7 @@ var KTAppEcommerceSalesSaveOrder = function () {
                                     window.location = form.getAttribute("data-kt-redirect");
                                 }
                             });
-                        }, 2000);
+                        }, 500);
                     } else {
                         Swal.fire({
                             html: "Sorry, looks like there are some errors detected, please try again.",

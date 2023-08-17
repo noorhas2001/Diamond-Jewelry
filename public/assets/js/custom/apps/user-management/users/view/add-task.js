@@ -65,8 +65,8 @@ var KTUsersAddTask = function () {
                 }
             }).then(function (result) {
                 if (result.value) {
-                    form.reset(); // Reset form	
-                    modal.hide(); // Hide modal				
+                    form.reset(); // Reset form
+                    modal.hide(); // Hide modal
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",
@@ -99,8 +99,8 @@ var KTUsersAddTask = function () {
                 }
             }).then(function (result) {
                 if (result.value) {
-                    form.reset(); // Reset form	
-                    modal.hide(); // Hide modal				
+                    form.reset(); // Reset form
+                    modal.hide(); // Hide modal
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",
@@ -130,7 +130,7 @@ var KTUsersAddTask = function () {
                         // Show loading indication
                         submitButton.setAttribute('data-kt-indicator', 'on');
 
-                        // Disable button to avoid multiple click 
+                        // Disable button to avoid multiple click
                         submitButton.disabled = true;
 
                         // Simulate form submission. For more info check the plugin's official documentation: https://sweetalert2.github.io/
@@ -141,7 +141,7 @@ var KTUsersAddTask = function () {
                             // Enable button
                             submitButton.disabled = false;
 
-                            // Show popup confirmation 
+                            // Show popup confirmation
                             Swal.fire({
                                 text: "Form has been successfully submitted!",
                                 icon: "success",
@@ -157,7 +157,7 @@ var KTUsersAddTask = function () {
                             });
 
                             //form.submit(); // Submit form
-                        }, 2000);
+                        }, 500);
                     } else {
                         // Show popup warning. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                         Swal.fire({
@@ -232,7 +232,7 @@ var KTUsersAddTask = function () {
                     }
                 }).then(function (result) {
                     if (result.value) {
-                        taskForm.reset(); // Reset form		
+                        taskForm.reset(); // Reset form
                         el.hide();
                     } else if (result.dismiss === 'cancel') {
                         Swal.fire({
@@ -261,7 +261,7 @@ var KTUsersAddTask = function () {
                             // Show loading indication
                             submitButton.setAttribute('data-kt-indicator', 'on');
 
-                            // Disable button to avoid multiple click 
+                            // Disable button to avoid multiple click
                             submitButton.disabled = true;
 
                             // Simulate form submission. For more info check the plugin's official documentation: https://sweetalert2.github.io/
@@ -272,7 +272,7 @@ var KTUsersAddTask = function () {
                                 // Enable button
                                 submitButton.disabled = false;
 
-                                // Show popup confirmation 
+                                // Show popup confirmation
                                 Swal.fire({
                                     text: "Form has been successfully submitted!",
                                     icon: "success",
@@ -288,7 +288,7 @@ var KTUsersAddTask = function () {
                                 });
 
                                 //taskForm.submit(); // Submit form
-                            }, 2000);
+                            }, 500);
                         } else {
                             // Show popup warning. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                             Swal.fire({

@@ -80,7 +80,7 @@ var KTModalAddPayment = function () {
                             // Simulate form submission
                             submitButton.removeAttribute('data-kt-indicator');
 
-                            // Show popup confirmation 
+                            // Show popup confirmation
                             Swal.fire({
                                 text: "Form has been successfully submitted!",
                                 icon: "success",
@@ -102,9 +102,9 @@ var KTModalAddPayment = function () {
                             });
 
                             //form.submit(); // Submit form
-                        }, 2000);
+                        }, 500);
                     } else {
-                        // Show popup warning 
+                        // Show popup warning
                         Swal.fire({
                             text: "Sorry, looks like there are some errors detected, please try again.",
                             icon: "error",
@@ -135,8 +135,8 @@ var KTModalAddPayment = function () {
                 }
             }).then(function (result) {
                 if (result.value) {
-                    form.reset(); // Reset form	
-                    modal.hide(); // Hide modal				
+                    form.reset(); // Reset form
+                    modal.hide(); // Hide modal
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",
@@ -167,8 +167,8 @@ var KTModalAddPayment = function () {
                 }
             }).then(function (result) {
                 if (result.value) {
-                    form.reset(); // Reset form	
-                    modal.hide(); // Hide modal				
+                    form.reset(); // Reset form
+                    modal.hide(); // Hide modal
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",

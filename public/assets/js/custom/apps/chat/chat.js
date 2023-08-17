@@ -34,24 +34,24 @@ var KTAppChat = function () {
 		var messageOutTemplate = messages.querySelector('[data-kt-element="template-out"]');
 		var messageInTemplate = messages.querySelector('[data-kt-element="template-in"]');
 		var message;
-		
+
 		// Show example outgoing message
 		message = messageOutTemplate.cloneNode(true);
 		message.classList.remove('d-none');
-		message.querySelector('[data-kt-element="message-text"]').innerText = input.value;		
+		message.querySelector('[data-kt-element="message-text"]').innerText = input.value;
 		input.value = '';
 		messages.appendChild(message);
 		messages.scrollTop = messages.scrollHeight;
-		
-		
-		setTimeout(function() {			
+
+
+		setTimeout(function() {
 			// Show example incoming message
-			message = messageInTemplate.cloneNode(true);			
+			message = messageInTemplate.cloneNode(true);
 			message.classList.remove('d-none');
 			message.querySelector('[data-kt-element="message-text"]').innerText = 'Thank you for your awesome support!';
 			messages.appendChild(message);
 			messages.scrollTop = messages.scrollHeight;
-		}, 2000);
+		}, 500);
 	}
 
 	// Public methods

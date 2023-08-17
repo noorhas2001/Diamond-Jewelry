@@ -3,7 +3,7 @@
 // Class definition
 var KTCreateApp = function () {
 	// Elements
-	var modal;	
+	var modal;
 	var modalEl;
 
 	var stepper;
@@ -92,7 +92,7 @@ var KTCreateApp = function () {
 					// Prevent default button action
 					e.preventDefault();
 
-					// Disable button to avoid multiple click 
+					// Disable button to avoid multiple click
 					formSubmitButton.disabled = true;
 
 					// Show loading indication
@@ -108,7 +108,7 @@ var KTCreateApp = function () {
 
 						stepperObj.goNext();
 						//KTUtil.scrollTop();
-					}, 2000);
+					}, 500);
 				} else {
 					Swal.fire({
 						text: "Sorry, looks like there are some errors detected, please try again.",

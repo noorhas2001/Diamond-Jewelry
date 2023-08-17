@@ -24,7 +24,7 @@ var KTModalUpdateCustomer = function () {
                 // Simulate form submission
                 submitButton.removeAttribute('data-kt-indicator');
 
-                // Show popup confirmation 
+                // Show popup confirmation
                 Swal.fire({
                     text: "Form has been successfully submitted!",
                     icon: "success",
@@ -40,7 +40,7 @@ var KTModalUpdateCustomer = function () {
                 });
 
                 //form.submit(); // Submit form
-            }, 2000);
+            }, 500);
         });
 
         cancelButton.addEventListener('click', function (e) {
@@ -59,8 +59,8 @@ var KTModalUpdateCustomer = function () {
                 }
             }).then(function (result) {
                 if (result.value) {
-                    form.reset(); // Reset form	
-                    modal.hide(); // Hide modal				
+                    form.reset(); // Reset form
+                    modal.hide(); // Hide modal
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",
@@ -91,8 +91,8 @@ var KTModalUpdateCustomer = function () {
                 }
             }).then(function (result) {
                 if (result.value) {
-                    form.reset(); // Reset form	
-                    modal.hide(); // Hide modal				
+                    form.reset(); // Reset form
+                    modal.hide(); // Hide modal
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",

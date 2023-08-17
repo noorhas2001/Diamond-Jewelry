@@ -114,7 +114,7 @@ var KTCareersApply = function () {
 					if (status == 'Valid') {
 						submitButton.setAttribute('data-kt-indicator', 'on');
 
-						// Disable button to avoid multiple click 
+						// Disable button to avoid multiple click
 						submitButton.disabled = true;
 
 						setTimeout(function() {
@@ -122,7 +122,7 @@ var KTCareersApply = function () {
 
 							// Enable button
 							submitButton.disabled = false;
-							
+
 							Swal.fire({
 								text: "Form has been successfully submitted!",
 								icon: "success",
@@ -138,7 +138,7 @@ var KTCareersApply = function () {
 							});
 
 							//form.submit(); // Submit form
-						}, 2000);   						
+						}, 500);
 					} else {
 						// Scroll top
 

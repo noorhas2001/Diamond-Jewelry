@@ -37,7 +37,7 @@ var KTSupportCenterGeneral = function() {
 
                         setTimeout(function() {
                             e.trigger.innerHTML = caption;
-                        }, 2000);
+                        }, 500);
                     });
                 }
             }
@@ -49,7 +49,7 @@ var KTSupportCenterGeneral = function() {
 
         if ( !menuActiveItem ) {
             return;
-        } 
+        }
 
         if ( KTUtil.isVisibleInContainer(menuActiveItem, menuWrapper) === true) {
             return;

@@ -249,7 +249,7 @@ var KTFileManagerList = function () {
         const toolbarSelected = document.querySelector('[data-kt-filemanager-table-toolbar="selected"]');
         const selectedCount = document.querySelector('[data-kt-filemanager-table-select="selected_count"]');
 
-        // Select refreshed checkbox DOM elements 
+        // Select refreshed checkbox DOM elements
         const allCheckboxes = table.querySelectorAll('tbody [type="checkbox"]');
 
         // Detect checkboxes state & count
@@ -397,7 +397,7 @@ var KTFileManagerList = function () {
 
                                 datatable.draw(false);
 
-                            }, 2000);
+                            }, 500);
                         } else {
                             // Disable indicator
                             rowButton.removeAttribute("data-kt-indicator");
@@ -453,7 +453,7 @@ var KTFileManagerList = function () {
 
     // Handle rename file or folder
     const handleRename = () => {
-        const renameButton = table.querySelectorAll('[data-kt-filemanager-table="rename"]');     
+        const renameButton = table.querySelectorAll('[data-kt-filemanager-table="rename"]');
 
         renameButton.forEach(button => {
             button.addEventListener('click', renameCallback);
@@ -791,7 +791,7 @@ var KTFileManagerList = function () {
                     generator.classList.add('d-none');
                     result.classList.remove('d-none');
                     input.select();
-                }, 2000);
+                }, 500);
             });
         });
     }
@@ -854,8 +854,8 @@ var KTFileManagerList = function () {
                                 }
                             }).then(function (result) {
                                 if (result.isConfirmed) {
-                                    form.reset(); // Reset form	
-                                    moveModal.hide(); // Hide modal			
+                                    form.reset(); // Reset form
+                                    moveModal.hide(); // Hide modal
 
                                     toastr.options = {
                                         "closeButton": true,

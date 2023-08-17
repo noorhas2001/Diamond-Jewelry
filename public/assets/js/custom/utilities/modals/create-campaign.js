@@ -85,7 +85,7 @@ var KTCreateCampaign = function () {
 			// Prevent default button action
 			e.preventDefault();
 
-			// Disable button to avoid multiple click 
+			// Disable button to avoid multiple click
 			formSubmitButton.disabled = true;
 
 			// Show loading indication
@@ -101,7 +101,7 @@ var KTCreateCampaign = function () {
 
 				stepperObj.goNext();
 				//KTUtil.scrollTop();
-			}, 2000);
+			}, 500);
 		});
 	}
 

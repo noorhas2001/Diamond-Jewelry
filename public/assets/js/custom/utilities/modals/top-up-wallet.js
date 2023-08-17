@@ -85,7 +85,7 @@ var KTModalTopUpWallet = function () {
 			// Prevent default button action
 			e.preventDefault();
 
-			// Disable button to avoid multiple click 
+			// Disable button to avoid multiple click
 			formSubmitButton.disabled = true;
 
 			// Show loading indication
@@ -101,12 +101,12 @@ var KTModalTopUpWallet = function () {
 
 				stepperObj.goNext();
 				//KTUtil.scrollTop();
-			}, 2000);
+			}, 500);
 		});
 	}
 
 	// Init form inputs
-	var initForm = function () {	
+	var initForm = function () {
         // Handle currency swap logic
         const currencyTypes = form.querySelectorAll('[name="currency_type"]');
         const targets = form.querySelectorAll('[data-kt-modal-top-up-wallet-option]');
@@ -232,8 +232,8 @@ var KTModalTopUpWallet = function () {
                 }
             }).then(function (result) {
                 if (result.value) {
-                    form.reset(); // Reset form	
-                    modal.hide(); // Hide modal				
+                    form.reset(); // Reset form
+                    modal.hide(); // Hide modal
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",

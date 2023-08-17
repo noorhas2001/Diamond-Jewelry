@@ -3,7 +3,7 @@
 // Class definition
 var KTCreateAccount = function () {
 	// Elements
-	var modal;	
+	var modal;
 	var modalEl;
 
 	var stepper;
@@ -93,7 +93,7 @@ var KTCreateAccount = function () {
 					// Prevent default button action
 					e.preventDefault();
 
-					// Disable button to avoid multiple click 
+					// Disable button to avoid multiple click
 					formSubmitButton.disabled = true;
 
 					// Show loading indication
@@ -108,7 +108,7 @@ var KTCreateAccount = function () {
 						formSubmitButton.disabled = false;
 
 						stepperObj.goNext();
-					}, 2000);
+					}, 500);
 				} else {
 					Swal.fire({
 						text: "Sorry, looks like there are some errors detected, please try again.",
@@ -331,8 +331,8 @@ var KTCreateAccount = function () {
 			modalEl = document.querySelector('#kt_modal_create_account');
 
 			if ( modalEl ) {
-				modal = new bootstrap.Modal(modalEl);	
-			}					
+				modal = new bootstrap.Modal(modalEl);
+			}
 
 			stepper = document.querySelector('#kt_create_account_stepper');
 

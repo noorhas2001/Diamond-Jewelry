@@ -19,9 +19,9 @@ var KTProfileGeneral = function () {
         showMoreButton.addEventListener('click', function (e) {
             showMoreButton.setAttribute('data-kt-indicator', 'on');
 
-            // Disable button to avoid multiple click 
+            // Disable button to avoid multiple click
             showMoreButton.disabled = true;
-            
+
             setTimeout(function() {
                 // Hide loading indication
                 showMoreButton.removeAttribute('data-kt-indicator');
@@ -37,7 +37,7 @@ var KTProfileGeneral = function () {
 
                 // Scroll to card
                 KTUtil.scrollTo(showMoreCards, 200);
-            }, 2000);
+            }, 500);
         });
     }
 
@@ -48,13 +48,13 @@ var KTProfileGeneral = function () {
         }
 
         followBtn.addEventListener('click', function(e){
-            // Prevent default action 
+            // Prevent default action
             e.preventDefault();
-            
+
             // Show indicator
             followBtn.setAttribute('data-kt-indicator', 'on');
-            
-            // Disable button to avoid multiple click 
+
+            // Disable button to avoid multiple click
             followBtn.disabled = true;
 
             // Check button state
@@ -66,7 +66,7 @@ var KTProfileGeneral = function () {
                     followBtn.querySelector(".svg-icon").classList.add("d-none");
                     followBtn.querySelector(".indicator-label").innerHTML = 'Follow';
                     followBtn.disabled = false;
-                }, 1500);   
+                }, 1500);
             } else {
                     setTimeout(function() {
                     followBtn.removeAttribute('data-kt-indicator');
@@ -75,9 +75,9 @@ var KTProfileGeneral = function () {
                     followBtn.querySelector(".svg-icon").classList.remove("d-none");
                     followBtn.querySelector(".indicator-label").innerHTML = 'Following';
                     followBtn.disabled = false;
-                }, 1000);   
-            }        
-        });        
+                }, 1000);
+            }
+        });
     }
 
     var handleFollowers = function() {
@@ -89,7 +89,7 @@ var KTProfileGeneral = function () {
             var following = el.querySelector(".following");
             var follow = el.querySelector(".follow");
 
-            el.setAttribute('data-kt-indicator', 'on');            
+            el.setAttribute('data-kt-indicator', 'on');
             el.disabled = true;
             follow.classList.add("d-none");
             following.classList.add("d-none")
@@ -113,22 +113,22 @@ var KTProfileGeneral = function () {
 
                     label.innerHTML = "Following";
                 }
-            }, 2000);
+            }, 500);
         });
     }
 
     var handlePageScroll = function() {
         if ( profileNav  && profileNav.getAttribute("data-kt-sticky") && KTUtil.isBreakpointUp('lg')) {
-            
+
             if ( localStorage.getItem('nav-initialized') === "1") {
                 window.scroll({
                     top: parseInt(profileNav.getAttribute("data-kt-page-scroll-position")),
                     behavior: 'smooth'
                 });
             }
-    
-            localStorage.setItem('nav-initialized', "1");        
-        }        
+
+            localStorage.setItem('nav-initialized', "1");
+        }
     }
 
     // Public methods

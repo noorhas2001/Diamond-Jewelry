@@ -372,7 +372,7 @@ var KTAppEcommerceSaveProduct = function () {
                                     window.location = form.getAttribute("data-kt-redirect");
                                 }
                             });
-                        }, 2000);
+                        }, 500);
                     } else {
                         Swal.fire({
                             html: "Sorry, looks like there are some errors detected, please try again. <br/><br/>Please note that there may be errors in the <strong>General</strong> or <strong>Advanced</strong> tabs",
