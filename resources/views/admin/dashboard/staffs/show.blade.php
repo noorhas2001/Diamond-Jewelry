@@ -285,7 +285,20 @@
                                             <!--end::Label-->
                                             <!--begin::Input-->
                                             <input type="password" class="form-control form-control-solid"
-                                                name="password" />
+                                                name="password" placeholder="{{ translate('staffTranslation.password') }}"/>
+                                            <!--end::Input-->
+                                        </div>
+
+
+                                        <div class="fv-row mb-7">
+                                            <!--begin::Label-->
+                                            <label
+                                                class="required fw-semibold fs-6 mb-2">{{ translate('staffTranslation.confirm password') }}</label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                            <input type="password" name="password_confirmation"
+                                                class="form-control form-control-solid mb-3 mb-lg-0"
+                                                placeholder="{{ translate('staffTranslation.confirm password') }}" />
                                             <!--end::Input-->
                                         </div>
 
