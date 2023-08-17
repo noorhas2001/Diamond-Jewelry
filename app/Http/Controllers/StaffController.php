@@ -88,7 +88,7 @@ class StaffController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
-            'password' => 'sometimes|required|min:6|sometimes',
+            'password' => 'required|confirmed|sometimes',
             'phone' => 'required|unique:employees,phone,' . $id . ',id|max:20',
             'role' => 'required',
         ]);
