@@ -39,6 +39,8 @@ class RestrectedPageController extends Controller
             return back();
         }
 
+        $request->session()->put('password_confirmed', true);
+
         return redirect(route('safe-page'));
     }
 
@@ -74,25 +76,25 @@ class RestrectedPageController extends Controller
             'totalDinarDebtsForUs' => $this->getDebtsForUs(3),
 
             'totalExpenses' => Expense::where('is_from_masa', 0)->sum('amount'),
-            
+
             'drinks' => Expense::where('is_from_masa', 0)
-            ->where('description' ,'مشروبات')->sum('amount'),
+                ->where('description', 'مشروبات')->sum('amount'),
             'meals' => Expense::where('is_from_masa', 0)
-            ->where('description' ,'وجبات طعام')->sum('amount'),
+                ->where('description', 'وجبات طعام')->sum('amount'),
             'purchases' => Expense::where('is_from_masa', 0)
-            ->where('description' ,'مشتريات')->sum('amount'),
+                ->where('description', 'مشتريات')->sum('amount'),
             'Internet' => Expense::where('is_from_masa', 0)
-            ->where('description' ,'انترنت')->sum('amount'),
+                ->where('description', 'انترنت')->sum('amount'),
             'electricity' => Expense::where('is_from_masa', 0)
-            ->where('description' ,'كهرباء')->sum('amount'),
+                ->where('description', 'كهرباء')->sum('amount'),
             'Generator' => Expense::where('is_from_masa', 0)
-            ->where('description' ,'مولد')->sum('amount'),
+                ->where('description', 'مولد')->sum('amount'),
             'maintenance' => Expense::where('is_from_masa', 0)
-            ->where('description' ,'صيانة')->sum('amount'),
+                ->where('description', 'صيانة')->sum('amount'),
             'GoldMaintenance' => Expense::where('is_from_masa', 0)
-            ->where('description' ,'صيانة ذهب')->sum('amount'),
+                ->where('description', 'صيانة ذهب')->sum('amount'),
             'otherwise' => Expense::where('is_from_masa', 0)
-            ->where('description' ,'غير ذلك')->sum('amount'),
+                ->where('description', 'غير ذلك')->sum('amount'),
         ];
     }
 
