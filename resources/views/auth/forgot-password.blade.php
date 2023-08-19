@@ -41,7 +41,11 @@
                 <div class="w-lg-500px p-10">
                     <!--begin::Form-->
                     <x-guest-layout>
-
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                         <form method="POST" action="{{ route('password.email') }}" class="max-w-sm mx-auto px-4">
                             @csrf
 
@@ -54,7 +58,6 @@
                                 <x-input-label for="email" :value="__('Email')" />
                                 <x-text-input id="email" class="form-control bg-transparent" type="email"
                                     name="email" :value="old('email')" required autofocus />
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
                             </div>
 
                             <div class="flex items-center justify-center mt-4">
