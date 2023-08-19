@@ -84,7 +84,8 @@ Route::prefix('dashboard/admin/')->group(function () {
         Route::post('/contributors/deleteSelected', [ContributorController::class, 'deleteSelected'])->name('contributors.deleteSelected');
         Route::post('contributors/transactions/deleteSelected', [TransactionController::class, 'deleteSelected'])->name('transactions.deleteSelected');
 
-        Route::get('/safe', [RestrectedPageController::class, 'showSafePage'])->name('safe-page');
+        Route::get('/safe', [RestrectedPageController::class, 'showSafePage'])->name('safe-page')
+            ->middleware('password.confirm');
         Route::post('/check-password', [RestrectedPageController::class, 'checkPassword'])->name('check-password');
 
         Route::resource('deposits', DepositController::class);
