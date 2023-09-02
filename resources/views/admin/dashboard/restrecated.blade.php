@@ -335,7 +335,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
                                                 <div class="fw-bolder text-gray-700 text-xxl-end">
-                                                    {{ $totalGoldDelarTotalWorkshipman }} $
+                                                    {{ $totalGoldDelarTotalWorkshipman }} JD
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
