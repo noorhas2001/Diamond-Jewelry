@@ -58,9 +58,9 @@
                                         <!--begin::Title-->
                                         <div class="card-title d-flex flex-column">
                                             <!--begin::Amount-->
-                                            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2" data-kt-countup="true"
-                                                data-kt-countup-value="{{ $totalWeight }}"
-                                                data-kt-countup-Suffix=" غم ">0</span>
+                                            <span
+                                                class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2"=" غم ">{{ $totalWeight }}
+                                                غم</span>
                                             <!--end::Amount-->
                                             <!--begin::Subtitle-->
                                             <br>
@@ -81,9 +81,9 @@
                                         <!--begin::Title-->
                                         <div class="card-title d-flex flex-column">
                                             <!--begin::Amount-->
-                                            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2" data-kt-countup="true"
-                                                data-kt-countup-value="{{ $totalWeight }}"
-                                                data-kt-countup-prefix=" ₪ ">0</span>
+                                            <span
+                                                class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2"="  ">{{ $totalWithdrawals }}
+                                                ₪</span>
                                             <!--end::Amount-->
                                             <!--begin::Subtitle-->
                                             <br>
@@ -143,10 +143,8 @@
                                                     اجمالي الشيكل </div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalCurrencyDelarShekelBalance }}"
-                                                    data-kt-countup-prefix=" ₪ ">
-                                                    0 ₪
+                                                <div class="fw-bolder text-gray-700 text-xxl-end"="  ">
+                                                    {{ $totalCurrencyDelarShekelBalance }} ₪
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -161,10 +159,8 @@
                                                     اجمالي الدولار</div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalCurrencyDelarDolarBalance }}"
-                                                    data-kt-countup-prefix=" $ ">
-                                                    0 $
+                                                <div class="fw-bolder text-gray-700 text-xxl-end"=" $ ">
+                                                    {{ $totalCurrencyDelarDolarBalance }} $
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -180,10 +176,8 @@
                                                     اجمالي الدينار</div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalCurrencyDelarDinarBalance }}"
-                                                    data-kt-countup-prefix=" JD ">
-                                                    0 JD
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalCurrencyDelarDinarBalance }} JD
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -234,10 +228,8 @@
                                                     اجمالي الشيكل </div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalContributorsShekelBalance }}"
-                                                    data-kt-countup-prefix=" ₪ ">
-                                                    0 ₪
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalContributorsShekelBalance }} ₪
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -252,10 +244,8 @@
                                                     اجمالي الدولار</div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalContributorsDollarBalance }}"
-                                                    data-kt-countup-prefix=" $ ">
-                                                    0 $
+                                                <div class="fw-bolder text-gray-700 text-xxl-end"=" $ ">
+                                                    {{ $totalContributorsDollarBalance }} $
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -271,10 +261,8 @@
                                                     اجمالي الدينار</div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalContributorsDinarBalance }}"
-                                                    data-kt-countup-prefix=" JD ">
-                                                    0 JD
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalContributorsDinarBalance }} JD
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -330,9 +318,8 @@
                                                     اجمالي الوزن </div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalGoldDelarTotalWeight }}">
-                                                    0
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalGoldDelarTotalWeight }} غم
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -347,10 +334,8 @@
                                                     اجمالي الصنعة</div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalGoldDelarTotalWorkshipman }}"
-                                                    data-kt-countup-prefix=" JD ">
-                                                    0 $
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalGoldDelarTotalWorkshipman }} $
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -401,10 +386,8 @@
                                                     اجمالي الشيكل </div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalShekelsMasaWithdrawals }}"
-                                                    data-kt-countup-prefix=" ₪ ">
-                                                    0 ₪
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalShekelsMasaWithdrawals }} ₪
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -419,10 +402,8 @@
                                                     اجمالي الدولار</div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalDollarsMasaWithdrawals }}"
-                                                    data-kt-countup-prefix=" $ ">
-                                                    0 $
+                                                <div class="fw-bolder text-gray-700 text-xxl-end"=" $ ">
+                                                    {{ $totalDollarsMasaWithdrawals }} $
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -438,10 +419,8 @@
                                                     اجمالي الدينار</div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalDinarsMasaWithdrawals }}"
-                                                    data-kt-countup-prefix=" JD ">
-                                                    0 JD
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalDinarsMasaWithdrawals }} JD
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -504,10 +483,8 @@
                                                     اجمالي الشيكل </div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalShekelsMasaDeposits }}"
-                                                    data-kt-countup-prefix=" ₪ ">
-                                                    0 ₪
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalShekelsMasaDeposits }} ₪
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -523,10 +500,8 @@
                                                     اجمالي الدولار</div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalDollarsMasaDeposits }}"
-                                                    data-kt-countup-prefix=" $ ">
-                                                    0 $
+                                                <div class="fw-bolder text-gray-700 text-xxl-end"=" $ ">
+                                                    {{ $totalDollarsMasaDeposits }} $
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -543,10 +518,8 @@
                                                     اجمالي الدينار</div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalDinarsMasaDeposits }}"
-                                                    data-kt-countup-prefix=" JD ">
-                                                    0 JD
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalDinarsMasaDeposits }} JD
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -557,97 +530,6 @@
                                     <!--end::Card body-->
                                 </div>
                                 <!--end::Card widget 20-->
-                                {{-- <!--begin::List widget 26-->
-                                <div class="card card-flush h-md-50 mb-5 mb-xl-10">
-                                    <!--begin::Header-->
-                                    <div class="card-header pt-5">
-                                        <!--begin::Title-->
-                                        <div class="card-title d-flex flex-column">
-                                            <!--begin::Info-->
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Currency-->
-                                                <span class="card-title text-gray-800">اجمالي المصروفات</span>
-                                                <!--end::Currency-->
-                                                <!--begin::Amount-->
-                                                <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"></span>
-                                                <!--end::Amount-->
-                                                <!--begin::Badge-->
-
-                                                <!--end::Badge-->
-                                            </div>
-                                            <!--end::Info-->
-                                        </div>
-                                        <!--end::Title-->
-                                    </div>
-                                    <!--end::Header-->
-                                    <!--begin::Card body-->
-                                    <div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
-                                        <!--begin::Chart-->
-
-                                        <!--end::Chart-->
-                                        <!--begin::Labels-->
-                                        <div class="d-flex flex-column content-justify-center flex-row-fluid">
-                                            <!--begin::Label-->
-                                            <div class="d-flex fw-semibold align-items-center">
-                                                <!--begin::Bullet-->
-                                                <div class="bullet w-8px h-3px rounded-2 bg-success me-3"></div>
-                                                <!--end::Bullet-->
-                                                <!--begin::Label-->
-                                                <div class="text-gray-500 flex-grow-1 me-4">
-                                                    اجمالي الشيكل </div>
-                                                <!--end::Label-->
-                                                <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalShekelsMasaDeposits }}"
-                                                    data-kt-countup-prefix=" ₪ ">
-                                                    0 ₪
-                                                </div>
-                                                <!--end::Stats-->
-                                            </div>
-                                            <!--end::Label-->
-                                            <!--begin::Label-->
-                                            <div class="d-flex fw-semibold align-items-center my-3">
-                                                <!--begin::Bullet-->
-                                                <div class="bullet w-8px h-3px rounded-2 bg-primary me-3"></div>
-                                                <!--end::Bullet-->
-                                                <!--begin::Label-->
-                                                <div class="text-gray-500 flex-grow-1 me-4">
-                                                    اجمالي الدولار</div>
-                                                <!--end::Label-->
-                                                <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalDollarsMasaDeposits }}"
-                                                    data-kt-countup-prefix=" $ ">
-                                                    0 $
-                                                </div>
-                                                <!--end::Stats-->
-                                            </div>
-                                            <!--end::Label-->
-                                            <!--begin::Label-->
-                                            <div class="d-flex fw-semibold align-items-center">
-                                                <!--begin::Bullet-->
-                                                <div class="bullet w-8px h-3px rounded-2 me-3"
-                                                    style="background-color: #E4E6EF"></div>
-                                                <!--end::Bullet-->
-                                                <!--begin::Label-->
-                                                <div class="text-gray-500 flex-grow-1 me-4">
-                                                    اجمالي الدينار</div>
-                                                <!--end::Label-->
-                                                <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalDinarsMasaDeposits }}"
-                                                    data-kt-countup-prefix=" JD ">
-                                                    0 JD
-                                                </div>
-                                                <!--end::Stats-->
-                                            </div>
-                                            <!--end::Label-->
-                                        </div>
-                                        <!--end::Labels-->
-                                    </div>
-                                    <!--end::Card body-->
-                                </div>
-                                <!--end::Card widget 20--> --}}
                             </div>
                             <!--end::Col-->
 
@@ -691,10 +573,8 @@
                                                     اجمالي الوزن </div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalWeightDebtsForUs }}"
-                                                    data-kt-countup-Suffix=" غم ">
-                                                    0
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalWeightDebtsForUs }} غم
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -710,10 +590,8 @@
                                                     اجمالي الشيكل </div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalShekelDebtsForUs }}"
-                                                    data-kt-countup-prefix=" ₪ ">
-                                                    0 ₪
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalShekelDebtsForUs }} ₪
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -728,10 +606,8 @@
                                                     اجمالي الدولار</div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalDollarDebtsForUs }}"
-                                                    data-kt-countup-prefix=" $ ">
-                                                    0 $
+                                                <div class="fw-bolder text-gray-700 text-xxl-end"=" $ ">
+                                                    {{ $totalDollarDebtsForUs }} $
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -747,10 +623,8 @@
                                                     اجمالي الدينار</div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalDinarDebtsForUs }}"
-                                                    data-kt-countup-prefix=" JD ">
-                                                    0 JD
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalDinarDebtsForUs }} JD
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -803,10 +677,8 @@
                                                     اجمالي الوزن </div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalWeightDebtsOnUs }}"
-                                                    data-kt-countup-Suffix=" غم ">
-                                                    0
+                                                <div class="fw-bolder text-gray-700 text-xxl-end"=" غم ">
+                                                    {{ $totalWeightDebtsOnUs }} غم
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -822,10 +694,8 @@
                                                     اجمالي الشيكل </div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalShekelDebtsOnUs }}"
-                                                    data-kt-countup-prefix=" ₪ ">
-                                                    0 ₪
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalShekelDebtsOnUs }} ₪
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -840,10 +710,8 @@
                                                     اجمالي الدولار</div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalDollarDebtsOnUs }}"
-                                                    data-kt-countup-prefix=" $ ">
-                                                    0 $
+                                                <div class="fw-bolder text-gray-700 text-xxl-end"=" $ ">
+                                                    {{ $totalDollarDebtsOnUs }} $
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -859,10 +727,8 @@
                                                     اجمالي الدينار</div>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalDinarDebtsOnUs }}"
-                                                    data-kt-countup-prefix=" JD ">
-                                                    0 JD
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalDinarDebtsOnUs }} JD
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -920,10 +786,8 @@
                                                     اجمالي المبلغ </h5>
                                                 <!--end::Label-->
                                                 <!--begin::Stats-->
-                                                <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true"
-                                                    data-kt-countup-value="{{ $totalExpenses }}"
-                                                    data-kt-countup-prefix=" ₪ ">
-                                                    0 ₪
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $totalExpenses }} ₪
                                                 </div>
                                                 <!--end::Stats-->
                                             </div>
@@ -932,7 +796,8 @@
 
                                             <br>
                                             <div id="labelSelectorContainer">
-                                                <label for="labelSelector" class="me-2 text-gray-700 mb-5">اختر نوع المصروف</label>
+                                                <label for="labelSelector" class="me-2 text-gray-700 mb-5">اختر نوع
+                                                    المصروف</label>
                                                 <select id="labelSelector" class="form-select">
                                                     <option value=""></option>
                                                     <option value="مشروبات">مشروبات</option>
@@ -1580,7 +1445,7 @@
                         <div class="d-flex fw-semibold align-items-center">
                             <div class="bullet w-8px h-3px rounded-2 me-3" style="background-color: #E4E6EF"></div>
                             <div class="text-gray-500 flex-grow-1 me-4">${title}</div>
-                            <div class="fw-bolder text-gray-700 text-xxl-end" data-kt-countup="true" data-kt-countup-value="${value}" data-kt-countup-prefix=" ₪ ">
+                            <div class="fw-bolder text-gray-700 text-xxl-end">
                                 ${value.toLocaleString()} ₪
                             </div>
                         </div>`;
