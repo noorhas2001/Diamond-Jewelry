@@ -94,13 +94,6 @@ const KTUserUpdateDetails = function () {
                             }
                         }
                     },
-                    'phone': {
-                        validators: {
-                            notEmpty: {
-                                message: 'رقم الهاتف مطلوب '
-                            }
-                        }
-                    },
                 },
 
                 plugins: {

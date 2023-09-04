@@ -83,13 +83,6 @@ var KTstaffsList = function () {
                             }
                         }
                     },
-                    'phone': {
-                        validators: {
-                            notEmpty: {
-                                message: 'رقم الهاتف مطلوب'
-                            }
-                        }
-                    },
                     'role': {
                         validators: {
                             notEmpty: {

@@ -209,13 +209,6 @@ const KTcontributorUpdateDetails = function () {
                             }
                         }
                     },
-                    'phone': {
-                        validators: {
-                            notEmpty: {
-                                message: 'رقم الهاتف مطلوب '
-                            }
-                        }
-                    },
                 },
 
                 plugins: {

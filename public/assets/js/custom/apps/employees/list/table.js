@@ -68,13 +68,6 @@ var KTusersList = function () {
                             }
                         }
                     },
-                    'phone': {
-                        validators: {
-                            notEmpty: {
-                                message: 'رقم الهاتف مطلوب '
-                            }
-                        }
-                    },
                     'password': {
                         validators: {
                             notEmpty: {

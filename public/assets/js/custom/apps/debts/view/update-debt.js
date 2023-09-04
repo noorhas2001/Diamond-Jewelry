@@ -313,20 +313,6 @@ const KTdebtUpdateDetails = function () {
                             }
                         }
                     },
-                    'weight': {
-                        validators: {
-                            notEmpty: {
-                                message: 'الوزن مطلوب '
-                            }
-                        }
-                    },
-                    'workmanship': {
-                        validators: {
-                            notEmpty: {
-                                message: 'الصنعة مطلوبة '
-                            }
-                        }
-                    },
                 },
 
                 plugins: {
