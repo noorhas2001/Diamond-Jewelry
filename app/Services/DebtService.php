@@ -15,7 +15,7 @@ class DebtService
             'amount' => 'nullable|numeric',
             'currency_id' => 'nullable',
             'weight' => 'nullable',
-            'phone_number' => 'required',
+            'phone_number' => 'nullable',
         ]);
 
         if ($validator->fails()) {
