@@ -45,7 +45,7 @@ class StaffController extends Controller
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed',
-            'phone' => 'required|unique:users,phone',
+            'phone' => 'nullable|unique:users,phone',
             'role' => 'required',
 
         ]);
@@ -89,7 +89,7 @@ class StaffController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
             'password' => 'required|confirmed|sometimes',
-            'phone' => 'required|unique:employees,phone,' . $id . ',id|max:20',
+            'phone' => 'nullable|unique:employees,phone,' . $id . ',id|max:20',
             'role' => 'required',
         ]);
 

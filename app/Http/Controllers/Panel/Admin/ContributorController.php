@@ -30,7 +30,7 @@ class ContributorController extends Controller
             'shekels_balance' => 'nullable|numeric',
             'dollars_balance' => 'nullable|numeric',
             'dinars_balance' => 'nullable|numeric',
-            'phone' => 'required',
+            'phone' => 'nullable',
             'notes' => 'nullable|string',
         ]);
 
@@ -74,7 +74,7 @@ class ContributorController extends Controller
             'shekels_balance' => 'nullable|numeric',
             'dollars_balance' => 'nullable|numeric',
             'dinars_balance' => 'nullable|numeric',
-            'phone' => 'required',
+            'phone' => 'nullable',
         ]);
 
         if ($validator->fails()) {

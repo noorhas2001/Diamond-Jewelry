@@ -37,7 +37,7 @@ class EmployeeController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'phone' => 'required|unique:users,phone|max:20',
+            'phone' => 'nullable|unique:users,phone|max:20',
             'salary' => 'numeric',
             'bonuses' => 'numeric',
         ]);
@@ -76,7 +76,7 @@ class EmployeeController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'phone' => 'required|unique:employees,phone,' . $id . ',id|max:20',
+            'phone' => 'nullable|unique:employees,phone,' . $id . ',id|max:20',
             'salary' => 'numeric',
             'bonuses' => 'numeric',
         ]);

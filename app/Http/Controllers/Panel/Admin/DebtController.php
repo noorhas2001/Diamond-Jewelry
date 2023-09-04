@@ -67,7 +67,7 @@ class DebtController extends Controller
             'amount' => 'nullable|numeric',
             'currency_id' => 'nullable|exists:currencies,id',
             'weight' => 'nullable',
-            'phone_number' => 'required',
+            'phone_number' => 'nullable',
 
         ]);
 

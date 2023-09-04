@@ -39,7 +39,7 @@ class GoldDelarController extends Controller
             'name' => 'required|string',
             'total_weight' => 'nullable|numeric',
             'total_workmanship' => 'nullable|numeric',
-            'phone_number' => 'required',
+            'phone_number' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -79,7 +79,7 @@ class GoldDelarController extends Controller
             'name' => 'required|string',
             'total_weight' => 'nullable|numeric',
             'total_workmanship' => 'nullable|numeric',
-            'phone_number' => 'required',
+            'phone_number' => 'nullable',
         ]);
 
         if ($validator->fails()) {

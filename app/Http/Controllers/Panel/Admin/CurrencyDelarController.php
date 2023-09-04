@@ -40,7 +40,7 @@ class CurrencyDelarController extends Controller
             'shekels_balance' => 'nullable|numeric',
             'dollars_balance' => 'nullable|numeric',
             'dinars_balance' => 'nullable|numeric',
-            'phone' => 'required',
+            'phone' => 'nullable',
             'notes' => 'nullable|string',
         ]);
 
@@ -84,7 +84,7 @@ class CurrencyDelarController extends Controller
             'shekels_balance' => 'nullable|numeric',
             'dollars_balance' => 'nullable|numeric',
             'dinars_balance' => 'nullable|numeric',
-            'phone' => 'required',
+            'phone' => 'nullable',
             'notes' => 'nullable|string',
         ]);
 
