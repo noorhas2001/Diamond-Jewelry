@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->boolean('is_debt_from_others');
             $table->foreignId('currency_id')->nullable();
             $table->decimal('weight', AMOUNT_TOTAL_DIGITS , AMOUNT_TOTAL_DIGITS_FLOAT)->nullable();
-            $table->string('phone_number');
+            $table->string('phone_number')->nullable();
             $table->boolean('is_paid')->default(DEFAULT_ID_PAID_VALUE);
             $table->softDeletes();
             $table->timestamps();

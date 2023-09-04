@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('total_weight', AMOUNT_TOTAL_DIGITS, AMOUNT_TOTAL_DIGITS_FLOAT)->nullable();
             $table->decimal('total_workmanship', AMOUNT_TOTAL_DIGITS, AMOUNT_TOTAL_DIGITS_FLOAT)->nullable();
-            $table->string('phone_number');
+            $table->string('phone_number')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

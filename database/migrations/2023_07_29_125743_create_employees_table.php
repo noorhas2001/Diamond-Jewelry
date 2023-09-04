@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->string('name');
             $table->decimal('salary', 10, 2)->default(0.00);
             $table->decimal('bonuses', 10, 2)->default(0.00);
-            $table->string('phone', 20);
+            $table->string('phone', 20)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
