@@ -272,7 +272,7 @@
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
                                                         <label
-                                                            class="required fw-semibold fs-6 mb-2">{{ translate('staffTranslation.Phone Number') }}</label>
+                                                            class="fw-semibold fs-6 mb-2">{{ translate('staffTranslation.Phone Number') }}</label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
                                                         <input type="text" name="phone"

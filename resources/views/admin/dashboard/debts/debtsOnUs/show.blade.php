@@ -306,7 +306,7 @@
                                                                         الوزن </label>
                                                                     <!--end::Label-->
                                                                     <!--begin::Input-->
-                                                                    <input type="number" name="weight" value="0.00"
+                                                                    <input type="number" name="weight"
                                                                         class="form-control form-control-solid mb-3 mb-lg-0"
                                                                         placeholder="الوزن" />
                                                                     <!--end::Input-->
@@ -318,7 +318,7 @@
                                                                         المبلغ </label>
                                                                     <!--end::Label-->
                                                                     <!--begin::Input-->
-                                                                    <input type="number" name="amount" value="0.00"
+                                                                    <input type="number" name="amount"
                                                                         class="form-control form-control-solid mb-3 mb-lg-0"
                                                                         placeholder="المبلغ" />
                                                                     <!--end::Input-->
@@ -591,7 +591,7 @@
 
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->
-                                        <label class="required fw-semibold fs-6 mb-2">
+                                        <label class="fw-semibold fs-6 mb-2">
                                             {{ translate('debtsTranslation.phone_number') }} </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->

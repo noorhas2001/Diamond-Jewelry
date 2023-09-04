@@ -199,7 +199,7 @@
                                                             صافي الوزن </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="number" name="total_weight" value="0.00"
+                                                        <input type="number" name="total_weight"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="صافي الوزن" />
                                                         <!--end::Input-->
@@ -211,7 +211,7 @@
                                                             صافي الصنعة </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="number" name="total_workmanship" value="0.00"
+                                                        <input type="number" name="total_workmanship"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="صافي الصنعة" />
                                                         <!--end::Input-->
@@ -219,7 +219,7 @@
 
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
-                                                        <label class="required fw-semibold fs-6 mb-2">
+                                                        <label class="fw-semibold fs-6 mb-2">
                                                             رقم الهاتف </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
@@ -378,7 +378,7 @@
                                                             الوزن </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="number" name="weight" value="0.00"
+                                                        <input type="number" name="weight" 
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="الوزن" />
                                                         <!--end::Input-->
@@ -390,7 +390,7 @@
                                                             الصنعة </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="number" name="workmanship" value="0.00"
+                                                        <input type="number" name="workmanship" 
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="الصنعة" />
                                                         <!--end::Input-->

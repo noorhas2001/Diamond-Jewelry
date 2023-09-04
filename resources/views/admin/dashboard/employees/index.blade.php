@@ -179,7 +179,7 @@
 
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
-                                                        <label class="required fw-semibold fs-6 mb-2">
+                                                        <label class="fw-semibold fs-6 mb-2">
                                                             {{ translate('employeeTranslation.phone') }} </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->

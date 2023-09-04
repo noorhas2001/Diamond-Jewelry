@@ -305,7 +305,7 @@
                                         <div class="fv-row mb-7">
                                             <!--begin::Label-->
                                             <label
-                                                class="required fs-6 fw-semibold form-label mb-2">{{ translate('staffTranslation.Phone Number') }}</label>
+                                                class="fs-6 fw-semibold form-label mb-2">{{ translate('staffTranslation.Phone Number') }}</label>
                                             <!--end::Label-->
                                             <!--begin::Input-->
                                             <input type="text" class="form-control form-control-solid"

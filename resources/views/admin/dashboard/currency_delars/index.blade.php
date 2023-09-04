@@ -200,7 +200,7 @@
                                                             حساب الشيكل </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="number" name="shekels_balance" value="0.00"
+                                                        <input type="number" name="shekels_balance" 
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="حساب الشيكل" />
                                                         <!--end::Input-->
@@ -212,7 +212,7 @@
                                                             حساب الدولار </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="number" name="dollars_balance" value="0.00"
+                                                        <input type="number" name="dollars_balance" 
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="حساب الدولار" />
                                                         <!--end::Input-->
@@ -224,7 +224,7 @@
                                                             حساب الدينار </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="number" name="dinars_balance" value="0.00"
+                                                        <input type="number" name="dinars_balance" 
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="حساب الدينار" />
                                                         <!--end::Input-->
@@ -232,7 +232,7 @@
 
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
-                                                        <label class="required fw-semibold fs-6 mb-2">
+                                                        <label class="fw-semibold fs-6 mb-2">
                                                             رقم الهاتف </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
