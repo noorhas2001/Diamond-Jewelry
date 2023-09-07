@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             GoldDelarSeeder::class,
             // GoldTransactionSeeder::class,
             // DebtTransactionSeeder::class,
-            InventorySeeder::class,
+            // InventorySeeder::class,
         ]);
     }
 }
