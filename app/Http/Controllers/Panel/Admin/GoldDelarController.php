@@ -24,7 +24,7 @@ class GoldDelarController extends Controller
 
     public function index()
     {
-        $goldDelars = GoldDelar::all();
+        $goldDelars = GoldDelar::orderByDesc('id')->get();
         return view('admin.dashboard.gold_delars.index', compact('goldDelars'));
     }
 
@@ -64,7 +64,7 @@ class GoldDelarController extends Controller
     public function show($id)
     {
         $gold_delar = GoldDelar::find($id);
-        $transactions = $gold_delar->goldTransactions;
+        $transactions = $gold_delar->goldTransactions()->orderByDesc('id')->get();
         return view('admin.dashboard.gold_delars.show', compact('gold_delar', 'transactions'));
     }
 

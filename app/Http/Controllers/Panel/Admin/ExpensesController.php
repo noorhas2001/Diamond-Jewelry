@@ -88,6 +88,7 @@ class ExpensesController extends Controller
             'description' => 'nullable|string',
             'amount' => 'required|numeric|min:0',
             'currency_id' => 'required|integer|exists:currencies,id',
+            'notes' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -100,6 +101,7 @@ class ExpensesController extends Controller
             $expense->description = $request?->description;
             $expense->amount = $request->amount;
             $expense->currency_id = $request->currency_id;
+            $expense->notes = $request?->notes;
             $expense->save();
 
             flash(translate('messages.Updated'))->success();

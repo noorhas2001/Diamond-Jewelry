@@ -24,7 +24,7 @@ class EmployeeController extends Controller
 
     public function index()
     {
-        $employees = Employee::all();
+        $employees = Employee::orderByDesc('id')->get();
         return view('admin.dashboard.employees.index', compact('employees'));
     }
 

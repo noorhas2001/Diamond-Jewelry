@@ -24,7 +24,7 @@ class CurrencyDelarController extends Controller
 
     public function index()
     {
-        $currencyDelars = CurrencyDelar::all();
+        $currencyDelars = CurrencyDelar::orderByDesc('id')->get();
         return view('admin.dashboard.currency_delars.index', compact('currencyDelars'));
     }
 
@@ -68,7 +68,7 @@ class CurrencyDelarController extends Controller
     public function show($id)
     {
         $currency_delar = CurrencyDelar::find($id);
-        $transactions = $currency_delar->transactions;
+        $transactions = $currency_delar->transactions()->orderByDesc('id')->get();
         return view('admin.dashboard.currency_delars.show', compact('currency_delar', 'transactions'));
     }
 

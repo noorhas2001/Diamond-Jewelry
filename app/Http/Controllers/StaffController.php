@@ -28,7 +28,7 @@ class StaffController extends Controller
     public function index(): Factory | View | Application
     {
 
-        $staffs = User::all();
+        $staffs = User::orderByDesc('id')->get();
         $roles = Role::pluck('id', 'name');
 
         return view('admin.dashboard.staffs.index', compact('staffs', 'roles'));

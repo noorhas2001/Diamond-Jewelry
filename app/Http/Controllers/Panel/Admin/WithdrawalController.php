@@ -15,23 +15,21 @@ class WithdrawalController extends Controller
 
     public function index()
     {
-        $withdrawals = Withdrawal::all();
-        return view('admin.dashboard.employees.employeeWithdrawals.index' , compact('withdrawals'));
+        $withdrawals = Withdrawal::orderByDesc('id')->get();
+        return view('admin.dashboard.employees.employeeWithdrawals.index', compact('withdrawals'));
     }
-
 
     public function create()
     {
         return back();
     }
 
-
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'employee_id' => 'required|exists:employees,id',
             'amount' => 'required|numeric',
-            'notes' => 'nullable|string'
+            'notes' => 'nullable|string',
         ]);
 
         if ($validator->fails()) {
@@ -39,12 +37,14 @@ class WithdrawalController extends Controller
         }
 
         try {
+
             Withdrawal::create([
                 'employee_id' => $request->employee_id,
                 'amount' => $request->amount,
                 'date' => now(),
-                'notes' => $request?->notes,
+                'notes' => $request->notes,
             ]);
+
             flash(translate('messages.Added'))->success();
 
             return back();
@@ -53,25 +53,22 @@ class WithdrawalController extends Controller
         }
     }
 
-
     public function show($id)
     {
         $withdrawal = Withdrawal::find($id);
         return view('admin.dashboard.employees.employeeWithdrawals.show', compact('withdrawal'));
     }
 
-
     public function edit($id)
     {
         return back();
     }
 
-
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
             'amount' => 'required|numeric',
-            'notes' => 'nullable|string'
+            'notes' => 'nullable|string',
         ]);
 
         if ($validator->fails()) {
@@ -92,7 +89,6 @@ class WithdrawalController extends Controller
         }
     }
 
-
     public function deleteSelected(Request $request)
     {
         try {
@@ -103,16 +99,15 @@ class WithdrawalController extends Controller
             }
             return Response()->json([
                 'status' => 'success',
-                'message' => translate('messages.Deleted')
+                'message' => translate('messages.Deleted'),
             ]);
         } catch (Exception $ex) {
             return Response()->json([
                 'status' => 'error',
-                'message' => translate('messages.Wrong')
+                'message' => translate('messages.Wrong'),
             ]);
         }
     }
-
 
     public function destroy(int $id): JsonResponse
     {
@@ -121,17 +116,16 @@ class WithdrawalController extends Controller
             $withdrawal = Withdrawal::findOrFail($id);
             $withdrawal->delete();
 
-
             if ($withdrawal) {
                 return response()->json([
                     'status' => 'success',
-                    'message' => translate('messages.Deleted')
+                    'message' => translate('messages.Deleted'),
                 ]);
             }
         } catch (Exception) {
             return response()->json([
                 'status' => 'error',
-                'message' => translate('messages.Wrong')
+                'message' => translate('messages.Wrong'),
             ]);
         }
     }

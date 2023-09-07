@@ -22,7 +22,7 @@ class InventoryController extends Controller
 
     public function index()
     {
-        $inventories = Inventory::all();
+        $inventories = Inventory::orderByDesc('id')->get();
         return view('admin.dashboard.inventories.index', compact('inventories'));
     }
 
@@ -37,6 +37,7 @@ class InventoryController extends Controller
             'item' => 'required|string',
             'weight' => 'required|numeric|min:0',
             'equation' => 'required|numeric|min:0',
+            'workmanship' => 'required|numeric|min:0',
         ]);
 
         if ($validator->fails()) {
@@ -48,7 +49,9 @@ class InventoryController extends Controller
                 'item' => $request->item,
                 'weight' => $request->weight,
                 'equation' => $request->equation,
+                'workmanship' => $request->workmanship,
                 'total_weight' => $request->weight * $request->equation,
+                'total_workmanship' => $request->weight * $request->workmanship,
             ]);
             flash(translate('messages.Added'))->success();
 

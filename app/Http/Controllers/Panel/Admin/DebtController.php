@@ -48,7 +48,7 @@ class DebtController extends Controller
     {
         try {
             $debt = Debt::findOrFail($id);
-            $transactions = $debt->debt_transactions;
+            $transactions = $debt->debt_transactions()->orderByDesc('id')->get();
 
             if ($debt->is_debt_from_others) {
                 return view('admin.dashboard.debts.debtsOnUs.show', compact('debt' ,'transactions'));
@@ -113,13 +113,13 @@ class DebtController extends Controller
 
     public function debtsOnUs()
     {
-        $debts = Debt::where('is_debt_from_others', true)->get();
+        $debts = Debt::where('is_debt_from_others', true)->orderByDesc('id')->get();
         return view('admin.dashboard.debts.debtsOnUs.index', compact('debts'));
     }
 
     public function debtsForUs()
     {
-        $debts = Debt::where('is_debt_from_others', false)->get();
+        $debts = Debt::where('is_debt_from_others', false)->orderByDesc('id')->get();
         return view('admin.dashboard.debts.debtsForUs.index', compact('debts'));
     }
 

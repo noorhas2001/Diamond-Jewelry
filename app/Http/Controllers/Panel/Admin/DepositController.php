@@ -24,7 +24,7 @@ class DepositController extends Controller
 
     public function index()
     {
-        $deposits = Deposit::all();
+        $deposits = Deposit::orderByDesc('id')->get();
         return view('admin.dashboard.deposits.index', compact('deposits'));
     }
 

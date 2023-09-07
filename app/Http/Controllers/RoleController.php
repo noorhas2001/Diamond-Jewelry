@@ -29,7 +29,7 @@ class RoleController extends Controller
     public function index(): Factory | View | Application
     {
 
-        $roles = Role::all();
+        $roles = Role::orderByDesc('id')->get();
         $permissions = Permission::pluck('id', 'name');
 
         return view('admin.dashboard.roles.index', compact('roles', 'permissions'));

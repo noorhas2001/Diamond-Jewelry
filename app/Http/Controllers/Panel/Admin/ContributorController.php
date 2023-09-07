@@ -14,7 +14,7 @@ class ContributorController extends Controller
 {
     public function index()
     {
-        $contributors = Contributor::all();
+        $contributors = Contributor::orderByDesc('id')->get();
         return view('admin.dashboard.contributors.index', compact('contributors'));
     }
 
@@ -58,7 +58,7 @@ class ContributorController extends Controller
     public function show($id)
     {
         $contributor = Contributor::find($id);
-        $transactions = $contributor->transactions;
+        $transactions = $contributor->transactions()->orderByDesc('id')->get();
         return view('admin.dashboard.contributors.show', compact('contributor', 'transactions'));
     }
 
