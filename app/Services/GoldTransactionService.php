@@ -33,16 +33,21 @@ class GoldTransactionService
                 'weight' => $data['weight'],
                 'workmanship' => $data['workmanship'],
                 'notes' => $data['notes'] ?? null,
+                'date' => now(),
             ]);
 
-            if ($data['transaction_type'] === 'استلام') {
-                $totalWorkmanship = $data['weight'] * $data['workmanship'];
+            $goldDelar = GoldDelar::where('id', $data['gold_delar_id'])->first();
 
-                GoldDelar::where('id', $data['gold_delar_id'])->increment('total_workmanship', $totalWorkmanship);
-                GoldDelar::where('id', $data['gold_delar_id'])->increment('total_weight', $data['weight']);
-            } elseif ($data['transaction_type'] === 'دفعة') {
-                GoldDelar::where('id', $data['gold_delar_id'])->decrement('total_workmanship', $data['workmanship']);
-                GoldDelar::where('id', $data['gold_delar_id'])->decrement('total_weight', $data['weight']);
+            if ($goldDelar) {
+                if ($data['transaction_type'] === 'استلام') {
+                    $goldDelar->total_workmanship += $data['workmanship'];
+                    $goldDelar->total_weight += $data['weight'];
+                } elseif ($data['transaction_type'] === 'دفعة') {
+                    $goldDelar->total_workmanship -= $data['workmanship'];
+                    $goldDelar->total_weight -= $data['weight'];
+                }
+
+                $goldDelar->save();
             }
 
             return ['status' => 'success', 'message' => translate('messages.Added')];

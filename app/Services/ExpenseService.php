@@ -16,6 +16,7 @@ class ExpenseService
             'description' => 'nullable|string',
             'amount' => 'required|numeric|min:0',
             'currency_id' => 'required|integer|exists:currencies,id',
+            'notes' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -29,6 +30,7 @@ class ExpenseService
                 'amount' => $data['amount'],
                 'is_from_masa' => $data['is_from_masa'] ?? null,
                 'currency_id' => $data['currency_id'],
+                'notes' => $data['notes'] ?? null,
                 'draw_date' => now(),
             ]);
 
