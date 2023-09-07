@@ -19,7 +19,7 @@ var KTinventoriesList = function () {
             "lengthChange": false,
             'columnDefs': [
                 { orderable: false, targets: 0 }, // Disable ordering on column 0 (checkbox)
-                { orderable: false, targets: 5 }, // Disable ordering on column 6 (actions)
+                { orderable: false, targets: 7 }, // Disable ordering on column 6 (actions)
             ],
             fixedColumns: {
                 left: 1,
@@ -270,6 +270,13 @@ var KTinventoriesList = function () {
                         validators: {
                             notEmpty: {
                                 message: 'المعادلة مطلوبة'
+                            }
+                        }
+                    },
+                    'workmanship': {
+                        validators: {
+                            notEmpty: {
+                                message: 'الصنعة مطلوبة'
                             }
                         }
                     },
