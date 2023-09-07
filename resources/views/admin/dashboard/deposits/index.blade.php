@@ -140,7 +140,7 @@
 
                                             <td>{{ $deposit->amount }}</td>
                                             <td>{{ $deposit->currency->name }}</td>
-                                            <td>{{ $deposit->deposit_date }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($deposit->deposit_date)->format('Y-m-d h:i A') }}</td>
                                             <td>{{ $deposit->notes }}</td>
 
                                             <!--begin::Action=-->

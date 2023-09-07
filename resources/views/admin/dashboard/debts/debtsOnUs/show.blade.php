@@ -12,7 +12,7 @@
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        {{ translate('debtsTranslation.view_debt_detail') }}</h1>
+                        عرض تفاصيل الديون علينا</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -155,7 +155,7 @@
                                         <div class="text-gray-600">{{ $debt->phone_number }}</div>
 
                                         <div class="fw-bold mt-5"> {{ translate('debtsTranslation.debt_date') }}</div>
-                                        <div class="text-gray-600">{{ $debt->debt_date }}</div>
+                                        <div class="text-gray-600">{{ \Carbon\Carbon::parse($debt->debt_date)->format('Y-m-d h:i A') }}</div>
 
 
                                         <!--end::Details item-->
@@ -292,8 +292,8 @@
                                                                             data-control="select2" data-hide-search="true"
                                                                             data-placeholder="نوع المعاملة" required>
                                                                             <option value=""></option>
-                                                                            <option value="سداد">سداد</option>
-                                                                            <option value="سحب">سحب</option>
+                                                                            <option value="سداد">سحب من رصيده ( ليده )</option>
+                                                                            <option value="سحب">اضافة الى رصيده ( ايداع منه )</option>
                                                                         </select>
                                                                     </div>
                                                                     <!--end::Col-->
@@ -416,7 +416,7 @@
                                                             <td>{{ $transaction->transaction_type }}</td>
                                                             <td>{{ $transaction->weight }}</td>
                                                             <td>{{ $transaction->amount }}</td>
-                                                            <td>{{ $transaction->date }}</td>
+                                                            <td>{{ \Carbon\Carbon::parse($transaction->date)->format('Y-m-d h:i A') }}</td>
                                                             <td>{{ $transaction->notes }}</td>
 
                                                             <!--begin::Action=-->

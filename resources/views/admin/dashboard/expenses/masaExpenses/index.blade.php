@@ -157,7 +157,7 @@
 
                                             <td>{{ $expense->amount }}</td>
                                             <td>{{ $expense->currency->name }}</td>
-                                            <td>{{ $expense->draw_date }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($expense->draw_date)->format('Y-m-d h:i A') }}</td>
                                             <td>{{ $expense->description }}</td>
 
                                             <!--begin::Action=-->

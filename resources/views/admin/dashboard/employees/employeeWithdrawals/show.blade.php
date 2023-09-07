@@ -118,7 +118,7 @@
                                         <div class="text-gray-600">{{ $withdrawal->amount }}</div>
 
                                         <div class="fw-bold mt-5">تاريخ السحب </div>
-                                        <div class="text-gray-600">{{ $withdrawal->date }}</div>
+                                        <div class="text-gray-600">{{ \Carbon\Carbon::parse($withdrawal->date)->format('Y-m-d h:i A') }}</div>
 
                                         <div class="fw-bold mt-5"> ملاحظات</div>
                                         <div class="text-gray-600">{{ $withdrawal->notes }}</div>

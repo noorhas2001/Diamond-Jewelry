@@ -143,7 +143,7 @@
                                         <div class="text-gray-600">{{ $deposit->currency->name }}</div>
 
                                         <div class="fw-bold mt-5"> تاريخ الايداع</div>
-                                        <div class="text-gray-600">{{ $deposit->deposit_date }}</div>
+                                        <div class="text-gray-600">{{ \Carbon\Carbon::parse($deposit->deposit_date)->format('Y-m-d h:i A') }}</div>
 
                                         <div class="fw-bold mt-5"> ملاحظات</div>
                                         <div class="text-gray-600">{{ $deposit->notes }}</div>

@@ -126,6 +126,17 @@
                                         <!--end::Input-->
                                     </div>
 
+                                    <div class="fv-row mb-7">
+                                        <!--begin::Label-->
+                                        <label class="fw-semibold fs-6 mb-2">
+                                            ملاحظات </label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" name="notes"
+                                            class="form-control form-control-solid mb-3 mb-lg-0"
+                                            placeholder="ملاحظات" />
+                                        <!--end::Input-->
+                                    </div>
 
                                 </div>
                                 <!--end::Scroll-->
@@ -200,12 +211,12 @@
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->
                                         <label class="fw-semibold fs-6 mb-2">
-                                            {{ translate('expenseTranslation.description') }} </label>
+                                            ملاحظات </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="text" name="description"
                                             class="form-control form-control-solid mb-3 mb-lg-0"
-                                            placeholder="{{ translate('expenseTranslation.description') }}" />
+                                            placeholder="ملاحظات" />
                                         <!--end::Input-->
                                     </div>
 

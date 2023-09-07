@@ -148,7 +148,7 @@
                                         <div class="text-gray-600">{{ $gold_delar->phone_number }}</div>
 
                                         <div class="fw-bold mt-5"> {{ translate('employeeTranslation.created_at') }}</div>
-                                        <div class="text-gray-600">{{ $gold_delar->created_at }}</div>
+                                        <div class="text-gray-600">{{ \Carbon\Carbon::parse($gold_delar->created_at)->format('Y-m-d h:i A') }}</div>
 
                                         <!--end::Details item-->
 
@@ -308,7 +308,7 @@
                                                                         الوزن </label>
                                                                     <!--end::Label-->
                                                                     <!--begin::Input-->
-                                                                    <input type="number" name="weight" value="0.00"
+                                                                    <input type="number" name="weight"
                                                                         class="form-control form-control-solid mb-3 mb-lg-0"
                                                                         placeholder="الوزن" />
                                                                     <!--end::Input-->
@@ -320,7 +320,7 @@
                                                                         الصنعة </label>
                                                                     <!--end::Label-->
                                                                     <!--begin::Input-->
-                                                                    <input type="number" name="workmanship" value="0.00"
+                                                                    <input type="number" name="workmanship"
                                                                         class="form-control form-control-solid mb-3 mb-lg-0"
                                                                         placeholder="الصنعة" />
                                                                     <!--end::Input-->
@@ -393,6 +393,7 @@
                                                         <th class="min-w-125px">الوزن</th>
                                                         <th class="min-w-125px">الصنعة</th>
                                                         <th class="min-w-125px">الصنف</th>
+                                                        <th class="min-w-125px">تاريخ المعاملة</th>
                                                         <th class="min-w-125px">ملاحظات</th>
                                                         <th class="text-end min-w-100px px-10">
                                                             الاجراءات</th>
@@ -419,6 +420,7 @@
                                                             <td>{{ $transaction->weight }}</td>
                                                             <td>{{ $transaction->workmanship }}</td>
                                                             <td>{{ $transaction->item }}</td>
+                                                            <td>{{\Carbon\Carbon::parse($transaction->date)->format('Y-m-d h:i A')  }}</td>
                                                             <td>{{ $transaction->notes }}</td>
 
                                                             <!--begin::Action=-->

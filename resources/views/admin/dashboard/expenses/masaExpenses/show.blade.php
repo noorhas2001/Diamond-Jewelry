@@ -143,7 +143,7 @@
                                         <div class="text-gray-600">{{ $expense->currency->name }}</div>
 
                                         <div class="fw-bold mt-5"> {{ translate('expenseTranslation.draw_date') }}</div>
-                                        <div class="text-gray-600">{{ $expense->draw_date }}</div>
+                                        <div class="text-gray-600">{{ \Carbon\Carbon::parse($expense->draw_date)->format('Y-m-d h:i A') }}</div>
 
                                         <div class="fw-bold mt-5"> {{ translate('expenseTranslation.notes') }}</div>
                                         <div class="text-gray-600">{{ $expense->description }}</div>

@@ -187,14 +187,29 @@
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
                                                         <label class="required fw-semibold fs-6 mb-2">
+                                                            الصنعة </label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <input type="number" name="workmanship"
+                                                            class="form-control form-control-solid mb-3 mb-lg-0"
+                                                            placeholder="الصنعة" />
+                                                        <!--end::Input-->
+                                                    </div>
+
+
+                                                    <div class="fv-row mb-7">
+                                                        <!--begin::Label-->
+                                                        <label class="required fw-semibold fs-6 mb-2">
                                                             المعادلة </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="number" name="equation"
+                                                        <input type="number" name="equation" value="0.875"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="المعادلة" />
                                                         <!--end::Input-->
                                                     </div>
+
+
 
 
                                                 </div>
@@ -247,8 +262,10 @@
                                         </th>
                                         <th class="min-w-125px"> الصنف</th>
                                         <th class="min-w-125px"> الوزن</th>
+                                        <th class="min-w-125px"> الصنعة</th>
                                         <th class="min-w-125px"> المعادلة</th>
-                                        <th class="min-w-125px">صافي الوزن</th>
+                                        <th class="min-w-125px"> صافي الصنعة</th>
+                                        <th class="min-w-125px"> صافي الوزن بالحالة</th>
                                         <th class="text-end min-w-100px px-10">
                                             الاجراءات</th>
                                     </tr>
@@ -272,7 +289,9 @@
 
                                             <td>{{ $inventory->item }}</td>
                                             <td>{{ $inventory->weight }}</td>
+                                            <td>{{ $inventory->workmanship }}</td>
                                             <td>{{ $inventory->equation }}</td>
+                                            <td>{{ $inventory->total_workmanship }}</td>
                                             <td>{{ $inventory->total_weight }}</td>
 
                                             <!--begin::Action=-->

@@ -153,7 +153,7 @@
                                         <div class="fw-bold mt-5"> ملاحظات</div>
                                         <div class="text-gray-600">{{ $currency_delar->notes }}</div>
                                         <div class="fw-bold mt-5"> {{ translate('employeeTranslation.created_at') }}</div>
-                                        <div class="text-gray-600">{{ $currency_delar->created_at }}</div>
+                                        <div class="text-gray-600">{{ \Carbon\Carbon::parse($currency_delar->created_at)->format('Y-m-d h:i A') }}</div>
 
                                         <!--end::Details item-->
 
@@ -332,6 +332,18 @@
                                                                 </div>
 
 
+                                                                <div class="fv-row mb-7">
+                                                                    <!--begin::Label-->
+                                                                    <label class=" fw-semibold fs-6 mb-2">
+                                                                        ملاحظات </label>
+                                                                    <!--end::Label-->
+                                                                    <!--begin::Input-->
+                                                                    <input type="text" name="notes"
+                                                                        class="form-control form-control-solid mb-3 mb-lg-0"
+                                                                        placeholder="ملاحظات" />
+                                                                    <!--end::Input-->
+                                                                </div>
+
 
                                                             </div>
                                                             <!--end::Scroll-->
@@ -386,6 +398,7 @@
                                                         <th class="min-w-125px">المبلغ</th>
                                                         <th class="min-w-125px">العملة</th>
                                                         <th class="min-w-125px">التاريخ</th>
+                                                        <th class="min-w-125px">ملاحظات</th>
                                                         <th class="text-end min-w-100px px-10">
                                                             الاجراءات</th>
                                                     </tr>
@@ -410,7 +423,8 @@
                                                             <td>{{ $transaction->transaction_type }}</td>
                                                             <td>{{ $transaction->amount }}</td>
                                                             <td>{{ $transaction->currency->name }}</td>
-                                                            <td>{{ $transaction->date }}</td>
+                                                            <td>{{ \Carbon\Carbon::parse($transaction->date)->format('Y-m-d h:i A') }}</td>
+                                                            <td>{{ $transaction->notes }}</td>
 
                                                             <!--begin::Action=-->
                                                             <td class="text-end">

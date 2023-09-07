@@ -294,7 +294,7 @@
                                             </td>
 
                                             <td>{{ $w->amount }}</td>
-                                            <td>{{ $w->date }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($w->date)->format('Y-m-d h:i A') }}</td>
                                             <td>{{ $w->notes }}</td>
 
                                             <!--begin::Action=-->
