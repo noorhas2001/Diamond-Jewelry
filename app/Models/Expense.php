@@ -18,6 +18,7 @@ class Expense extends Model
         'currency_id',
         'draw_date',
         'is_from_masa',
+        'notes',
     ];
 
 

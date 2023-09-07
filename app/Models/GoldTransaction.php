@@ -19,6 +19,7 @@ class GoldTransaction extends Model
         'weight',
         'workmanship',
         'notes',
+        'date',
     ];
 
     public function goldDelars(): BelongsTo

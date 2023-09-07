@@ -10,6 +10,6 @@ class Inventory extends Model
 {
     use HasFactory , SoftDeletes;
 
-    protected $fillable = ['item' , 'weight' , 'equation' ,'total_weight'];
+    protected $fillable = ['item' , 'weight' , 'equation','workmanship' ,'total_weight' ,'total_workmanship'];
 
 }
