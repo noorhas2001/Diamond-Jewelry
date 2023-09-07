@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('item');
             $table->decimal('weight', AMOUNT_TOTAL_DIGITS, AMOUNT_TOTAL_DIGITS_FLOAT);
             $table->decimal('equation' , AMOUNT_TOTAL_DIGITS, AMOUNT_TOTAL_DIGITS_FLOAT);
+            $table->decimal('workmanship' , AMOUNT_TOTAL_DIGITS, AMOUNT_TOTAL_DIGITS_FLOAT);
             $table->decimal('total_weight' ,AMOUNT_TOTAL_DIGITS, AMOUNT_TOTAL_DIGITS_FLOAT);
+            $table->decimal('total_workmanship' ,AMOUNT_TOTAL_DIGITS, AMOUNT_TOTAL_DIGITS_FLOAT);
             $table->softDeletes();
             $table->timestamps();
         });

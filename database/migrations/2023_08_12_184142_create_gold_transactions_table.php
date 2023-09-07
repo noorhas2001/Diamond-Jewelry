@@ -21,6 +21,7 @@ return new class extends Migration
             $table->decimal('weight', AMOUNT_TOTAL_DIGITS, AMOUNT_TOTAL_DIGITS_FLOAT)->nullable();
             $table->decimal('workmanship', AMOUNT_TOTAL_DIGITS, AMOUNT_TOTAL_DIGITS_FLOAT)->nullable();
             $table->text('notes')->nullable();
+            $table->dateTime('date');
             $table->softDeletes();
             $table->timestamps();
         });

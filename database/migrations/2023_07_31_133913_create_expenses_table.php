@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('currency_id');
             $table->dateTime('draw_date');
             $table->boolean('is_from_masa');
+            $table->text('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
