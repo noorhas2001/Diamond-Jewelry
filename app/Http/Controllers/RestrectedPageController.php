@@ -51,6 +51,7 @@ class RestrectedPageController extends Controller
             'employeesNum' => Employee::count(),
             'features' => $this->getEnabledFeature(),
             'totalWeight' => Inventory::sum('total_weight'),
+            'totalWorkManShip' => Inventory::sum('total_workmanship'),
             'totalWithdrawals' => Withdrawal::sum('amount'),
             'totalCurrencyDelarShekelBalance' => CurrencyDelar::sum('shekels_balance'),
             'totalCurrencyDelarDinarBalance' => CurrencyDelar::sum('dinars_balance'),
