@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\Debt;
 use App\Models\DebtTransaction;
 use Exception;
 use Illuminate\Http\RedirectResponse;
@@ -17,6 +16,7 @@ class DebtTransactionService
             'transaction_type' => 'required|in:سحب,سداد',
             'amount' => 'nullable|numeric|min:0',
             'weight' => 'nullable|numeric|min:0',
+            'currency_id' => 'required|exists:currencies,id',
             'date' => 'date',
             'notes' => 'nullable',
         ]);
@@ -32,26 +32,12 @@ class DebtTransactionService
                 'amount' => $data['amount'] ?? null,
                 'weight' => $data['weight'] ?? null,
                 'date' => now(),
+                'currency_id' => $data['currency_id'],
                 'notes' => $data['notes'] ?? null,
             ]);
 
-            $debt = Debt::where('id', $data['person_id'])->first();
+            return ['status' => 'success', 'message' => translate('messages.Added')];
 
-            if ($debt) {
-                if ($data['transaction_type'] === 'سداد') {
-                    $debt->weight -= $data['weight'];
-                    $debt->amount -= $data['amount'];
-                } elseif ($data['transaction_type'] === 'سحب') {
-                    $debt->weight += $data['weight'];
-                    $debt->amount += $data['amount'];
-                }
-
-                $debt->save();
-
-                return ['status' => 'success', 'message' => translate('messages.Added')];
-            } else {
-                return ['status' => 'error', 'message' => 'Debt record not found'];
-            }
         } catch (Exception $e) {
             return ['status' => 'error', 'message' => $e->getMessage()];
         }
