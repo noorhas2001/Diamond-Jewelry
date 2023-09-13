@@ -12,8 +12,9 @@ class DebtService
     {
         $validator = Validator::make($data, [
             'person_name' => 'required|string',
-            'amount' => 'nullable|numeric',
-            'currency_id' => 'nullable',
+            'shekels_balance' => 'nullable|numeric',
+            'dollars_balance' => 'nullable|numeric',
+            'dinars_balance' => 'nullable|numeric',
             'weight' => 'nullable',
             'phone_number' => 'nullable',
         ]);
@@ -25,10 +26,11 @@ class DebtService
         try {
             Debt::create([
                 'person_name' => $data['person_name'],
-                'amount' => $data['amount'] ?? null,
+                'shekels_balance' => $data['shekels_balance'] ?? null,
+                'dollars_balance' => $data['dollars_balance'] ?? null,
+                'dinars_balance' => $data['dinars_balance'] ?? null,
                 'debt_date' => now(),
                 'is_debt_from_others' => $data['is_debt_from_others'] ?? null,
-                'currency_id' => $data['currency_id'] ?? null,
                 'weight' => $data['weight'] ?? null,
                 'phone_number' => $data['phone_number'],
             ]);
