@@ -58,8 +58,7 @@
                                         <!--begin::Title-->
                                         <div class="card-title d-flex flex-column">
                                             <!--begin::Amount-->
-                                            <span
-                                                class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{ $totalWeight }}
+                                            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{ $totalWeight }}
                                                 غم</span>
                                             <!--end::Amount-->
                                             <!--begin::Subtitle-->
@@ -69,8 +68,7 @@
                                         </div>
                                         <div class="card-title d-flex flex-column">
                                             <!--begin::Amount-->
-                                            <span
-                                                class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{ $totalWorkManShip }}
+                                            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{ $totalWorkManShip }}
                                                 JD</span>
                                             <!--end::Amount-->
                                             <!--begin::Subtitle-->
@@ -755,6 +753,98 @@
                         </div>
                         <!--end::Row-->
 
+
+
+                        <!--begin::Row-->
+                        <div class="row">
+                            <!--begin::Col-->
+                            <div class=" col-lg-12 mb-xl-10">
+                                <!--begin::Card widget 20-->
+                                <div class="card card-flush mb-5 mb-xl-10">
+                                    <!--begin::Header-->
+                                    <div class="card-header pt-5">
+                                        <!--begin::Title-->
+                                        <div class="card-title d-flex flex-column">
+                                            <!--begin::Info-->
+                                            <div class="d-flex align-items-center">
+                                                <!--begin::Currency-->
+                                                <span class="card-title text-gray-800">اجمالي الارصدة الحالية</span>
+                                                <!--end::Currency-->
+                                                <!--begin::Amount-->
+                                                <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"></span>
+                                                <!--end::Amount-->
+                                                <!--begin::Badge-->
+
+                                                <!--end::Badge-->
+                                            </div>
+                                            <!--end::Info-->
+                                        </div>
+                                        <!--end::Title-->
+                                    </div>
+                                    <!--end::Header-->
+                                    <!--begin::Card body-->
+                                    <div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
+
+                                        <!--begin::Labels-->
+                                        <div class="d-flex flex-column content-justify-center flex-row-fluid">
+                                            <!--begin::Label-->
+                                            <div class="d-flex fw-semibold align-items-center">
+                                                <!--begin::Bullet-->
+                                                <div class="bullet w-8px h-3px rounded-2 bg-success me-3"></div>
+                                                <!--end::Bullet-->
+                                                <!--begin::Label-->
+                                                <h5 class="text-gray-600 flex-grow-1 me-4">
+                                                    اجمالي رصيد الشيكل الحالي </h5>
+                                                <!--end::Label-->
+                                                <!--begin::Stats-->
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $finalShekelsValue }} ₪
+                                                </div>
+                                                <!--end::Stats-->
+                                            </div>
+                                            <div class="d-flex fw-semibold align-items-center">
+                                                <!--begin::Bullet-->
+                                                <div class="bullet w-8px h-3px rounded-2 bg-success me-3"></div>
+                                                <!--end::Bullet-->
+                                                <!--begin::Label-->
+                                                <h5 class="text-gray-600 flex-grow-1 me-4">
+                                                    اجمالي رصيد الدولار الحالي </h5>
+                                                <!--end::Label-->
+                                                <!--begin::Stats-->
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $finalDollarsValue }} $
+                                                </div>
+                                                <!--end::Stats-->
+                                            </div>
+                                            <div class="d-flex fw-semibold align-items-center">
+                                                <!--begin::Bullet-->
+                                                <div class="bullet w-8px h-3px rounded-2 bg-success me-3"></div>
+                                                <!--end::Bullet-->
+                                                <!--begin::Label-->
+                                                <h5 class="text-gray-600 flex-grow-1 me-4">
+                                                    اجمالي رصيد الدينار الحالي </h5>
+                                                <!--end::Label-->
+                                                <!--begin::Stats-->
+                                                <div class="fw-bolder text-gray-700 text-xxl-end">
+                                                    {{ $finalDinarsValue }} JD
+                                                </div>
+                                                <!--end::Stats-->
+                                            </div>
+                                            <!--end::Label-->
+                                            <br>
+                                        </div>
+                                        <!--end::Labels-->
+                                    </div>
+                                    <!--end::Card body-->
+                                </div>
+                                <!--end::Card widget 20-->
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Row-->
+
+
+
                         <!--begin::Row-->
                         <div class="row">
                             <!--begin::Col-->
@@ -837,7 +927,6 @@
                             <!--end::Col-->
                         </div>
                         <!--end::Row-->
-
 
 
                         <!-- Div 357 -->
