@@ -504,9 +504,9 @@
                                                 <!--begin::Category details-->
                                             </td>
 
-                                            <td>{{ $contributor->shekels_balance }}</td>
-                                            <td>{{ $contributor->dollars_balance }}</td>
-                                            <td>{{ $contributor->dinars_balance }}</td>
+                                            <td>{{ $contributor->shekels_balance() }}</td>
+                                            <td>{{ $contributor->dollars_balance() }}</td>
+                                            <td>{{ $contributor->dinars_balance() }}</td>
                                             <td>{{ $contributor->phone }}</td>
 
                                             <!--begin::Action=-->

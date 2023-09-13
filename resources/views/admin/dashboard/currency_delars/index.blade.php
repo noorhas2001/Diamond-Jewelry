@@ -518,9 +518,9 @@
                                                 <!--begin::Category details-->
                                             </td>
 
-                                            <td>{{ $delar->shekels_balance }}</td>
-                                            <td>{{ $delar->dollars_balance }}</td>
-                                            <td>{{ $delar->dinars_balance }}</td>
+                                            <td>{{ $delar->shekels_balance() }}</td>
+                                            <td>{{ $delar->dollars_balance() }}</td>
+                                            <td>{{ $delar->dinars_balance() }}</td>
                                             <td>{{ $delar->phone }}</td>
                                             <td>{{ $delar->notes }}</td>
 

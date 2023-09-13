@@ -138,13 +138,13 @@
                                         <!--begin::Details item-->
 
                                         <div class="fw-bold mt-5"> حساب الشيكل</div>
-                                        <div class="text-gray-600">{{ $contributor->shekels_balance }}</div>
+                                        <div class="text-gray-600">{{ $contributor->shekels_balance() }}</div>
 
                                         <div class="fw-bold mt-5">حساب الدولار</div>
-                                        <div class="text-gray-600">{{ $contributor->dollars_balance }}</div>
+                                        <div class="text-gray-600">{{ $contributor->dollars_balance() }}</div>
 
                                         <div class="fw-bold mt-5"> حساب الدينار</div>
-                                        <div class="text-gray-600">{{ $contributor->dinars_balance }}</div>
+                                        <div class="text-gray-600">{{ $contributor->dinars_balance() }}</div>
 
                                         <div class="fw-bold mt-5"> رقم الهاتف</div>
                                         <div class="text-gray-600">{{ $contributor->phone }}</div>
@@ -546,7 +546,7 @@
                                     <!--end::Input group-->
                                     <!--begin::Input group select contributor-->
 
-                                    <div class="fv-row mb-7">
+                                    {{-- <div class="fv-row mb-7">
                                         <!--begin::Label-->
                                         <label class=" fw-semibold fs-6 mb-2">
                                             حساب الشيكل </label>
@@ -583,7 +583,7 @@
                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                             placeholder="حساب الدينار" />
                                         <!--end::Input-->
-                                    </div>
+                                    </div> --}}
 
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->

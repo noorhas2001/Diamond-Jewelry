@@ -141,22 +141,28 @@
                                         <div class="text-gray-600">{{ $debt->person_name }}</div>
 
 
+                                        <div class="fw-bold mt-5"> الشيكل</div>
+                                        <div class="text-gray-600">{{ $debt->shekels_balance() }}</div>
 
-                                        <div class="fw-bold mt-5"> {{ translate('debtsTranslation.amount') }}</div>
-                                        <div class="text-gray-600">{{ $debt?->amount }}</div>
+                                        <div class="fw-bold mt-5"> الدولار</div>
+                                        <div class="text-gray-600">{{ $debt->dollars_balance() }}</div>
 
-                                        <div class="fw-bold mt-5">{{ translate('debtsTranslation.currency') }} </div>
-                                        <div class="text-gray-600">{{ $debt?->currency?->name }}</div>
+                                        <div class="fw-bold mt-5"> الدينار</div>
+                                        <div class="text-gray-600">{{ $debt->dinars_balance() }}</div>
+
 
                                         <div class="fw-bold mt-5">{{ translate('debtsTranslation.weight') }} </div>
-                                        <div class="text-gray-600">{{ $debt?->weight }}</div>
+                                        <div class="text-gray-600">{{ $debt?->weight() }}</div>
+
 
                                         <div class="fw-bold mt-5"> {{ translate('debtsTranslation.phone_number') }}</div>
                                         <div class="text-gray-600">{{ $debt->phone_number }}</div>
 
-
                                         <div class="fw-bold mt-5"> {{ translate('debtsTranslation.debt_date') }}</div>
-                                        <div class="text-gray-600">{{ \Carbon\Carbon::parse($debt->debt_date)->format('Y-m-d h:i A') }}</div>
+                                        <div class="text-gray-600">
+                                            {{ \Carbon\Carbon::parse($debt->debt_date)->format('Y-m-d h:i A') }}</div>
+
+
                                         <!--end::Details item-->
 
                                     </div>
@@ -325,6 +331,30 @@
 
                                                                 <div class="fv-row mb-7">
                                                                     <!--begin::Label-->
+                                                                    <label
+                                                                        class="required fw-semibold fs-6 mb-2">{{ translate('expenseTranslation.currency') }}</label>
+                                                                    <!--end::Label-->
+                                                                    <!--begin::Input-->
+                                                                    <!--begin::Col-->
+                                                                    <div class="col-6">
+                                                                        <select name="currency_id"
+                                                                            class="form-select form-select-solid"
+                                                                            data-control="select2" data-hide-search="true"
+                                                                            data-placeholder="{{ translate('expenseTranslation.currency') }}"
+                                                                            required>
+                                                                            @foreach ($currencies as $currency)
+                                                                                <option value="{{ $currency->id }}">
+                                                                                    {{ $currency->name }}
+                                                                                </option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <!--end::Col-->
+                                                                    <!--end::Input-->
+                                                                </div>
+
+                                                                <div class="fv-row mb-7">
+                                                                    <!--begin::Label-->
                                                                     <label class="fw-semibold fs-6 mb-2">
                                                                         ملاحظات </label>
                                                                     <!--end::Label-->
@@ -389,6 +419,7 @@
                                                         <th class="min-w-125px">المعاملة</th>
                                                         <th class="min-w-125px">الوزن</th>
                                                         <th class="min-w-125px">المبلغ</th>
+                                                        <th class="min-w-125px">العملة</th>
                                                         <th class="min-w-125px">التاريخ</th>
                                                         <th class="min-w-125px">ملاحظات</th>
                                                         <th class="text-end min-w-100px px-10">
@@ -415,7 +446,9 @@
                                                             <td>{{ $transaction->transaction_type }}</td>
                                                             <td>{{ $transaction->weight }}</td>
                                                             <td>{{ $transaction->amount }}</td>
-                                                            <td>{{ \Carbon\Carbon::parse($transaction->date)->format('Y-m-d h:i A') }}</td>
+                                                            <td>{{ $transaction->currency->name }}</td>
+                                                            <td>{{ \Carbon\Carbon::parse($transaction->date)->format('Y-m-d h:i A') }}
+                                                            </td>
                                                             <td>{{ $transaction->notes }}</td>
 
                                                             <!--begin::Action=-->
@@ -529,6 +562,7 @@
                                     data-kt-scroll-wrappers="#kt_modal_update_debt_scroll" data-kt-scroll-offset="300px">
                                     <!--begin::Input group-->
 
+
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->
                                         <label
@@ -543,40 +577,48 @@
                                     <!--end::Input group-->
                                     <!--begin::Input group select debt-->
 
-                                    <div class="fv-row mb-7">
+                                    {{-- <div class="fv-row mb-7">
                                         <!--begin::Label-->
-                                        <label class="required fw-semibold fs-6 mb-2">
-                                            {{ translate('debtsTranslation.amount') }}
+                                        <label class=" fw-semibold fs-6 mb-2">
+                                            الشيكل
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" name="amount" value="{{ $debt->amount }}"
-                                            class="form-control form-control-solid mb-3 mb-lg-0"
-                                            placeholder="{{ translate('debtsTranslation.amount') }}" />
+                                        <input type="number" name="shekels_balance"
+                                            value="{{ $debt->shekels_balance }}"
+                                            class="form-control form-control-solid mb-3 mb-lg-0" placeholder="الشيكل" />
                                         <!--end::Input-->
                                     </div>
 
                                     <div class="fv-row mb-7">
-                                        <label
-                                            class="required fw-semibold fs-6 mb-2">{{ translate('debtsTranslation.currency') }}</label>
-                                        <div class="col-6">
-                                            <select name="currency_id" class="form-select form-select-solid"
-                                                data-control="select2" data-hide-search="true"
-                                                data-placeholder="{{ translate('debtsTranslation.currency') }}" required>
-                                                @foreach ($currencies as $currency)
-                                                    <option value=""></option>
-                                                    <option value="{{ $currency->id }}"
-                                                        @if ($currency->id == $debt->currency_id) selected @endif>
-                                                        {{ $currency->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+                                        <!--begin::Label-->
+                                        <label class=" fw-semibold fs-6 mb-2">
+                                            الدولار
+                                        </label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="number" name="dollars_balance"
+                                            value="{{ $debt->dollars_balance }}"
+                                            class="form-control form-control-solid mb-3 mb-lg-0" placeholder="الدولار" />
+                                        <!--end::Input-->
                                     </div>
 
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->
-                                        <label class="required fw-semibold fs-6 mb-2">
+                                        <label class=" fw-semibold fs-6 mb-2">
+                                            الدينار
+                                        </label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="number" name="dinars_balance" value="{{ $debt->dinars_balance }}"
+                                            class="form-control form-control-solid mb-3 mb-lg-0" placeholder="الدينار" />
+                                        <!--end::Input-->
+                                    </div>
+
+
+                                    <div class="fv-row mb-7">
+                                        <!--begin::Label-->
+                                        <label class=" fw-semibold fs-6 mb-2">
                                             {{ translate('debtsTranslation.weight') }}
                                         </label>
                                         <!--end::Label-->
@@ -585,7 +627,7 @@
                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                             placeholder="{{ translate('debtsTranslation.weight') }}" />
                                         <!--end::Input-->
-                                    </div>
+                                    </div> --}}
 
                                     <div class="fv-row mb-7">
                                         <!--begin::Label-->

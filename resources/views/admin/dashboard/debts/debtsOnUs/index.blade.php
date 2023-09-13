@@ -174,38 +174,37 @@
 
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
-                                                        <label class="required fw-semibold fs-6 mb-2">
-                                                            {{ translate('debtsTranslation.amount') }} </label>
+                                                        <label class=" fw-semibold fs-6 mb-2">
+                                                            حساب الشيكل </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="number" name="amount" 
+                                                        <input type="number" name="shekels_balance"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
-                                                            placeholder="{{ translate('debtsTranslation.amount') }}" />
+                                                            placeholder="حساب الشيكل" />
                                                         <!--end::Input-->
                                                     </div>
 
                                                     <div class="fv-row mb-7">
                                                         <!--begin::Label-->
-                                                        <label
-                                                            class="required fw-semibold fs-6 mb-2">{{ translate('debtsTranslation.currency') }}</label>
+                                                        <label class=" fw-semibold fs-6 mb-2">
+                                                            حساب الدولار </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <!--begin::Col-->
-                                                        <div class="col-6">
-                                                            <select name="currency_id"
-                                                                class="form-select form-select-solid"
-                                                                data-control="select2" data-hide-search="true"
-                                                                data-placeholder="{{ translate('debtsTranslation.currency') }}"
-                                                                required>
-                                                                @foreach ($currencies as $currency)
-                                                                    <option></option>
-                                                                    <option value="{{ $currency->id }}">
-                                                                        {{ $currency->name }}
-                                                                    </option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                        <!--end::Col-->
+                                                        <input type="number" name="dollars_balance"
+                                                            class="form-control form-control-solid mb-3 mb-lg-0"
+                                                            placeholder="حساب الدولار" />
+                                                        <!--end::Input-->
+                                                    </div>
+
+                                                    <div class="fv-row mb-7">
+                                                        <!--begin::Label-->
+                                                        <label class=" fw-semibold fs-6 mb-2">
+                                                            حساب الدينار </label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <input type="number" name="dinars_balance"
+                                                            class="form-control form-control-solid mb-3 mb-lg-0"
+                                                            placeholder="حساب الدينار" />
                                                         <!--end::Input-->
                                                     </div>
 
@@ -215,7 +214,7 @@
                                                             {{ translate('debtsTranslation.weight') }} </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="number" name="weight" 
+                                                        <input type="number" name="weight"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="{{ translate('debtsTranslation.weight') }}" />
                                                         <!--end::Input-->
@@ -285,11 +284,11 @@
                                             </div>
                                         </th>
                                         <th class="min-w-125px"> {{ translate('debtsTranslation.person_name') }}</th>
-                                        <th class="min-w-125px">{{ translate('debtsTranslation.amount') }}</th>
-                                        <th class="min-w-125px"> {{ translate('debtsTranslation.currency') }}</th>
+                                        <th class="min-w-125px"> شيكل </th>
+                                        <th class="min-w-125px"> دولار </th>
+                                        <th class="min-w-125px"> دينار </th>
                                         <th class="min-w-125px"> {{ translate('debtsTranslation.weight') }} (<span>
                                                 بالغرام </span>) </th>
-                                        <th class="min-w-125px"> {{ translate('debtsTranslation.phone_number') }}</th>
                                         <th class="min-w-125px px-5"> {{ translate('debtsTranslation.reimbursement') }}
                                         </th>
                                         <th class="text-end min-w-100px px-10">
@@ -324,31 +323,39 @@
                                                 <!--begin::Category details-->
                                             </td>
 
-                                            @if ($debt->amount == null)
+                                            @if ($debt->shekels_balance() == null)
                                                 <td>
                                                     <hr style="width: 50px;">
                                                 </td>
                                             @else
-                                                <td>{{ $debt->amount }}</td>
+                                                <td>{{ $debt->shekels_balance() }}</td>
                                             @endif
 
-                                            @if ($debt->currency_id == null)
+                                            @if ($debt->dollars_balance() == null)
                                                 <td>
                                                     <hr style="width: 50px;">
                                                 </td>
                                             @else
-                                                <td>{{ $debt->currency->name }}</td>
+                                                <td>{{ $debt->dollars_balance() }}</td>
                                             @endif
 
-                                            @if ($debt->weight == null)
+                                            @if ($debt->dinars_balance() == null)
                                                 <td>
                                                     <hr style="width: 50px;">
                                                 </td>
                                             @else
-                                                <td>{{ $debt->weight }}</td>
+                                                <td>{{ $debt->dinars_balance() }}</td>
                                             @endif
 
-                                            <td>{{ $debt->phone_number }}</td>
+
+                                            @if ($debt->weight() == null)
+                                                <td>
+                                                    <hr style="width: 50px;">
+                                                </td>
+                                            @else
+                                                <td>{{ $debt->weight() }}</td>
+                                            @endif
+
 
                                             <td data-status="paidStatus">
                                                 @if ($debt->is_paid == 1)

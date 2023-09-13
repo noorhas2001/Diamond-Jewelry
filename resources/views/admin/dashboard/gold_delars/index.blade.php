@@ -378,7 +378,7 @@
                                                             الوزن </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="number" name="weight" 
+                                                        <input type="number" name="weight"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="الوزن" />
                                                         <!--end::Input-->
@@ -390,7 +390,7 @@
                                                             الصنعة </label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
-                                                        <input type="number" name="workmanship" 
+                                                        <input type="number" name="workmanship"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                                             placeholder="الصنعة" />
                                                         <!--end::Input-->
@@ -495,8 +495,8 @@
                                                 <!--begin::Category details-->
                                             </td>
 
-                                            <td>{{ $delar->total_weight }}</td>
-                                            <td>{{ $delar->total_workmanship }}</td>
+                                            <td>{{ $delar->totalWeight() }}</td>
+                                            <td>{{ $delar->totalWorkManShip() }}</td>
                                             <td>{{ $delar->phone_number }}</td>
 
                                             <!--begin::Action=-->

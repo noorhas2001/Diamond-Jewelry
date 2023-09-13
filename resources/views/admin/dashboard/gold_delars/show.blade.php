@@ -139,10 +139,10 @@
                                         <!--begin::Details item-->
 
                                         <div class="fw-bold mt-5"> صافي الوزن</div>
-                                        <div class="text-gray-600">{{ $gold_delar->total_weight }}</div>
+                                        <div class="text-gray-600">{{ $gold_delar->totalWeight() }}</div>
 
                                         <div class="fw-bold mt-5">صافي الصنعة</div>
-                                        <div class="text-gray-600">{{ $gold_delar->total_workmanship }}</div>
+                                        <div class="text-gray-600">{{ $gold_delar->totalWorkManShip() }}</div>
 
                                         <div class="fw-bold mt-5"> رقم الهاتف</div>
                                         <div class="text-gray-600">{{ $gold_delar->phone_number }}</div>
@@ -547,7 +547,7 @@
                                     <!--end::Input group-->
                                     <!--begin::Input group select delar-->
 
-                                    <div class="fv-row mb-7">
+                                    {{-- <div class="fv-row mb-7">
                                         <!--begin::Label-->
                                         <label class=" fw-semibold fs-6 mb-2">
                                             صافي الوزن </label>
@@ -571,7 +571,7 @@
                                             class="form-control form-control-solid mb-3 mb-lg-0"
                                             placeholder="صافي الصنعة" />
                                         <!--end::Input-->
-                                    </div>
+                                    </div> --}}
 
 
                                     <div class="fv-row mb-7">
