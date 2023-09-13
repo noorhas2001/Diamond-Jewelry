@@ -36,20 +36,6 @@ class GoldTransactionService
                 'date' => now(),
             ]);
 
-            $goldDelar = GoldDelar::where('id', $data['gold_delar_id'])->first();
-
-            if ($goldDelar) {
-                if ($data['transaction_type'] === 'استلام') {
-                    $goldDelar->total_workmanship += $data['workmanship'];
-                    $goldDelar->total_weight += $data['weight'];
-                } elseif ($data['transaction_type'] === 'دفعة') {
-                    $goldDelar->total_workmanship -= $data['workmanship'];
-                    $goldDelar->total_weight -= $data['weight'];
-                }
-
-                $goldDelar->save();
-            }
-
             return ['status' => 'success', 'message' => translate('messages.Added')];
 
         } catch (Exception $e) {
