@@ -71,9 +71,6 @@ class ContributorController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'shekels_balance' => 'nullable|numeric',
-            'dollars_balance' => 'nullable|numeric',
-            'dinars_balance' => 'nullable|numeric',
             'phone' => 'nullable',
         ]);
 
@@ -84,9 +81,6 @@ class ContributorController extends Controller
         try {
             $contributor = Contributor::findOrFail($id);
             $contributor->name = $request->name;
-            $contributor->shekels_balance = $request->shekels_balance;
-            $contributor->dollars_balance = $request->dollars_balance;
-            $contributor->dinars_balance = $request->dinars_balance;
             $contributor->phone = $request->phone;
             $contributor->save();
 
