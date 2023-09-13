@@ -77,8 +77,6 @@ class GoldDelarController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'total_weight' => 'nullable|numeric',
-            'total_workmanship' => 'nullable|numeric',
             'phone_number' => 'nullable',
         ]);
 
@@ -89,8 +87,6 @@ class GoldDelarController extends Controller
         try {
             $delar = GoldDelar::findOrFail($id);
             $delar->name = $request->name;
-            $delar->total_weight = $request->total_weight;
-            $delar->total_workmanship = $request->total_workmanship;
             $delar->phone_number = $request->phone_number;
             $delar->save();
 
