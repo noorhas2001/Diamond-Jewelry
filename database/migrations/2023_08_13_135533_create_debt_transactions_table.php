@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('transaction_type', ['سداد', 'سحب']);
             $table->decimal('weight', AMOUNT_TOTAL_DIGITS, AMOUNT_TOTAL_DIGITS_FLOAT)->nullable();
             $table->decimal('amount', AMOUNT_TOTAL_DIGITS, AMOUNT_TOTAL_DIGITS_FLOAT)->nullable();
+            $table->foreignId('currency_id');
             $table->date('date');
             $table->text('notes')->nullable();
             $table->softDeletes();
