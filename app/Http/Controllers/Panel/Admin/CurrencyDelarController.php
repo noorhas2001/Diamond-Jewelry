@@ -81,9 +81,6 @@ class CurrencyDelarController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'shekels_balance' => 'nullable|numeric',
-            'dollars_balance' => 'nullable|numeric',
-            'dinars_balance' => 'nullable|numeric',
             'phone' => 'nullable',
             'notes' => 'nullable|string',
         ]);
@@ -95,9 +92,6 @@ class CurrencyDelarController extends Controller
         try {
             $delar = CurrencyDelar::findOrFail($id);
             $delar->name = $request->name;
-            $delar->shekels_balance = $request->shekels_balance;
-            $delar->dollars_balance = $request->dollars_balance;
-            $delar->dinars_balance = $request->dinars_balance;
             $delar->phone = $request->phone;
             $delar->notes = $request->notes;
             $delar->save();
