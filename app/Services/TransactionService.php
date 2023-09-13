@@ -28,7 +28,7 @@ class TransactionService
         }
 
         try {
-            $transaction = Transaction::create([
+            Transaction::create([
                 'delar_id' => $data['delar_id'] ?? null,
                 'contributor_id' => $data['contributor_id'] ?? null,
                 'transaction_type' => $data['transaction_type'],
@@ -38,61 +38,10 @@ class TransactionService
                 'notes' => $data['notes'] ?? null,
             ]);
 
-            $this->updateCurrencyBalance($transaction);
-
             return ['status' => 'success', 'message' => translate('messages.Added')];
 
         } catch (Exception $e) {
             return ['status' => 'error', 'message' => $e->getMessage()];
-        }
-    }
-
-    private function updateCurrencyBalance(Transaction $transaction)
-    {
-        $delarId = $transaction->delar_id ?? $transaction->contributor_id;
-
-        if (!$delarId) {
-            return;
-        }
-
-        $delarType = $transaction->delar_id ? CurrencyDelar::class : Contributor::class;
-        $delar = $delarType::find($delarId);
-
-        if (!$delar) {
-            return;
-        }
-
-        $currencyField = $this->getCurrencyField($transaction->currency_id);
-
-        if ($currencyField === null) {
-            return;
-        }
-
-        $amount = $transaction->amount;
-
-        if ($transaction->transaction_type == 'استلام') {
-            $amount *= 1; // You can add any necessary calculations here
-        } elseif ($transaction->transaction_type == 'دفعة') {
-            $amount *= -1; // Multiply by -1 to subtract
-        } else {
-            return;
-        }
-
-        $delar->$currencyField += $amount;
-        $delar->save();
-    }
-
-    private function getCurrencyField($currencyId)
-    {
-        switch ($currencyId) {
-            case 1:
-                return 'dollars_balance';
-            case 2:
-                return 'shekels_balance';
-            case 3:
-                return 'dinars_balance';
-            default:
-                return null;
         }
     }
 
