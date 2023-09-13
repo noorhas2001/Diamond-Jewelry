@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Panel\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Currency;
 use App\Models\Debt;
 use App\Services\DebtService;
 use Exception;
@@ -18,13 +17,13 @@ class DebtController extends Controller
 
     public function __construct(DebtService $debtService)
     {
-        $this->middleware('permission:'.DEBTS_ON_US_PERMISSION)->only('debtsOnUs');
-        $this->middleware('permission:'.DEBTS_FOR_US_PERMISSION)->only('debtsForUs');
-        $this->middleware('permission:'.CREATE_DEBT_PERMISSION)->only('create', 'store');
-        $this->middleware('permission:'.UPDATE_DEBT_PERMISSION)->only('edit', 'update');
-        $this->middleware('permission:'.READ_DEBT_PERMISSION)->only('show');
-        $this->middleware('permission:'.VERIFY_DEBT_PERMISSION)->only('verifiedDebt');
-        $this->middleware('permission:'.DELETE_DEBT_PERMISSION)->only('destroy');
+        $this->middleware('permission:' . DEBTS_ON_US_PERMISSION)->only('debtsOnUs');
+        $this->middleware('permission:' . DEBTS_FOR_US_PERMISSION)->only('debtsForUs');
+        $this->middleware('permission:' . CREATE_DEBT_PERMISSION)->only('create', 'store');
+        $this->middleware('permission:' . UPDATE_DEBT_PERMISSION)->only('edit', 'update');
+        $this->middleware('permission:' . READ_DEBT_PERMISSION)->only('show');
+        $this->middleware('permission:' . VERIFY_DEBT_PERMISSION)->only('verifiedDebt');
+        $this->middleware('permission:' . DELETE_DEBT_PERMISSION)->only('destroy');
         $this->debtService = $debtService;
     }
 
@@ -51,9 +50,9 @@ class DebtController extends Controller
             $transactions = $debt->debt_transactions()->orderByDesc('id')->get();
 
             if ($debt->is_debt_from_others) {
-                return view('admin.dashboard.debts.debtsOnUs.show', compact('debt' ,'transactions'));
+                return view('admin.dashboard.debts.debtsOnUs.show', compact('debt', 'transactions'));
             } else {
-                return view('admin.dashboard.debts.debtsForUs.show', compact('debt' ,'transactions'));
+                return view('admin.dashboard.debts.debtsForUs.show', compact('debt', 'transactions'));
             }
         } catch (Exception $e) {
             return back()->with('error', 'Failed to fetch debt details.');
@@ -64,9 +63,6 @@ class DebtController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'person_name' => 'required|string',
-            'amount' => 'nullable|numeric',
-            'currency_id' => 'nullable|exists:currencies,id',
-            'weight' => 'nullable',
             'phone_number' => 'nullable',
 
         ]);
@@ -79,9 +75,6 @@ class DebtController extends Controller
             $debt = Debt::findOrFail($id);
             $debt->update([
                 'person_name' => $request->person_name,
-                'amount' => $request?->amount,
-                'currency_id' => $request?->currency_id,
-                'weight' => $request?->weight,
                 'phone_number' => $request->phone_number,
             ]);
 
@@ -109,7 +102,6 @@ class DebtController extends Controller
             ]);
         }
     }
-
 
     public function debtsOnUs()
     {
@@ -181,7 +173,7 @@ class DebtController extends Controller
         return back();
     }
 
-    public function handleMessage(array|RedirectResponse $result): RedirectResponse
+    public function handleMessage(array | RedirectResponse $result): RedirectResponse
     {
         if ($result['status'] === 'success') {
             flash($result['message'])->success();
