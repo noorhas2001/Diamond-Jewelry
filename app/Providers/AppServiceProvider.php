@@ -7,10 +7,12 @@ use App\Models\Currency;
 use App\Models\CurrencyDelar;
 use App\Models\Debt;
 use App\Models\Employee;
+use App\Models\GoldDelar;
 use App\Observers\ContributorObserver;
 use App\Observers\DebtObserver;
 use App\Observers\DelarObserver;
 use App\Observers\EmployeeObserver;
+use App\Observers\GoldDelarObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -43,6 +45,7 @@ class AppServiceProvider extends ServiceProvider
         CurrencyDelar::observe(DelarObserver::class);
         Contributor::observe(ContributorObserver::class);
         Debt::observe(DebtObserver::class);
+        GoldDelar::observe(GoldDelarObserver::class);
 
     }
 }
