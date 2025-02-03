@@ -82,7 +82,7 @@ Route::prefix('dashboard/admin/')->group(function () {
 
         Route::resource('contributors', ContributorController::class);
         Route::post('/contributors/deleteSelected', [ContributorController::class, 'deleteSelected'])->name('contributors.deleteSelected');
-        Route::post('contributors/transactions/deleteSelected', [TransactionController::class, 'deleteSelected'])->name('transactions.deleteSelected');
+        Route::post('contributors/transactions/deleteSelected', [TransactionController::class, 'deleteSelected'])->name('transactions.deleteSelected1');
 
         Route::get('/safe', [RestrectedPageController::class, 'showSafePage'])->name('safe-page')
             ->middleware('password.confirm');
